@@ -11,7 +11,9 @@ const projects = [
     period: "2024. 03 — 2024. 06",
     role: "Backend · AI Pipeline Integration",
     link: "https://github.com/SSU-RETURN",
-    imageLabel: "emuda-cover.webp",
+    image: "./assets/projects/emuda/emuda-cover.jpg",
+    imageAlt: "Emuda의 음악 취향 설정, 감정 기반 추천 플레이리스트, 일기 감정 분석 결과 화면",
+    imageLabel: "PRODUCT OVERVIEW",
   },
   {
     id: "backend-02",
@@ -74,12 +76,16 @@ function projectCard(project) {
   const title = project.link
     ? `<a href="${project.link}" target="_blank" rel="noreferrer">${project.title} <span aria-hidden="true">↗</span></a>`
     : project.title;
+  const image = project.image
+    ? `<img src="${project.image}" alt="${project.imageAlt}" loading="lazy">`
+    : "";
 
   return `
     <article class="project-card reveal" data-category="${project.category}">
-      <div class="project-image ${project.category}" style="--visual-color: ${project.category === "vision" ? "#1c55ff" : "#77ddd1"}">
+      <div class="project-image ${project.category} ${project.image ? "has-image" : ""}" style="--visual-color: ${project.category === "vision" ? "#1c55ff" : "#77ddd1"}">
+        ${image}
         <div class="image-label"><span>CASE / ${project.order}</span><span>${project.imageLabel}</span></div>
-        <span class="image-status">CONTENT IN PROGRESS</span>
+        ${project.image ? "" : '<span class="image-status">CONTENT IN PROGRESS</span>'}
       </div>
       <div class="project-info">
         <div class="project-meta"><span>${project.role}</span><span>${project.period}</span></div>
