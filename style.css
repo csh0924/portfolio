@@ -370,7 +370,7 @@ h1 em {
   border-bottom: 1px solid var(--line);
 }
 .profile-block > h3,
-.profile-split h3,
+.profile-language h3,
 .profile-pending h3 {
   margin: 0 0 34px;
   color: var(--blue);
@@ -378,7 +378,6 @@ h1 em {
   letter-spacing: .1em;
   text-transform: uppercase;
 }
-.profile-summary { grid-row: span 2; }
 .profile-list { margin: 0; }
 .profile-list div {
   padding: 16px 0;
@@ -401,9 +400,8 @@ h1 em {
 }
 .record:last-child { border-bottom: 1px solid var(--line); }
 .record-date { margin: 3px 0 0; color: var(--ink-soft); font: 400 .61rem/1.6 var(--mono); }
-.record h4, .profile-split h4 { margin: 0; font-size: .93rem; letter-spacing: -.02em; }
+.record h4 { margin: 0; font-size: .93rem; letter-spacing: -.02em; }
 .record p:not(.record-date), .record-description { margin: 7px 0 0; color: var(--ink-soft); font-size: .73rem; }
-.profile-split { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
 .compact-record { padding: 14px 0; display: flex; justify-content: space-between; border-top: 1px solid var(--line); }
 .compact-record:last-child { border-bottom: 1px solid var(--line); }
 .compact-record strong { font: 500 .69rem var(--mono); }
@@ -499,7 +497,7 @@ footer h2 { font-size: clamp(3.5rem, 7vw, 7.2rem); line-height: .95; }
   .profile-list div { grid-template-columns: 82px minmax(0, 1fr); gap: 14px; }
   .profile-list dd span { display: block; margin: 5px 0 0; }
   .record { grid-template-columns: 1fr; gap: 10px; }
-  .profile-split, .profile-pending { grid-template-columns: 1fr; gap: 45px; }
+  .profile-pending { grid-template-columns: 1fr; gap: 45px; }
   .profile-pending { grid-column: auto; }
   footer { min-height: 650px; padding-inline: 24px; grid-template-columns: 1fr; }
   .footer-links { margin-top: 70px; align-self: start; }
