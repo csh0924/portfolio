@@ -74,6 +74,7 @@ nav a:hover, .header-contact:hover { color: var(--blue); }
   align-items: center;
   gap: clamp(50px, 7vw, 120px);
 }
+.hero-copy { min-width: 0; }
 .kicker {
   margin: 0 0 34px;
   display: flex;
@@ -394,7 +395,7 @@ footer h2 { font-size: clamp(3.5rem, 7vw, 7.2rem); line-height: .95; }
   .wordmark small, nav { display: none; }
   .hero { min-height: auto; padding: 74px 0 70px; gap: 65px; }
   .kicker { margin-bottom: 25px; justify-content: space-between; }
-  h1 { font-size: clamp(2.9rem, 14vw, 4.5rem); }
+  h1 { font-size: clamp(2.75rem, 12.5vw, 4.2rem); }
   .hero-intro br { display: none; }
   .hero-actions { align-items: flex-start; flex-direction: column; }
   .hero-visual { aspect-ratio: .92; }
