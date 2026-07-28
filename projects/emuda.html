@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="감정 일기 분석과 음악 추천을 연결한 첫 팀 프로젝트, Emuda의 개발 기록입니다.">
+  <meta name="theme-color" content="#f5f6f2">
+  <title>Emuda | 최세훈 Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./project.css?v=20260729-1">
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+
+  <header class="project-header">
+    <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All projects</a>
+    <a class="wordmark" href="../index.html">CSH <span>/ Visual Research Archive</span></a>
+    <a class="repo-link" href="https://github.com/SSU-RETURN" target="_blank" rel="noreferrer">GitHub ↗</a>
+  </header>
+
+  <main id="main">
+    <section class="project-hero">
+      <div class="hero-meta">
+        <span>CASE 01</span>
+        <span>BACKEND · AI PIPELINE</span>
+        <span>2024. 03 — 2024. 06</span>
+      </div>
+      <div class="hero-title">
+        <div>
+          <p>Emotion Music Diary</p>
+          <h1>Emuda</h1>
+        </div>
+        <p class="hero-summary">
+          감정 일기를 분석하고 사용자 취향과 연결해,
+          그날의 감정에 어울리는 음악을 추천하는 서비스입니다.
+        </p>
+      </div>
+      <figure class="hero-image">
+        <img src="../assets/projects/emuda/emuda-logo.jpg" alt="Emuda 로고와 Emotion Music Diary 문구">
+      </figure>
+    </section>
+
+    <section class="overview page-shell" aria-labelledby="overview-title">
+      <p class="section-label">00 / OVERVIEW</p>
+      <div class="overview-intro">
+        <h2 id="overview-title">첫 팀 프로젝트에서<br>서비스의 흐름을 연결했습니다.</h2>
+        <p>
+          사용자가 작성한 일기를 BERT 감정 분석 API로 처리하고,
+          분석 결과와 음악 취향을 ChatGPT·Spotify에 연결하는 백엔드 흐름을 구현했습니다.
+          AI 모델 자체의 성능보다 여러 외부 시스템을 하나의 서비스로 동작시키는 경험에 의미가 있습니다.
+        </p>
+      </div>
+      <dl class="fact-grid">
+        <div><dt>Period</dt><dd>2024. 03 — 2024. 06</dd></div>
+        <div><dt>Team</dt><dd>5명 · Backend 2명</dd></div>
+        <div><dt>Role</dt><dd>Backend Development<br>AI Pipeline Integration</dd></div>
+        <div><dt>Platform</dt><dd>Web · iOS WebView</dd></div>
+      </dl>
+    </section>
+
+    <section class="visual-section page-shell" aria-labelledby="product-title">
+      <div class="section-heading">
+        <p class="section-label">01 / PRODUCT</p>
+        <div>
+          <h2 id="product-title">일기와 음악으로<br>감정을 돌아보는 경험</h2>
+          <p>
+            일기를 작성하면 감정별 비율을 확인하고, 사용자 취향과 분석 결과를 반영한
+            추천 플레이리스트를 받을 수 있도록 구성했습니다.
+          </p>
+        </div>
+      </div>
+      <figure class="media-frame media-light">
+        <img src="../assets/projects/emuda/emuda-cover.jpg" alt="음악 취향 설정, 감정 기반 추천 플레이리스트, 일기 감정 분석 결과 화면">
+        <figcaption><span>PRODUCT OVERVIEW</span><span>Preference · Recommendation · Emotion</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="contribution page-shell" aria-labelledby="contribution-title">
+      <div class="section-heading">
+        <p class="section-label">02 / CONTRIBUTION</p>
+        <div>
+          <h2 id="contribution-title">Backend &amp;<br>Integration</h2>
+          <p>백엔드 개발과 서비스 파이프라인 연결을 중심으로 참여했습니다.</p>
+        </div>
+      </div>
+      <div class="contribution-grid">
+        <article>
+          <span>01</span>
+          <h3>REST API 설계</h3>
+          <p>Spring Boot로 회원, 일기, 플레이리스트 기능을 구현하고 iOS 클라이언트와 주고받는 DTO 구조를 정리했습니다.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>AI 서비스 연동</h3>
+          <p>BERT 감정 분석 결과가 ChatGPT 음악 추천 입력으로 이어지고 Spotify 음악 정보와 함께 저장되도록 흐름을 연결했습니다.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>프롬프트 구성</h3>
+          <p>팀원들과 함께 감정·취향 정보를 명확하게 전달하고 서버에서 처리 가능한 형식으로 응답받기 위한 프롬프트를 조정했습니다.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>배포와 운영</h3>
+          <p>AWS EC2 환경에 Spring 애플리케이션을 배포하고 환경 변수, 포트와 로그를 관리하며 서버 운영을 경험했습니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="flow page-shell" aria-labelledby="flow-title">
+      <div class="section-heading">
+        <p class="section-label">03 / SERVICE FLOW</p>
+        <div>
+          <h2 id="flow-title">Diary to<br>Playlist</h2>
+          <p>일기 입력부터 감정 분석과 음악 추천까지 이어지는 전체 사용자 흐름입니다.</p>
+        </div>
+      </div>
+      <figure class="media-frame diagram-frame">
+        <img src="../assets/projects/emuda/emuda-service-flow.png" alt="로그인, 일기 작성, BERT 감정 분석, ChatGPT 음악 추천으로 이어지는 서비스 흐름도">
+        <figcaption><span>SERVICE SCENARIO</span><span>Diary → BERT → ChatGPT → Recommendation</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="results page-shell" aria-labelledby="results-title">
+      <div class="section-heading">
+        <p class="section-label">04 / RESULTS</p>
+        <div>
+          <h2 id="results-title">What worked,<br>what remained.</h2>
+          <p>구현 결과와 함께 당시 모델의 한계도 그대로 기록합니다.</p>
+        </div>
+      </div>
+
+      <div class="result-grid">
+        <article class="result-card">
+          <figure>
+            <img src="../assets/projects/emuda/emuda-emotion-result.jpg" alt="행복, 분노, 놀람, 슬픔 문장에 대한 BERT 감정 분류 확률 출력">
+          </figure>
+          <div>
+            <p class="result-index">RESULT / 01</p>
+            <h3>BERT 감정 분석</h3>
+            <p>
+              한국어 일기를 행복·분노·놀람·슬픔으로 분류하고 감정별 확률을 반환했습니다.
+              명확한 표현은 분류했지만 모호하거나 복합적인 감정에서는 정확도가 낮아졌습니다.
+            </p>
+          </div>
+        </article>
+
+        <article class="result-card">
+          <figure class="phone-result">
+            <img src="../assets/projects/emuda/emuda-recommendation-result.png" alt="일기 감정과 과거 청취 음악을 기반으로 생성한 추천 플레이리스트 화면">
+          </figure>
+          <div>
+            <p class="result-index">RESULT / 02</p>
+            <h3>감정 기반 음악 추천</h3>
+            <p>
+              분석 감정과 사용자 취향을 조합해 음악 목록을 생성하고,
+              과거 청취 음악과 AI 추천 음악을 하나의 화면에서 확인하도록 구현했습니다.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="learning page-shell" aria-labelledby="learning-title">
+      <p class="section-label">05 / LEARNING</p>
+      <div class="learning-layout">
+        <h2 id="learning-title">Simple system,<br>meaningful start.</h2>
+        <div>
+          <p>
+            지금 돌아보면 BERT와 ChatGPT API를 연결한 비교적 단순한 프로젝트입니다.
+            정량적인 모델 평가도 충분하지 않았고, 감정이 복합적일 때 분류 성능이 떨어지는 한계가 있었습니다.
+          </p>
+          <p>
+            하지만 첫 팀 프로젝트를 통해 API 계약, 역할 분담, 클라이언트 연동,
+            외부 AI 서비스 오케스트레이션과 서버 배포까지 제품 개발의 전체 흐름을 경험했습니다.
+            이후 더 깊은 AI 프로젝트로 나아가는 출발점이 되었습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="stack page-shell" aria-labelledby="stack-title">
+      <p class="section-label">06 / STACK</p>
+      <h2 id="stack-title">Tools used</h2>
+      <ul>
+        <li>Java</li>
+        <li>Spring Boot</li>
+        <li>MySQL</li>
+        <li>BERT API</li>
+        <li>ChatGPT API</li>
+        <li>Spotify API</li>
+        <li>AWS EC2</li>
+        <li>GCP · Flask</li>
+      </ul>
+    </section>
+
+    <nav class="project-navigation" aria-label="프로젝트 이동">
+      <a href="../index.html#work"><span>BACK TO</span>All projects</a>
+      <div><span>NEXT PROJECT</span>Coming soon</div>
+    </nav>
+  </main>
+
+  <footer>
+    <p>© <span id="year">2026</span> Choi Se Hoon</p>
+    <a href="#main">Back to top ↑</a>
+  </footer>
+
+  <script>document.querySelector("#year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

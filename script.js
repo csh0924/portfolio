@@ -10,10 +10,11 @@ const projects = [
     stage: "First Team Project",
     period: "2024. 03 — 2024. 06",
     role: "Backend · AI Pipeline Integration",
-    link: "https://github.com/SSU-RETURN",
-    image: "./assets/projects/emuda/emuda-cover.jpg",
-    imageAlt: "Emuda의 음악 취향 설정, 감정 기반 추천 플레이리스트, 일기 감정 분석 결과 화면",
-    imageLabel: "PRODUCT OVERVIEW",
+    link: "./projects/emuda.html",
+    repository: "https://github.com/SSU-RETURN",
+    image: "./assets/projects/emuda/emuda-logo.jpg",
+    imageAlt: "Emuda Emotion Music Diary 로고",
+    imageLabel: "PROJECT IDENTITY",
   },
   {
     id: "backend-02",
@@ -74,7 +75,7 @@ const timeline = document.querySelector("#timeline");
 
 function projectCard(project) {
   const title = project.link
-    ? `<a href="${project.link}" target="_blank" rel="noreferrer">${project.title} <span aria-hidden="true">↗</span></a>`
+    ? `<a href="${project.link}"${project.link.startsWith("http") ? ' target="_blank" rel="noreferrer"' : ""}>${project.title} <span aria-hidden="true">↗</span></a>`
     : project.title;
   const image = project.image
     ? `<img src="${project.image}" alt="${project.imageAlt}" loading="lazy">`
