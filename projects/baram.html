@@ -69,12 +69,12 @@
     <section class="contribution page-shell" aria-labelledby="contribution-title">
       <div class="section-heading">
         <p class="section-label">02 / CONTRIBUTION</p>
-        <div><h2 id="contribution-title">Owned Scope</h2><p>보고서의 역할 분담을 기준으로 정리한 담당 범위.</p></div>
+        <div><h2 id="contribution-title">Owned Scope</h2><p>데이터 설계부터 모델 학습과 서비스 연동까지 이어지는 AI 개발 범위.</p></div>
       </div>
       <div class="contribution-grid">
-        <article><span>01</span><h3>손글씨 분석 설계</h3><p>CRAFT 문자 중심 추출, 문장 기울기·자간 분석, Voronoi 기반 문자 분리와 연결 성분 Reclaim 후처리 구현.</p></article>
+        <article><span>01</span><h3>데이터셋 구축</h3><p>실사용 한글 2,841자와 6개 폰트, 3종 Augmentation을 조합해 51,138개의 Label 데이터 자동 생성.</p></article>
         <article><span>02</span><h3>FPN 모델 학습</h3><p>한글 구조를 6개 유형으로 분류하고 유형별 FPN 모델을 학습하여 초성·중성·종성 Segmentation 수행.</p></article>
-        <article><span>03</span><h3>데이터셋 구축</h3><p>실사용 한글 2,841자와 6개 폰트, 3종 Augmentation을 조합해 51,138개의 Label 데이터 자동 생성.</p></article>
+        <article><span>03</span><h3>손글씨 분석 설계</h3><p>CRAFT 문자 중심 추출, 문장 기울기·자간 분석, Voronoi 기반 문자 분리와 연결 성분 Reclaim 후처리 구현.</p></article>
         <article><span>04</span><h3>Python 분석 서버</h3><p>전처리부터 점수 생성까지 분석 모듈을 연속 실행하고 결과 JSON과 이미지 경로를 서버에 반환하는 파이프라인 관리.</p></article>
         <article><span>05</span><h3>LLM 피드백 생성 <small>공동 수행</small></h3><p>정량화된 자소 형태·위치 및 문장 분석 점수를 Gemini API에 전달하고, 사용자가 이해할 수 있는 교정 가이드로 변환하는 피드백 구조 공동 설계.</p></article>
       </div>

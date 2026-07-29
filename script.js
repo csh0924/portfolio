@@ -22,12 +22,12 @@ const projects = [
     category: "backend",
     type: "Backend",
     title: "Itinera",
-    summary: "프로젝트 자료 확인 후 업데이트할 예정입니다.",
-    tags: ["Details pending"],
+    summary: "",
+    tags: [],
     stage: "System",
-    period: "Date pending",
+    period: "—",
     role: "Backend",
-    imageLabel: "project archive pending",
+    imageLabel: "ITINERA",
   },
   {
     id: "vision-01",
@@ -58,6 +58,7 @@ const projects = [
     period: "Date pending",
     role: "AI / Computer Vision",
     imageLabel: "result image pending",
+    published: false,
   },
   {
     id: "vision-03",
@@ -71,6 +72,7 @@ const projects = [
     period: "Date pending",
     role: "AI / Computer Vision",
     imageLabel: "result image pending",
+    published: false,
   },
 ];
 
@@ -90,13 +92,13 @@ function projectCard(project) {
       <div class="project-image ${project.category} ${project.image ? "has-image" : ""}" style="--visual-color: ${project.category === "vision" ? "#1c55ff" : "#77ddd1"}">
         ${image}
         <div class="image-label"><span>CASE / ${project.order}</span><span>${project.imageLabel}</span></div>
-        ${project.image ? "" : '<span class="image-status">CONTENT IN PROGRESS</span>'}
+        ${project.imageStatus ? `<span class="image-status">${project.imageStatus}</span>` : ""}
       </div>
       <div class="project-info">
         <div class="project-meta"><span>${project.role}</span><span>${project.period}</span></div>
         <h3>${title}</h3>
-        <p>${project.summary}</p>
-        <div class="project-tags">${project.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>
+        ${project.summary ? `<p>${project.summary}</p>` : ""}
+        ${project.tags.length ? `<div class="project-tags">${project.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>` : ""}
       </div>
     </article>
   `;
@@ -118,9 +120,10 @@ function timelineRow(project) {
   `;
 }
 
-projectGrid.innerHTML = projects.map(projectCard).join("");
-timeline.innerHTML = projects.map(timelineRow).join("");
-document.querySelector("#project-count").textContent = String(projects.length).padStart(2, "0");
+const publishedProjects = projects.filter((project) => project.published !== false);
+projectGrid.innerHTML = publishedProjects.map(projectCard).join("");
+timeline.innerHTML = publishedProjects.map(timelineRow).join("");
+document.querySelector("#project-count").textContent = String(publishedProjects.length).padStart(2, "0");
 document.querySelector("#year").textContent = new Date().getFullYear();
 
 document.querySelectorAll(".filter-button").forEach((button) => {
