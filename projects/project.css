@@ -144,6 +144,18 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 .demo-frame { padding: 0; overflow: hidden; background: #11192a; }
 .demo-frame video { width: 100%; display: block; background: #11192a; aspect-ratio: 1264 / 720; }
 .demo-frame figcaption { color: #a9b3c1; border-color: rgba(255,255,255,.18); }
+.scoring-grid { margin-top: 70px; display: grid; grid-template-columns: repeat(6, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.scoring-grid article { grid-column: span 2; min-height: 250px; padding: 30px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.scoring-grid article:nth-child(n+4) { grid-column: span 3; }
+.scoring-grid span { color: var(--blue); font: 500 .58rem var(--mono); }
+.scoring-grid h3 { margin: 45px 0 18px; font-size: 1.15rem; }
+.scoring-grid p { margin: 0; color: var(--ink-soft); font-size: .75rem; line-height: 1.75; }
+.score-formula { display: grid; grid-template-columns: 1.2fr .8fr; gap: 65px; padding: 40px; color: #e9eef8; background: var(--ink); }
+.score-formula > div { display: grid; grid-template-columns: 1fr repeat(4, auto auto); align-items: baseline; gap: 8px 15px; }
+.score-formula span { color: var(--mint); font: 500 .6rem var(--mono); }
+.score-formula strong { font: 500 1.2rem var(--mono); }
+.score-formula small { color: #a9b3c1; font: .56rem var(--mono); }
+.score-formula p { margin: 0; color: #a9b3c1; font-size: .72rem; line-height: 1.8; }
 
 .result-grid { margin-top: 80px; display: grid; gap: 70px; }
 .result-card { display: grid; grid-template-columns: 1.35fr .65fr; gap: 65px; align-items: center; }
@@ -197,6 +209,8 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .baram-comparison { grid-template-columns: 1fr; }
   .craft-notes { grid-template-columns: 1fr; }
   .dataset-metrics { grid-template-columns: 1fr 1fr; }
+  .scoring-grid article, .scoring-grid article:nth-child(n+4) { grid-column: span 3; }
+  .score-formula { grid-template-columns: 1fr; gap: 30px; }
 }
 
 @media (max-width: 620px) {
@@ -226,6 +240,10 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .dataset-gallery { grid-template-columns: 1fr; }
   .dataset-gallery .dataset-sample { grid-column: auto; }
   .dataset-gallery img, .dataset-gallery .dataset-sample img { height: auto; min-height: 240px; }
+  .scoring-grid { grid-template-columns: 1fr; }
+  .scoring-grid article, .scoring-grid article:nth-child(n+4) { grid-column: auto; min-height: 220px; }
+  .score-formula { padding: 28px; }
+  .score-formula > div { grid-template-columns: 1fr auto auto; }
   .result-grid { margin-top: 55px; gap: 60px; }
   .result-card { gap: 25px; }
   .result-card figure { padding: 10px; }

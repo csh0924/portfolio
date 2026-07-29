@@ -36,7 +36,7 @@ const projects = [
     type: "AI / Computer Vision",
     title: "바른글씨: 바람",
     summary: "CRAFT와 기하학적 후처리로 손글씨 문자를 분리하고, 직접 생성한 51,138개 데이터로 학습한 FPN을 통해 초·중·종성을 분석하는 한글 손글씨 교정 서비스입니다.",
-    tags: ["PyTorch", "CRAFT", "FPN", "OpenCV", "51,138 Labeled Images"],
+    tags: ["PyTorch", "CRAFT", "FPN", "OpenCV", "51,138 Pixel-labeled Synthetic Images"],
     stage: "First AI Pipeline",
     period: "2025. 09 — 2025. 12",
     role: "AI Model · Dataset · Python Server",
