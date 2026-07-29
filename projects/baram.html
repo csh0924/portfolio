@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260729-7">
+  <link rel="stylesheet" href="./project.css?v=20260729-8">
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -92,9 +92,33 @@
       </div>
     </section>
 
+    <section class="dataset page-shell" aria-labelledby="dataset-title">
+      <div class="section-heading">
+        <p class="section-label">04 / DATASET ENGINEERING</p>
+        <div><h2 id="dataset-title">한글 조합 원리로<br>Label을 생성</h2><p>모든 완성형 문자를 수작업으로 Labeling하는 대신, 한글의 초성·중성·종성 조합 규칙을 데이터 생성 알고리즘으로 전환했다.</p></div>
+      </div>
+      <div class="dataset-metrics" aria-label="데이터셋 생성 규모">
+        <div><strong>11,172</strong><span>표현 가능한 한글</span></div>
+        <div><strong>2,841</strong><span>말뭉치에서 선별한 실사용 문자</span></div>
+        <div><strong>237</strong><span>직접 Labeling한 기준 문자</span></div>
+        <div><strong>51,138</strong><span>최종 생성 Label 이미지</span></div>
+      </div>
+      <ol class="dataset-steps">
+        <li><span>01</span><div><h3>실사용 문자 선별</h3><p>AI Hub 한국어 말뭉치 약 29억 자의 등장 빈도를 분석해 전체 11,172자 중 실제 사용된 2,841자를 학습 대상으로 축소.</p></div></li>
+        <li><span>02</span><div><h3>구조 유형 분리</h3><p>종성 유무 2종과 모음 형태 3종을 조합해 한글 배치를 6개 유형으로 분류하고 유형별 좌표 체계를 유지.</p></div></li>
+        <li><span>03</span><div><h3>자소 Component 추출</h3><p>237개 기준 문자에서 일부 영역을 Masking하여 형태와 위치 정보를 함께 가진 초성·중성·종성 Component 확보.</p></div></li>
+        <li><span>04</span><div><h3>조합 및 증강</h3><p>2,841자 × 나눔손글씨 6폰트 × 위치·크기 변형 3종을 조합하여 51,138개의 Pixel Label 데이터 생성.</p></div></li>
+      </ol>
+      <div class="dataset-gallery">
+        <figure class="media-frame media-dark"><img src="../assets/projects/baram/baram-dataset-component.png" alt="완성형 한글 가에서 초성과 중성 Component를 Masking으로 분리하는 과정"><figcaption><span>COMPONENT EXTRACTION</span><span>Masking</span></figcaption></figure>
+        <figure class="media-frame media-dark"><img src="../assets/projects/baram/baram-dataset-composition.png" alt="초성 중성 종성 Component를 조합해 완성형 한글을 만드는 과정"><figcaption><span>LABEL COMPOSITION</span><span>Initial · Medial · Final</span></figcaption></figure>
+        <figure class="media-frame media-dark dataset-sample"><img src="../assets/projects/baram/baram-dataset-samples.png" alt="여러 나눔손글씨 폰트와 증강으로 생성된 Label 데이터 예시"><figcaption><span>SYNTHETIC DATA</span><span>6 Fonts · 3 Augmentations</span></figcaption></figure>
+      </div>
+    </section>
+
     <section class="flow page-shell" aria-labelledby="craft-title">
       <div class="section-heading">
-        <p class="section-label">04 / CRAFT DETECTION</p>
+        <p class="section-label">05 / CRAFT DETECTION</p>
         <div><h2 id="craft-title">문자 검출 모델을<br>중심점 추출기로 활용</h2><p>CRAFT의 본래 단어 영역 검출 결과를 그대로 사용하지 않고, 문자 중심일 확률이 높은 픽셀의 무게중심을 각 글자의 기준점으로 사용했다.</p></div>
       </div>
       <figure class="media-frame craft-frame">
@@ -110,7 +134,7 @@
 
     <section class="flow page-shell" aria-labelledby="separation-title">
       <div class="section-heading">
-        <p class="section-label">05 / CHARACTER SEPARATION</p>
+        <p class="section-label">06 / CHARACTER SEPARATION</p>
         <div><h2 id="separation-title">불명확한 경계를<br>기하학으로 보완</h2><p>CRAFT가 찾은 문자 중심에서 영역을 확장한 뒤, 잘못 잘린 획을 연결 성분 기준으로 두 차례 회수했다.</p></div>
       </div>
       <div class="baram-comparison">
@@ -121,7 +145,7 @@
 
     <section class="results page-shell" aria-labelledby="results-title">
       <div class="section-heading">
-        <p class="section-label">06 / SEGMENTATION</p>
+        <p class="section-label">07 / SEGMENTATION</p>
         <div><h2 id="results-title">초·중·종성<br>Pixel Segmentation</h2><p>여러 해상도의 특징을 결합하는 FPN 구조로 자소를 분리하고 인쇄체 Segmentation을 기준으로 결과를 보강했다.</p></div>
       </div>
       <div class="result-grid">
@@ -140,8 +164,22 @@
       </div>
     </section>
 
+    <section class="demo page-shell" aria-labelledby="demo-title">
+      <div class="section-heading">
+        <p class="section-label">08 / DEMO</p>
+        <div><h2 id="demo-title">End-to-End<br>Service Demo</h2><p>손글씨 작성부터 분석 결과와 항목별 교정 피드백을 확인하는 전체 서비스 흐름.</p></div>
+      </div>
+      <figure class="media-frame demo-frame">
+        <video controls preload="metadata" playsinline poster="../assets/projects/baram/baram-demo-poster.jpg">
+          <source src="../assets/projects/baram/baram-demo.mp4" type="video/mp4">
+          브라우저에서 동영상 재생을 지원하지 않습니다.
+        </video>
+        <figcaption><span>BARAM SERVICE DEMO</span><span>02:09 · H.264 · 720p</span></figcaption>
+      </figure>
+    </section>
+
     <section class="learning page-shell" aria-labelledby="learning-title">
-      <p class="section-label">07 / REVIEW</p>
+      <p class="section-label">09 / REVIEW</p>
       <div class="learning-layout">
         <h2 id="learning-title">Technical Review<br>&amp; Significance</h2>
         <div>
@@ -152,7 +190,7 @@
     </section>
 
     <section class="stack page-shell" aria-labelledby="stack-title">
-      <p class="section-label">08 / STACK</p>
+      <p class="section-label">10 / STACK</p>
       <h2 id="stack-title">Tools used</h2>
       <ul><li>Python</li><li>PyTorch</li><li>CRAFT</li><li>FPN</li><li>OpenCV</li><li>k-NN</li><li>Flask</li><li>Gemini API</li></ul>
     </section>
