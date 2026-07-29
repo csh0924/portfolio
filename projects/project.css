@@ -164,7 +164,6 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 .feedback-contract li span { color: var(--blue); font: 500 .57rem var(--mono); }
 .feedback-contract li p { margin: 24px 0 0; color: var(--ink-soft); font-size: .73rem; line-height: 1.75; }
 .feedback-contract code { color: var(--ink); font: 500 .67rem var(--mono); overflow-wrap: anywhere; }
-.feedback-limit { margin: 28px 0 0; color: var(--ink-soft); font-size: .7rem; line-height: 1.75; }
 
 .result-grid { margin-top: 80px; display: grid; gap: 70px; }
 .result-card { display: grid; grid-template-columns: 1.35fr .65fr; gap: 65px; align-items: center; }

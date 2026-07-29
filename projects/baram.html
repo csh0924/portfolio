@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260729-10">
+  <link rel="stylesheet" href="./project.css?v=20260729-11">
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -190,7 +190,6 @@
           <li><span>PROMPT</span><p>띄어쓰기 구간의 1.3배 간격 허용 규칙과 다섯 항목의 해석 기준을 명시하고, 항목별 1–2문장 피드백을 요청.</p></li>
           <li><span>OUTPUT</span><p><code>자형:…|위치:…|자간:…|기울기:…|크기:…</code> 순서와 구분자를 고정해 클라이언트가 항목별로 표시할 수 있는 응답 계약 구성.</p></li>
         </ol>
-        <p class="feedback-limit">프롬프트로 출력 형식을 제한했지만 별도의 Schema 검증은 적용하지 않았다. Structured Output과 서버 측 형식 검증을 추가하는 것이 후속 개선 과제다.</p>
       </div>
     </section>
 
@@ -215,7 +214,6 @@
         <div>
           <p>정제된 데이터와 준비된 모델이 제공되는 학습 환경에서 벗어나, 불완전한 데이터와 예외가 존재하는 현실적인 조건에서 처음 수행한 AI 프로젝트다. 문제 정의, 데이터셋 생성, 모델 학습, 후처리 및 서비스 연동까지 직접 연결하며 실제 AI 개발 과정의 불확실성을 경험했다.</p>
           <p>한글의 조합 원리를 데이터 설계에 반영하고 CRAFT·FPN·기하학적 후처리를 하나의 분석 파이프라인으로 완성한 경험은 컴퓨터비전 문제를 독립적으로 설계하고 구현할 수 있다는 확신으로 이어졌다. 이 프로젝트를 기점으로 이후 두 프로젝트 또한 컴퓨터비전 중심의 딥러닝 연구로 확장했다.</p>
-          <p>학습 과정에서 정량 평가를 수행했으나 결과 기록이 유실되어 재현 가능한 IoU·Dice·Pixel Accuracy는 제시하지 않았다. 문자 분리 전후 비교와 전체 처리 시간 또한 별도로 측정하지 않아, 현재 결과는 학습 곡선과 실제 입력의 정성 분석을 중심으로 제한하여 해석한다.</p>
           <p>폰트 기반 합성 데이터는 정확한 Pixel Label을 자동 생성할 수 있지만, 실제 손글씨의 불규칙한 획과 입력 환경을 충분히 반영하지 못한다. 실제 손글씨 Label 확보와 획 굵기·끊김·겹침을 포함하는 Domain Augmentation 적용이 후속 과제다.</p>
           <p>합성 과정에서 일부 가로형 중성과 종성이 겹치는 문제가 남았다. 모음 분류 체계를 세분화하고 Label 중첩을 감지해 위치를 조정하는 방식이 후속 개선 과제다.</p>
         </div>
