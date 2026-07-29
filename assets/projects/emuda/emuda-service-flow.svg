@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Emuda Diary-to-Playlist Service Flow</title>
+  <desc id="desc">사용자 일기 입력부터 BERT 감정 분석, ChatGPT 음악 추천, Spotify 조회와 저장까지 이어지는 처리 흐름</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#24344d" stroke-opacity=".18"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#77ddd1"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#070d18" flood-opacity=".25"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="#121d2f"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <text x="90" y="82" fill="#77ddd1" font-family="IBM Plex Mono, monospace" font-size="17" letter-spacing="3">EMUDA / SERVICE FLOW</text>
+  <text x="90" y="145" fill="#f5f6f2" font-family="Manrope, sans-serif" font-size="48" font-weight="700">Diary-to-Playlist Pipeline</text>
+  <text x="1510" y="82" fill="#7f8ca0" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="15">CASE 01 · 2024</text>
+
+  <g font-family="Manrope, Noto Sans KR, sans-serif" filter="url(#shadow)">
+    <g transform="translate(90 280)">
+      <rect width="180" height="210" rx="3" fill="#f5f6f2"/>
+      <text x="24" y="39" fill="#1c55ff" font-family="IBM Plex Mono, monospace" font-size="13">01 / INPUT</text>
+      <text x="24" y="93" fill="#121d2f" font-size="22" font-weight="700">Diary</text>
+      <text x="24" y="126" fill="#121d2f" font-size="22" font-weight="700">&amp; Preference</text>
+      <text x="24" y="173" fill="#5c6878" font-size="14">일기 · 선택 감정</text>
+      <text x="24" y="196" fill="#5c6878" font-size="14">선호 장르</text>
+    </g>
+    <g transform="translate(320 280)">
+      <rect width="180" height="210" rx="3" fill="#192a43" stroke="#77ddd1"/>
+      <text x="24" y="39" fill="#77ddd1" font-family="IBM Plex Mono, monospace" font-size="13">02 / API</text>
+      <text x="24" y="93" fill="#f5f6f2" font-size="22" font-weight="700">Spring Boot</text>
+      <text x="24" y="126" fill="#f5f6f2" font-size="22" font-weight="700">Request</text>
+      <text x="24" y="173" fill="#a9b3c1" font-size="14">DTO 검증</text>
+      <text x="24" y="196" fill="#a9b3c1" font-size="14">요청 순서 제어</text>
+    </g>
+    <g transform="translate(550 280)">
+      <rect width="180" height="210" rx="3" fill="#f5f6f2"/>
+      <text x="24" y="39" fill="#1c55ff" font-family="IBM Plex Mono, monospace" font-size="13">03 / ANALYZE</text>
+      <text x="24" y="93" fill="#121d2f" font-size="22" font-weight="700">BERT</text>
+      <text x="24" y="126" fill="#121d2f" font-size="22" font-weight="700">Emotion API</text>
+      <text x="24" y="173" fill="#5c6878" font-size="14">4종 감정 분류</text>
+      <text x="24" y="196" fill="#5c6878" font-size="14">확률값 반환</text>
+    </g>
+    <g transform="translate(780 280)">
+      <rect width="180" height="210" rx="3" fill="#192a43" stroke="#77ddd1"/>
+      <text x="24" y="39" fill="#77ddd1" font-family="IBM Plex Mono, monospace" font-size="13">04 / COMPOSE</text>
+      <text x="24" y="93" fill="#f5f6f2" font-size="22" font-weight="700">Prompt</text>
+      <text x="24" y="126" fill="#f5f6f2" font-size="22" font-weight="700">Composition</text>
+      <text x="24" y="173" fill="#a9b3c1" font-size="14">감정 + 취향</text>
+      <text x="24" y="196" fill="#a9b3c1" font-size="14">출력 조건 구성</text>
+    </g>
+    <g transform="translate(1010 280)">
+      <rect width="180" height="210" rx="3" fill="#f5f6f2"/>
+      <text x="24" y="39" fill="#1c55ff" font-family="IBM Plex Mono, monospace" font-size="13">05 / RECOMMEND</text>
+      <text x="24" y="93" fill="#121d2f" font-size="22" font-weight="700">ChatGPT</text>
+      <text x="24" y="126" fill="#121d2f" font-size="18" font-weight="700">Recommendation</text>
+      <text x="24" y="173" fill="#5c6878" font-size="14">제목 · 가수</text>
+      <text x="24" y="196" fill="#5c6878" font-size="14">추천 목록 반환</text>
+    </g>
+    <g transform="translate(1240 280)">
+      <rect width="270" height="210" rx="3" fill="#1c55ff"/>
+      <text x="24" y="39" fill="#d7e1ff" font-family="IBM Plex Mono, monospace" font-size="13">06 / ENRICH &amp; SAVE</text>
+      <text x="24" y="93" fill="#fff" font-size="23" font-weight="700">Spotify Metadata</text>
+      <text x="24" y="126" fill="#fff" font-size="23" font-weight="700">MySQL · Response</text>
+      <text x="24" y="173" fill="#d7e1ff" font-size="14">음악 정보 조회·저장</text>
+      <text x="24" y="196" fill="#d7e1ff" font-size="14">클라이언트 응답 조립</text>
+    </g>
+  </g>
+
+  <g fill="none" stroke="#77ddd1" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M270 385H310"/>
+    <path d="M500 385H540"/>
+    <path d="M730 385H770"/>
+    <path d="M960 385H1000"/>
+    <path d="M1190 385H1230"/>
+  </g>
+
+  <g transform="translate(320 585)">
+    <rect width="870" height="165" rx="3" fill="#0d1626" stroke="#34435a"/>
+    <text x="30" y="38" fill="#77ddd1" font-family="IBM Plex Mono, monospace" font-size="14" letter-spacing="2">BACKEND CONTRIBUTION</text>
+    <g fill="#dce1e8" font-family="Manrope, Noto Sans KR, sans-serif" font-size="17">
+      <text x="30" y="84">01  API 계약 및 DTO 설계</text>
+      <text x="30" y="122">02  BERT 분석 결과 정규화</text>
+      <text x="455" y="84">03  프롬프트 입력 생성</text>
+      <text x="455" y="122">04  음악 조회·저장 및 응답 조립</text>
+    </g>
+  </g>
+  <text x="1510" y="842" fill="#7f8ca0" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="13">CHOI SE HOON · PORTFOLIO</text>
+</svg>

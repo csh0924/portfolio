@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260729-4">
+  <link rel="stylesheet" href="./project.css?v=20260729-5">
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -107,6 +107,40 @@
           <p>AWS EC2 환경에 Spring 애플리케이션 배포. 환경 변수, 네트워크 포트 및 애플리케이션 로그 관리.</p>
         </article>
       </div>
+
+      <div class="decision-heading">
+        <p class="section-label">TECHNICAL DECISIONS</p>
+        <h3>연동 과정의 문제와 설계 판단</h3>
+      </div>
+      <div class="decision-grid">
+        <article>
+          <p class="decision-index">DECISION / 01</p>
+          <h3>ChatGPT 응답 형식 표준화</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>추천 결과의 곡명·가수·추천 사유가 일관되지 않아 서버 파싱과 Spotify 조회가 불안정한 문제</dd></div>
+            <div><dt>Decision</dt><dd>자유 형식 문장 대신 서버가 처리할 수 있는 출력 구조를 프롬프트 단계에서 제한</dd></div>
+            <div><dt>Applied</dt><dd>감정 점수와 핵심 키워드, 선호 장르를 구조화해 전달하고 음악 정보를 JSON 형식으로 반환하도록 조건 명시</dd></div>
+          </dl>
+        </article>
+        <article>
+          <p class="decision-index">DECISION / 02</p>
+          <h3>iOS 클라이언트 데이터 계약</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>일기·감정 분석·추천 데이터가 연속으로 전달되며 화면별 필드와 오류 처리 방식이 달라질 가능성</dd></div>
+            <div><dt>Decision</dt><dd>클라이언트와 서버 사이의 필드 명세 및 성공·실패 상태를 REST API 수준에서 통일</dd></div>
+            <div><dt>Applied</dt><dd>요청·응답 DTO를 기능별로 분리하고 HTTP 상태 코드와 공통 응답 구조를 기준으로 iOS 연동</dd></div>
+          </dl>
+        </article>
+        <article>
+          <p class="decision-index">DECISION / 03</p>
+          <h3>외부 API 연쇄 호출 관리</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>BERT 분석, ChatGPT 추천, Spotify 조회가 순차 실행되어 지연과 오류 발생 지점 파악이 어려운 구조</dd></div>
+            <div><dt>Decision</dt><dd>각 단계의 입력·출력 책임을 분리하고 다음 단계에 필요한 데이터만 전달</dd></div>
+            <div><dt>Applied</dt><dd>감정 분석 결과 정규화, 추천 결과 파싱, 음악 메타데이터 저장 단계를 구분하고 애플리케이션 로그로 처리 구간 확인</dd></div>
+          </dl>
+        </article>
+      </div>
     </section>
 
     <section class="flow page-shell" aria-labelledby="flow-title">
@@ -118,14 +152,28 @@
         </div>
       </div>
       <figure class="media-frame diagram-frame">
-        <img src="../assets/projects/emuda/emuda-service-flow.png" alt="로그인, 일기 작성, BERT 감정 분석, ChatGPT 음악 추천으로 이어지는 서비스 흐름도">
+        <img src="../assets/projects/emuda/emuda-service-flow.svg" alt="일기와 취향 입력, Spring Boot API, BERT 감정 분석, 프롬프트 생성, ChatGPT 추천, Spotify 조회와 저장으로 이어지는 서비스 흐름도">
         <figcaption><span>SERVICE SCENARIO</span><span>Diary → BERT → ChatGPT → Recommendation</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="architecture page-shell" aria-labelledby="architecture-title">
+      <div class="section-heading">
+        <p class="section-label">04 / ARCHITECTURE</p>
+        <div>
+          <h2 id="architecture-title">System<br>Architecture</h2>
+          <p>클라이언트, Spring 서버, AI 모델 서버, 외부 API와 데이터베이스의 구성.</p>
+        </div>
+      </div>
+      <figure class="media-frame architecture-frame">
+        <img src="../assets/projects/emuda/emuda-architecture.svg" alt="iOS WebView, AWS EC2의 Spring Boot 서버, GCP의 Flask BERT 서버, ChatGPT와 Spotify API, MySQL 구성도">
+        <figcaption><span>BACKEND ARCHITECTURE</span><span>Client · Application · Model · External API · Database</span></figcaption>
       </figure>
     </section>
 
     <section class="results page-shell" aria-labelledby="results-title">
       <div class="section-heading">
-        <p class="section-label">04 / RESULTS</p>
+        <p class="section-label">05 / RESULTS</p>
         <div>
           <h2 id="results-title">Implementation Results<br>&amp; Limitations</h2>
           <p>감정 분류 및 음악 추천 구현 결과와 기술적 한계.</p>
@@ -165,7 +213,7 @@
     </section>
 
     <section class="learning page-shell" aria-labelledby="learning-title">
-      <p class="section-label">05 / LEARNING</p>
+      <p class="section-label">06 / LEARNING</p>
       <div class="learning-layout">
         <h2 id="learning-title">Technical Review<br>&amp; Project Significance</h2>
         <div>
@@ -183,7 +231,7 @@
     </section>
 
     <section class="stack page-shell" aria-labelledby="stack-title">
-      <p class="section-label">06 / STACK</p>
+      <p class="section-label">07 / STACK</p>
       <h2 id="stack-title">Tools used</h2>
       <ul>
         <li>Java</li>
