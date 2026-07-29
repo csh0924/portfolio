@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260729-6">
+  <link rel="stylesheet" href="./project.css?v=20260729-7">
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -76,12 +76,41 @@
         <article><span>02</span><h3>FPN 모델 학습</h3><p>한글 구조를 6개 유형으로 분류하고 유형별 FPN 모델을 학습하여 초성·중성·종성 Segmentation 수행.</p></article>
         <article><span>03</span><h3>데이터셋 구축</h3><p>실사용 한글 2,841자와 6개 폰트, 3종 Augmentation을 조합해 51,138개의 Label 데이터 자동 생성.</p></article>
         <article><span>04</span><h3>Python 분석 서버</h3><p>전처리부터 점수 생성까지 분석 모듈을 연속 실행하고 결과 JSON과 이미지 경로를 서버에 반환하는 파이프라인 관리.</p></article>
+        <article><span>05</span><h3>LLM 피드백 생성 <small>공동 수행</small></h3><p>정량화된 자소 형태·위치 및 문장 분석 점수를 Gemini API에 전달하고, 사용자가 이해할 수 있는 교정 가이드로 변환하는 피드백 구조 공동 설계.</p></article>
+      </div>
+    </section>
+
+    <section class="research page-shell" aria-labelledby="research-title">
+      <div class="section-heading">
+        <p class="section-label">03 / RESEARCH DESIGN</p>
+        <div><h2 id="research-title">한글 구조를 반영한<br>분석 문제 설계</h2><p>일반적인 문자 인식이 아니라 손글씨의 구조적 완성도와 시각적 정렬성을 정량화하는 문제로 정의했다.</p></div>
+      </div>
+      <div class="decision-grid research-grid">
+        <article><p class="decision-index">QUESTION / 01</p><h3>연결된 손글씨에서 개별 문자를 어떻게 분리할 것인가?</h3><dl><div><dt>Approach</dt><dd>CRAFT 문자 중심 확률 맵에서 중심 좌표를 추출하고, 글자 수와 예측 중심 수를 비교해 과검출 중심을 병합.</dd></div></dl></article>
+        <article><p class="decision-index">QUESTION / 02</p><h3>11,172개 한글의 자소 Label을 어떻게 확보할 것인가?</h3><dl><div><dt>Approach</dt><dd>실사용 2,841자를 선별하고 한글 조합 원리에 따라 237개 기준 문자에서 자소를 추출하여 합성 데이터 자동 생성.</dd></div></dl></article>
+        <article><p class="decision-index">QUESTION / 03</p><h3>서로 다른 한글 자소 배치를 어떻게 안정적으로 학습할 것인가?</h3><dl><div><dt>Approach</dt><dd>종성 유무와 모음 방향을 기준으로 여섯 유형을 정의하고 유형별 FPN을 학습해 단일 모델의 구조적 부담을 분리.</dd></div></dl></article>
+      </div>
+    </section>
+
+    <section class="flow page-shell" aria-labelledby="craft-title">
+      <div class="section-heading">
+        <p class="section-label">04 / CRAFT DETECTION</p>
+        <div><h2 id="craft-title">문자 검출 모델을<br>중심점 추출기로 활용</h2><p>CRAFT의 본래 단어 영역 검출 결과를 그대로 사용하지 않고, 문자 중심일 확률이 높은 픽셀의 무게중심을 각 글자의 기준점으로 사용했다.</p></div>
+      </div>
+      <figure class="media-frame craft-frame">
+        <img src="../assets/projects/baram/baram-craft-centers.png" alt="손글씨 위에 시각화한 CRAFT 문자 중심 확률 맵">
+        <figcaption><span>CHARACTER REGION SCORE</span><span>Center Probability Map</span></figcaption>
+      </figure>
+      <div class="craft-notes">
+        <article><span>01</span><h3>중심 후보 추출</h3><p>임계치 이상의 Region Score 픽셀을 묶고 각 영역의 무게중심을 문자 중심 후보로 계산.</p></article>
+        <article><span>02</span><h3>과검출 보정</h3><p>입력 원문의 글자 수보다 중심 후보가 많으면 인접 후보를 병합해 문자 수와 일치시킴.</p></article>
+        <article><span>03</span><h3>분석 기준 생성</h3><p>중심 간 기울기와 x축 거리를 문장 기울기·자간 분석에 사용하고, 문자 영역 확장의 Seed로 전달.</p></article>
       </div>
     </section>
 
     <section class="flow page-shell" aria-labelledby="separation-title">
       <div class="section-heading">
-        <p class="section-label">03 / CHARACTER SEPARATION</p>
+        <p class="section-label">05 / CHARACTER SEPARATION</p>
         <div><h2 id="separation-title">불명확한 경계를<br>기하학으로 보완</h2><p>CRAFT가 찾은 문자 중심에서 영역을 확장한 뒤, 잘못 잘린 획을 연결 성분 기준으로 두 차례 회수했다.</p></div>
       </div>
       <div class="baram-comparison">
@@ -92,7 +121,7 @@
 
     <section class="results page-shell" aria-labelledby="results-title">
       <div class="section-heading">
-        <p class="section-label">04 / SEGMENTATION</p>
+        <p class="section-label">06 / SEGMENTATION</p>
         <div><h2 id="results-title">초·중·종성<br>Pixel Segmentation</h2><p>여러 해상도의 특징을 결합하는 FPN 구조로 자소를 분리하고 인쇄체 Segmentation을 기준으로 결과를 보강했다.</p></div>
       </div>
       <div class="result-grid">
@@ -104,11 +133,15 @@
           <figure class="media-frame media-light"><img src="../assets/projects/baram/baram-segmentation-result.png" alt="캡스톤디자인 손글씨의 초성 중성 종성 Segmentation 시각화"></figure>
           <div><span class="result-index">RESULT / 02</span><h3>정성 결과와 오류 확인</h3><p>‘캡스톤디자인’ 문장의 자소 분할을 시각화했다. 일부 글자의 오분류도 함께 확인하여 후처리 보강의 필요성을 도출했다.</p></div>
         </article>
+        <article class="result-card">
+          <figure class="media-frame media-dark"><img src="../assets/projects/baram/baram-segmentation-refinement.png" alt="인쇄체 기준과 연결 성분을 이용한 자소 Segmentation 보강 과정"></figure>
+          <div><span class="result-index">RESULT / 03</span><h3>Segmentation 후처리</h3><p>선택한 인쇄체의 자소 Label을 Seed로 약한 클러스터링을 수행하고, 하나의 연결 성분에 섞인 소수 Label을 다수 Label로 통일하여 경계 오분류를 보강했다.</p></div>
+        </article>
       </div>
     </section>
 
     <section class="learning page-shell" aria-labelledby="learning-title">
-      <p class="section-label">05 / REVIEW</p>
+      <p class="section-label">07 / REVIEW</p>
       <div class="learning-layout">
         <h2 id="learning-title">Technical Review<br>&amp; Significance</h2>
         <div>
@@ -119,9 +152,9 @@
     </section>
 
     <section class="stack page-shell" aria-labelledby="stack-title">
-      <p class="section-label">06 / STACK</p>
+      <p class="section-label">08 / STACK</p>
       <h2 id="stack-title">Tools used</h2>
-      <ul><li>Python</li><li>PyTorch</li><li>CRAFT</li><li>FPN</li><li>OpenCV</li><li>k-NN</li><li>Flask</li></ul>
+      <ul><li>Python</li><li>PyTorch</li><li>CRAFT</li><li>FPN</li><li>OpenCV</li><li>k-NN</li><li>Flask</li><li>Gemini API</li></ul>
     </section>
   </main>
   <footer><span>© <span id="year"></span> Choi Se Hoon</span><a href="../index.html#work">Back to archive ↑</a></footer>
