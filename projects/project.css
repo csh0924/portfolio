@@ -111,6 +111,11 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 .architecture-frame { padding: 0; overflow: hidden; background: var(--ink); }
 .architecture-frame img { width: 100%; display: block; }
 .architecture-frame figcaption { color: #a9b3c1; border-color: rgba(255,255,255,.18); background: var(--ink); }
+.baram-hero-image { background: #eef6ff; }
+.baram-hero-image img { object-fit: contain; padding: clamp(24px, 5vw, 72px); }
+.baram-comparison { margin-top: 70px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.baram-comparison .media-frame { margin: 0; }
+.baram-comparison img { width: 100%; display: block; }
 
 .result-grid { margin-top: 80px; display: grid; gap: 70px; }
 .result-card { display: grid; grid-template-columns: 1.35fr .65fr; gap: 65px; align-items: center; }
@@ -161,6 +166,7 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .learning-layout { grid-template-columns: 1fr; gap: 40px; }
   .decision-grid { grid-template-columns: 1fr; }
   .decision-grid h3 { min-height: 0; }
+  .baram-comparison { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 620px) {

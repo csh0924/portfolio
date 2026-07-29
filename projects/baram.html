@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CRAFT와 FPN 기반 한글 손글씨 분석 및 교정 서비스, 바른글씨 바람의 개발 기록입니다.">
+  <meta name="theme-color" content="#f5f6f2">
+  <title>바른글씨: 바람 | 최세훈 Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./project.css?v=20260729-6">
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <header class="project-header">
+    <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All projects</a>
+    <a class="wordmark" href="../index.html">CSH <span>/ Visual Research Archive</span></a>
+    <a class="repo-link" href="https://github.com/csh0924/Baram_Handwritting_Analysis" target="_blank" rel="noreferrer">GitHub ↗</a>
+  </header>
+
+  <main id="main">
+    <section class="project-hero">
+      <div class="hero-meta">
+        <span>CASE 03</span>
+        <span>AI · COMPUTER VISION</span>
+        <span>2025. 09 — 2025. 12</span>
+      </div>
+      <div class="hero-title">
+        <div>
+          <p>Korean Handwriting Analysis</p>
+          <h1>바른글씨:<br>바람</h1>
+        </div>
+        <p class="hero-summary">손글씨 문장을 문자와 자소 단위로 분해하고, 형태·위치·자간·크기·기울기를 분석하여 맞춤형 교정 피드백을 제공하는 딥러닝 기반 서비스.</p>
+      </div>
+      <figure class="hero-image baram-hero-image">
+        <img src="../assets/projects/baram/baram-logo.png" alt="바른글씨 바람 애플리케이션 로고">
+      </figure>
+    </section>
+
+    <section class="overview page-shell" aria-labelledby="overview-title">
+      <p class="section-label">00 / OVERVIEW</p>
+      <div class="overview-intro">
+        <h2 id="overview-title">첫 엔드투엔드<br>딥러닝 파이프라인</h2>
+        <p>문제 정의와 데이터 생성부터 모델 설계·학습, 후처리, Python 분석 서버 구현까지 전 과정을 직접 수행한 첫 AI 프로젝트. CRAFT의 문자 중심 확률과 기하학 알고리즘을 결합해 문자를 분리하고, FPN 모델로 초성·중성·종성을 픽셀 단위로 분석했다.</p>
+      </div>
+      <dl class="fact-grid">
+        <div><dt>Period</dt><dd>2025. 09. 01<br>— 2025. 12. 31</dd></div>
+        <div><dt>Team</dt><dd>3명</dd></div>
+        <div><dt>Role</dt><dd>AI Model Training<br>Python Server</dd></div>
+        <div><dt>Dataset</dt><dd>51,138<br>Labeled Images</dd></div>
+      </dl>
+    </section>
+
+    <section class="visual-section page-shell" aria-labelledby="pipeline-title">
+      <div class="section-heading">
+        <p class="section-label">01 / PIPELINE</p>
+        <div>
+          <h2 id="pipeline-title">문장에서 자소까지<br>역순으로 분해</h2>
+          <p>문장 정규화 → CRAFT 중심 추출 → Voronoi 문자 분리 → FPN 자소 Segmentation → 형태·위치 평가 → 점수 및 피드백 생성.</p>
+        </div>
+      </div>
+      <figure class="media-frame media-light">
+        <img src="../assets/projects/baram/baram-pipeline.png" alt="클라이언트, 서버, CRAFT와 FPN 분석 모듈로 구성된 바람 전체 파이프라인">
+        <figcaption><span>ANALYSIS PIPELINE</span><span>CRAFT · Geometry · FPN · Evaluation</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="contribution page-shell" aria-labelledby="contribution-title">
+      <div class="section-heading">
+        <p class="section-label">02 / CONTRIBUTION</p>
+        <div><h2 id="contribution-title">Owned Scope</h2><p>보고서의 역할 분담을 기준으로 정리한 담당 범위.</p></div>
+      </div>
+      <div class="contribution-grid">
+        <article><span>01</span><h3>손글씨 분석 설계</h3><p>CRAFT 문자 중심 추출, 문장 기울기·자간 분석, Voronoi 기반 문자 분리와 연결 성분 Reclaim 후처리 구현.</p></article>
+        <article><span>02</span><h3>FPN 모델 학습</h3><p>한글 구조를 6개 유형으로 분류하고 유형별 FPN 모델을 학습하여 초성·중성·종성 Segmentation 수행.</p></article>
+        <article><span>03</span><h3>데이터셋 구축</h3><p>실사용 한글 2,841자와 6개 폰트, 3종 Augmentation을 조합해 51,138개의 Label 데이터 자동 생성.</p></article>
+        <article><span>04</span><h3>Python 분석 서버</h3><p>전처리부터 점수 생성까지 분석 모듈을 연속 실행하고 결과 JSON과 이미지 경로를 서버에 반환하는 파이프라인 관리.</p></article>
+      </div>
+    </section>
+
+    <section class="flow page-shell" aria-labelledby="separation-title">
+      <div class="section-heading">
+        <p class="section-label">03 / CHARACTER SEPARATION</p>
+        <div><h2 id="separation-title">불명확한 경계를<br>기하학으로 보완</h2><p>CRAFT가 찾은 문자 중심에서 영역을 확장한 뒤, 잘못 잘린 획을 연결 성분 기준으로 두 차례 회수했다.</p></div>
+      </div>
+      <div class="baram-comparison">
+        <figure class="media-frame media-light"><img src="../assets/projects/baram/baram-voronoi.png" alt="Voronoi 방식으로 손글씨 문자 영역을 나눈 결과"><figcaption><span>STEP 01</span><span>VORONOI SPLIT</span></figcaption></figure>
+        <figure class="media-frame media-light"><img src="../assets/projects/baram/baram-reclaim.png" alt="연결된 획을 Reclaim하여 문자 경계를 보정한 결과"><figcaption><span>STEP 02</span><span>2× RECLAIM</span></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="results page-shell" aria-labelledby="results-title">
+      <div class="section-heading">
+        <p class="section-label">04 / SEGMENTATION</p>
+        <div><h2 id="results-title">초·중·종성<br>Pixel Segmentation</h2><p>여러 해상도의 특징을 결합하는 FPN 구조로 자소를 분리하고 인쇄체 Segmentation을 기준으로 결과를 보강했다.</p></div>
+      </div>
+      <div class="result-grid">
+        <article class="result-card">
+          <figure class="media-frame media-light"><img src="../assets/projects/baram/baram-training-curves.png" alt="한글 유형별 여섯 FPN 모델의 학습 및 검증 손실 그래프"></figure>
+          <div><span class="result-index">RESULT / 01</span><h3>유형별 6개 모델 학습</h3><p>종성 유무 2종과 모음 형태 3종을 조합해 모델이 처리해야 할 한글 배치 복잡도를 분리했다.</p></div>
+        </article>
+        <article class="result-card">
+          <figure class="media-frame media-light"><img src="../assets/projects/baram/baram-segmentation-result.png" alt="캡스톤디자인 손글씨의 초성 중성 종성 Segmentation 시각화"></figure>
+          <div><span class="result-index">RESULT / 02</span><h3>정성 결과와 오류 확인</h3><p>‘캡스톤디자인’ 문장의 자소 분할을 시각화했다. 일부 글자의 오분류도 함께 확인하여 후처리 보강의 필요성을 도출했다.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="learning page-shell" aria-labelledby="learning-title">
+      <p class="section-label">05 / REVIEW</p>
+      <div class="learning-layout">
+        <h2 id="learning-title">Technical Review<br>&amp; Significance</h2>
+        <div>
+          <p>준비된 모델과 데이터에 의존하는 단계를 넘어, 한글의 조합 원리를 데이터 설계에 반영하고 모델 입력부터 결과 보강까지 하나의 분석 시스템으로 구축했다.</p>
+          <p>합성 과정에서 일부 가로형 중성과 종성이 겹치는 문제가 남았다. 모음 분류 체계를 세분화하고 Label 중첩을 감지해 위치를 조정하는 방식이 후속 개선 과제다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="stack page-shell" aria-labelledby="stack-title">
+      <p class="section-label">06 / STACK</p>
+      <h2 id="stack-title">Tools used</h2>
+      <ul><li>Python</li><li>PyTorch</li><li>CRAFT</li><li>FPN</li><li>OpenCV</li><li>k-NN</li><li>Flask</li></ul>
+    </section>
+  </main>
+  <footer><span>© <span id="year"></span> Choi Se Hoon</span><a href="../index.html#work">Back to archive ↑</a></footer>
+  <script>document.querySelector("#year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
