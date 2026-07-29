@@ -135,11 +135,11 @@
     <section class="flow page-shell" aria-labelledby="separation-title">
       <div class="section-heading">
         <p class="section-label">06 / CHARACTER SEPARATION</p>
-        <div><h2 id="separation-title">불명확한 경계를<br>기하학으로 보완</h2><p>CRAFT가 찾은 문자 중심에서 영역을 확장한 뒤, 잘못 잘린 획을 연결 성분 기준으로 두 차례 회수했다.</p></div>
+        <div><h2 id="separation-title">중심점에서 확장하고<br>연결 성분으로 재할당</h2><p>CRAFT로 추출한 문자 중심을 Seed로 Voronoi 영역을 생성한 뒤, 서로 연결된 픽셀은 같은 글자일 가능성이 높다는 가정으로 Label을 보정했다. 단, 획이 맞닿는 손글씨에서는 이 가정이 항상 성립하지 않는다.</p></div>
       </div>
       <div class="baram-comparison">
-        <figure class="media-frame media-light"><img src="../assets/projects/baram/baram-voronoi.png" alt="Voronoi 방식으로 손글씨 문자 영역을 나눈 결과"><figcaption><span>STEP 01</span><span>VORONOI SPLIT</span></figcaption></figure>
-        <figure class="media-frame media-light"><img src="../assets/projects/baram/baram-reclaim.png" alt="연결된 획을 Reclaim하여 문자 경계를 보정한 결과"><figcaption><span>STEP 02</span><span>2× RECLAIM</span></figcaption></figure>
+        <figure class="media-frame media-light"><img src="../assets/projects/baram/baram-voronoi.png" alt="각 픽셀을 가장 가까운 CRAFT 문자 중심의 Label로 할당한 Voronoi 영역"><figcaption><span>STEP 01</span><span>NEAREST-CENTER VORONOI ASSIGNMENT</span></figcaption></figure>
+        <figure class="media-frame media-light"><img src="../assets/projects/baram/baram-reclaim.png" alt="연결 성분에 포함된 픽셀을 다수 문자 Label로 다시 할당한 결과"><figcaption><span>STEP 02</span><span>CONNECTED-COMPONENT RECLAIM ×2</span></figcaption></figure>
       </div>
     </section>
 
