@@ -15,6 +15,8 @@ const projects = [
     image: "./assets/projects/emuda/emuda-logo.jpg",
     imageAlt: "Emuda Emotion Music Diary 로고",
     imageLabel: "PROJECT IDENTITY",
+    featuredRank: 2,
+    featuredLabel: "AI SERVICE",
   },
   {
     id: "backend-02",
@@ -28,6 +30,7 @@ const projects = [
     period: "—",
     role: "Backend",
     imageLabel: "ITINERA",
+    featured: false,
   },
   {
     id: "vision-01",
@@ -39,12 +42,14 @@ const projects = [
     tags: ["PyTorch", "CRAFT", "FPN", "OpenCV", "51,138 Pixel-labeled Synthetic Images"],
     stage: "First AI Pipeline",
     period: "2025. 09 — 2025. 12",
-    role: "AI Model · Dataset · Python Server",
+    role: "CV Pipeline · Dataset Engineering",
     link: "./projects/baram.html",
     repository: "https://github.com/csh0924/Baram_Handwritting_Analysis",
     image: "./assets/projects/baram/baram-logo.png",
     imageAlt: "바른글씨 바람 애플리케이션 로고",
     imageLabel: "HANDWRITING ANALYSIS",
+    featuredRank: 1,
+    featuredLabel: "FEATURED · CV PIPELINE",
   },
   {
     id: "vision-02",
@@ -91,7 +96,7 @@ function projectCard(project) {
     <article class="project-card reveal" data-category="${project.category}">
       <div class="project-image ${project.category} ${project.image ? "has-image" : ""}" style="--visual-color: ${project.category === "vision" ? "#1c55ff" : "#77ddd1"}">
         ${image}
-        <div class="image-label"><span>CASE / ${project.order}</span><span>${project.imageLabel}</span></div>
+        <div class="image-label"><span>${project.featuredLabel}</span><span>${project.imageLabel}</span></div>
         ${project.imageStatus ? `<span class="image-status">${project.imageStatus}</span>` : ""}
       </div>
       <div class="project-info">
@@ -104,27 +109,79 @@ function projectCard(project) {
   `;
 }
 
-function timelineRow(project) {
+const evolutionStages = [
+  {
+    order: "01",
+    period: "2024 · FOUNDATION",
+    category: "backend",
+    label: "BACKEND FOUNDATION",
+    title: "서비스 구조와 데이터 흐름",
+    description: "REST API, 데이터베이스, 외부 서비스 연동과 배포를 경험하며 기능을 안정적인 서비스 흐름으로 연결하는 기반을 구축했습니다.",
+    reference: "EMUDA · ITINERA",
+  },
+  {
+    order: "02",
+    period: "2024 · INTEGRATION",
+    category: "backend",
+    label: "AI INTEGRATION",
+    title: "모델 출력을 사용자 경험으로 연결",
+    description: "텍스트 감정 분석과 LLM 응답을 백엔드 파이프라인에 통합하며 AI 결과를 서비스 데이터로 다루는 방법을 익혔습니다.",
+    reference: "EMUDA",
+  },
+  {
+    order: "03",
+    period: "2025 · DEVELOPMENT",
+    category: "vision",
+    label: "DEEP LEARNING DEVELOPMENT",
+    title: "데이터와 학습 과정을 직접 구축",
+    description: "기성 API를 연결하는 단계를 넘어, 한글 구조를 반영한 합성 데이터셋과 유형별 FPN 학습 전략을 직접 구성했습니다.",
+    reference: "바른글씨: 바람",
+  },
+  {
+    order: "04",
+    period: "2025 → · VISION",
+    category: "vision",
+    label: "COMPUTER VISION PIPELINE",
+    title: "검출·분리·Segmentation·평가의 결합",
+    description: "CRAFT 출력, 기하학 알고리즘, 자소 Segmentation과 후처리를 하나의 분석 서버로 연결하며 컴퓨터비전 파이프라인 설계로 확장했습니다.",
+    reference: "바른글씨: 바람 → NEXT VISION RESEARCH",
+  },
+];
+
+function timelineRow(stage) {
   return `
-    <article class="timeline-row ${project.category} reveal">
-      <div class="timeline-stage">${project.order} / ${project.stage}</div>
+    <article class="timeline-row ${stage.category} reveal">
+      <div class="timeline-stage">${stage.order} / ${stage.period}</div>
       <div class="timeline-detail">
         <span class="timeline-dot" aria-hidden="true"></span>
-        <div>
-          <small>${project.type}</small>
-          <h3>${project.title}</h3>
+        <div class="timeline-copy">
+          <small>${stage.label}</small>
+          <h3>${stage.title}</h3>
+          <p>${stage.description}</p>
         </div>
-        <span>${project.period}</span>
+        <span class="evolution-reference">${stage.reference}</span>
       </div>
     </article>
   `;
 }
 
 const publishedProjects = projects.filter((project) => project.published !== false);
-projectGrid.innerHTML = publishedProjects.map(projectCard).join("");
-timeline.innerHTML = publishedProjects.map(timelineRow).join("");
-document.querySelector("#project-count").textContent = String(publishedProjects.length).padStart(2, "0");
+const featuredProjects = publishedProjects
+  .filter((project) => project.featured !== false && project.link)
+  .sort((a, b) => a.featuredRank - b.featuredRank);
+
+projectGrid.innerHTML = featuredProjects.map(projectCard).join("");
+timeline.innerHTML = evolutionStages.map(timelineRow).join("");
+document.querySelector("#project-count").textContent = String(projects.length).padStart(2, "0");
 document.querySelector("#year").textContent = new Date().getFullYear();
+
+document.querySelectorAll(".filter-button").forEach((button) => {
+  const filter = button.dataset.filter;
+  const count = filter === "all"
+    ? featuredProjects.length
+    : featuredProjects.filter((project) => project.category === filter).length;
+  button.querySelector("span").textContent = String(count).padStart(2, "0");
+});
 
 document.querySelectorAll(".filter-button").forEach((button) => {
   button.addEventListener("click", () => {

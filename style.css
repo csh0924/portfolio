@@ -106,6 +106,18 @@ h1 em {
   font-size: clamp(.98rem, 1.2vw, 1.15rem);
   line-height: 1.85;
 }
+.hero-path {
+  margin: 26px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: var(--ink-soft);
+  font: 500 .6rem var(--mono);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.hero-path i { color: var(--blue); font-style: normal; }
 .hero-actions { margin-top: 40px; display: flex; align-items: center; gap: 30px; }
 .primary-link {
   padding: 15px 20px;
@@ -236,7 +248,7 @@ h1 em {
   font: 500 .65rem var(--mono);
   letter-spacing: .12em;
 }
-.section-heading h2, .about h2 { font-size: clamp(2.5rem, 4.4vw, 4.65rem); line-height: 1.04; }
+.section-heading h2 { font-size: clamp(2.5rem, 4.4vw, 4.65rem); line-height: 1.04; }
 .section-heading > p {
   margin: 0 0 8px;
   color: var(--ink-soft);
@@ -358,17 +370,15 @@ h1 em {
 .timeline-detail small { color: var(--blue); font: 500 .59rem var(--mono); text-transform: uppercase; }
 .timeline-row.backend .timeline-detail small { color: #277c75; }
 .timeline-detail h3 { margin: 9px 0 0; font-size: clamp(1.2rem, 2vw, 1.8rem); letter-spacing: -.035em; }
-.timeline-detail > span { color: var(--ink-soft); font: 400 .62rem var(--mono); }
-
-.about { border-top: 1px solid var(--line); }
-.about-content { display: grid; grid-template-columns: 1.6fr 1fr; gap: 80px; }
-.about-copy { align-self: end; }
-.about-copy p { margin: 0; font-size: 1rem; line-height: 1.9; }
-.about-copy .muted { margin-top: 24px; color: var(--ink-soft); font-size: .82rem; }
+.timeline-copy p { max-width: 720px; margin: 15px 0 0; color: var(--ink-soft); font-size: .78rem; line-height: 1.75; }
+.timeline-detail > .evolution-reference { max-width: 220px; color: var(--ink-soft); font: 400 .58rem/1.6 var(--mono); text-align: right; text-transform: uppercase; }
 
 .profile { border-top: 1px solid var(--line); }
+.profile-intro { margin-top: 90px; padding-bottom: 75px; display: grid; grid-template-columns: 1.35fr 1fr; align-items: end; gap: 80px; border-bottom: 1px solid var(--line); }
+.profile-intro h2 { font-size: clamp(2.3rem, 4vw, 4.2rem); line-height: 1.08; }
+.profile-intro p { margin: 0; color: var(--ink-soft); font-size: .88rem; line-height: 1.9; }
 .profile-layout {
-  margin-top: 80px;
+  margin-top: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   border-top: 1px solid var(--line);
@@ -481,17 +491,20 @@ footer h2 { font-size: clamp(3.5rem, 7vw, 7.2rem); line-height: .95; }
   .site-header { height: 72px; grid-template-columns: 1fr auto; }
   .wordmark small, nav { display: none; }
   .hero { min-height: auto; padding: 74px 0 70px; gap: 65px; }
-  .kicker { margin-bottom: 25px; justify-content: space-between; }
-  h1 { font-size: clamp(2.6rem, 10.8vw, 3.65rem); }
+  .kicker { margin-bottom: 25px; gap: 12px; justify-content: space-between; flex-wrap: wrap; font-size: .57rem; }
+  .hero-identity { font-size: .68rem; }
+  h1 { font-size: clamp(2.1rem, 8.7vw, 2.75rem); }
   .hero-intro br { display: none; }
+  .hero-intro { font-size: .88rem; overflow-wrap: anywhere; }
+  .hero-path { gap: 5px; font-size: .5rem; letter-spacing: 0; }
   .hero-actions { align-items: flex-start; flex-direction: column; }
   .hero-visual { aspect-ratio: .92; }
   .snapshot { padding: 0 16px; grid-template-columns: 1fr; }
   .snapshot > * { min-height: 102px; border-right: 1px solid var(--line); }
   .snapshot strong { font-size: 2.2rem; }
   .section-shell { width: min(100% - 32px, 1360px); padding: 100px 0; }
-  .section-heading, .about-content { grid-template-columns: 1fr; gap: 34px; }
-  .section-heading h2, .about h2 { font-size: clamp(2.4rem, 11vw, 3.6rem); }
+  .section-heading { grid-template-columns: 1fr; gap: 34px; }
+  .section-heading h2 { font-size: clamp(2.4rem, 11vw, 3.6rem); }
   .filter-bar { margin-top: 50px; overflow-x: auto; }
   .filter-button { flex: 0 0 auto; }
   .project-grid { display: block; }
@@ -504,6 +517,8 @@ footer h2 { font-size: clamp(3.5rem, 7vw, 7.2rem); line-height: .95; }
   .timeline-stage { padding: 0 0 12px; }
   .timeline-detail { padding: 0; grid-template-columns: 1fr; gap: 14px; }
   .timeline-dot { left: -35px; top: 8px; }
+  .timeline-detail > .evolution-reference { max-width: none; text-align: left; }
+  .profile-intro { margin-top: 60px; padding-bottom: 55px; grid-template-columns: 1fr; gap: 30px; }
   .profile-layout { margin-top: 55px; grid-template-columns: 1fr; }
   .profile-summary { grid-row: auto; }
   .profile-block { padding: 30px 24px 36px; }
