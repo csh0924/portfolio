@@ -15,7 +15,7 @@ const projects = [
     image: "./assets/projects/emuda/emuda-logo.jpg",
     imageAlt: "Emuda Emotion Music Diary 로고",
     imageLabel: "PROJECT IDENTITY",
-    featuredRank: 2,
+    featuredRank: 3,
     featuredLabel: "AI SERVICE",
   },
   {
@@ -48,7 +48,7 @@ const projects = [
     image: "./assets/projects/baram/baram-logo.png",
     imageAlt: "바른글씨 바람 애플리케이션 로고",
     imageLabel: "HANDWRITING ANALYSIS",
-    featuredRank: 1,
+    featuredRank: 2,
     featuredLabel: "FEATURED · CV PIPELINE",
   },
   {
@@ -56,14 +56,20 @@ const projects = [
     order: "04",
     category: "vision",
     type: "AI / Computer Vision",
-    title: "Vision Research 02",
-    summary: "모델 구조와 실험 설계, 성능 개선 과정을 시각적으로 보여줍니다.",
-    tags: ["Dataset pending", "Metrics soon"],
-    stage: "Research",
-    period: "Date pending",
-    role: "AI / Computer Vision",
-    imageLabel: "result image pending",
-    published: false,
+    title: "CSAS",
+    summary: "불완전한 시설물 결함 Label을 전제로 11-class 분류 Logit을 SegFormer의 Hint로 연결하고, Custom Loss를 적용한 Cascade 컴퓨터비전 시스템입니다.",
+    tags: ["PyTorch", "EfficientNet", "SegFormer", "Custom Loss", "Docker · EKS"],
+    stage: "Cascade Vision",
+    period: "2026. 05 — 2026. 06",
+    role: "Team Lead · AI Pipeline Design",
+    link: "./projects/csas.html",
+    repository: "https://github.com/YuYoungKwang/CSAS",
+    image: "./assets/projects/csas/csas-cover.png",
+    imageAlt: "CSAS가 분석하는 균열이 있는 콘크리트 표면",
+    imageLabel: "CRACK ANALYSIS",
+    featuredRank: 1,
+    featuredLabel: "FEATURED · CASCADE VISION",
+    featuredPrimary: true,
   },
   {
     id: "vision-03",
@@ -93,7 +99,7 @@ function projectCard(project) {
     : "";
 
   return `
-    <article class="project-card reveal" data-category="${project.category}">
+    <article class="project-card ${project.featuredPrimary ? "is-primary" : ""} reveal" data-category="${project.category}">
       <div class="project-image ${project.category} ${project.image ? "has-image" : ""}" style="--visual-color: ${project.category === "vision" ? "#1c55ff" : "#77ddd1"}">
         ${image}
         <div class="image-label"><span>${project.featuredLabel}</span><span>${project.imageLabel}</span></div>
@@ -139,12 +145,21 @@ const evolutionStages = [
   },
   {
     order: "04",
-    period: "2025 → · VISION",
+    period: "2025 · VISION",
     category: "vision",
     label: "COMPUTER VISION PIPELINE",
     title: "검출·분리·Segmentation·평가의 결합",
     description: "CRAFT 출력, 기하학 알고리즘, 자소 Segmentation과 후처리를 하나의 분석 서버로 연결하며 컴퓨터비전 파이프라인 설계로 확장했습니다.",
-    reference: "바른글씨: 바람 → NEXT VISION RESEARCH",
+    reference: "바른글씨: 바람",
+  },
+  {
+    order: "05",
+    period: "2026 · SERVING",
+    category: "vision",
+    label: "CASCADE VISION & AI SERVING",
+    title: "불완전한 데이터에서 운영 가능한 AI 시스템으로",
+    description: "분류 Logit과 Segmentation을 결합한 Cascade 구조, Custom Loss, Docker 기반 AI 서버와 EKS 배포를 연결하며 연구 모델을 운영 시스템으로 확장했습니다.",
+    reference: "CSAS",
   },
 ];
 
