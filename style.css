@@ -473,9 +473,12 @@ footer {
 }
 footer .section-index { color: var(--cyan); }
 footer h2 { font-size: clamp(3.5rem, 7vw, 7.2rem); line-height: .95; }
-.footer-links { min-width: 240px; align-self: end; }
-.footer-links a { padding: 18px 0; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.2); font: 500 .72rem var(--mono); text-transform: uppercase; }
+.footer-links { width: min(440px, 38vw); align-self: end; }
+.footer-links a { padding: 18px 0; display: grid; grid-template-columns: 80px 1fr auto; gap: 20px; align-items: center; border-bottom: 1px solid rgba(255,255,255,.2); font: 500 .72rem var(--mono); }
+.footer-links .contact-label { text-transform: uppercase; }
+.footer-links .contact-value { color: rgba(255,255,255,.58); font-size: .66rem; font-weight: 400; text-transform: none; }
 .footer-links a:hover { color: var(--cyan); }
+.footer-links a:hover .contact-value { color: var(--cyan); }
 .copyright, .back-to-top { align-self: end; margin: 80px 0 0; color: rgba(255,255,255,.5); font: 400 .58rem var(--mono); text-transform: uppercase; }
 .back-to-top { justify-self: end; }
 
@@ -557,7 +560,9 @@ footer h2 { font-size: clamp(3.5rem, 7vw, 7.2rem); line-height: .95; }
   .profile-pending { grid-template-columns: 1fr; gap: 45px; }
   .profile-pending { grid-column: auto; }
   footer { min-height: 650px; padding-inline: 24px; grid-template-columns: 1fr; }
-  .footer-links { margin-top: 70px; align-self: start; }
+  .footer-links { width: 100%; margin-top: 70px; align-self: start; }
+  .footer-links a { grid-template-columns: 65px minmax(0, 1fr) auto; gap: 12px; }
+  .footer-links .contact-value { min-width: 0; overflow-wrap: anywhere; }
   .copyright { margin-top: 80px; }
 }
 
