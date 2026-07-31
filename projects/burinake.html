@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260731-12">
+  <link rel="stylesheet" href="./project.css?v=20260731-13">
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -76,7 +76,7 @@
     </section>
 
     <section class="dataset page-shell" aria-labelledby="dataset-title">
-      <div class="section-heading"><p class="section-label">02 / DATASET ENGINEERING</p><div><h2 id="dataset-title">서로 다른 데이터셋을<br>하나의 탐지 문제로</h2><p>Kaggle의 두 화재·연기 데이터셋을 통합하고 상반된 클래스 인덱스를 재정의했다. 기존 증강은 유지하면서 CCTV의 야간·저조도 환경과 색상 정보 손실을 고려한 흑백 변환을 추가했다.</p></div></div>
+      <div class="section-heading"><p class="section-label">02 / DATASET ENGINEERING</p><div><h2 id="dataset-title" class="controlled-lines"><span>서로 다른 데이터셋을</span><span>하나의 탐지 문제로</span></h2><p>Kaggle의 두 화재·연기 데이터셋을 통합하고 상반된 클래스 인덱스를 재정의했다. 기존 증강은 유지하면서 CCTV의 야간·저조도 환경과 색상 정보 손실을 고려한 흑백 변환을 추가했다.</p></div></div>
       <div class="dataset-metrics">
         <div><strong>49,817</strong><span>Train Images</span></div>
         <div><strong>7,991</strong><span>Validation Images</span></div>
@@ -120,7 +120,7 @@
     </section>
 
     <section class="vlm page-shell" aria-labelledby="vlm-title">
-      <div class="section-heading"><p class="section-label">05 / VLM CONTEXT ANALYSIS</p><div><h2 id="vlm-title">한 장의 탐지를<br>시간과 상황으로 확장</h2><p>Azure AI Foundry의 <code>gpt-5-mini</code>에 탐지 시점 전후를 포함한 총 5개 연속 프레임, YOLO의 클래스·점수·Bounding Box와 CCTV 위치·시간·ID를 함께 전달했다.</p></div></div>
+      <div class="section-heading"><p class="section-label">05 / VLM CONTEXT ANALYSIS</p><div><h2 id="vlm-title" class="controlled-lines"><span>한 장의 탐지를</span><span>시간과 상황으로 확장</span></h2><p>Azure AI Foundry의 <code>gpt-5-mini</code>에 탐지 시점 전후를 포함한 총 5개 연속 프레임, YOLO의 클래스·점수·Bounding Box와 CCTV 위치·시간·ID를 함께 전달했다.</p></div></div>
       <div class="vlm-contract">
         <div><span>INPUT / 01</span><strong>Five-frame Sequence</strong><p>탐지 시점 전후를 포함한 총 5개 연속 프레임의 변화</p></div>
         <div><span>INPUT / 02</span><strong>YOLO Output</strong><p>Fire·Smoke Label, Confidence, Bounding Box</p></div>
