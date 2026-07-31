@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260729-5">
+  <link rel="stylesheet" href="./project.css?v=20260731-5">
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -23,7 +23,7 @@
   <main id="main">
     <section class="project-hero">
       <div class="hero-meta">
-        <span>CASE 01</span>
+        <span>PROJECT 01</span>
         <span>BACKEND · AI PIPELINE</span>
         <span>2024. 03 — 2024. 06</span>
       </div>
@@ -190,7 +190,7 @@
             <h3>BERT 감정 분석</h3>
             <p>
               한국어 일기 텍스트를 행복·분노·놀람·슬픔으로 분류하고 감정별 확률 반환.
-              모호하거나 복합적인 감정 표현에서 분류 정확도가 저하되는 한계 확인.
+              하나의 문장에 여러 감정이 섞여 있어도 네 개 감정 범주로 단순화해야 하는 표현상의 한계 확인.
             </p>
             <p class="result-note"><span>PROBABILITY ORDER</span>[행복, 분노, 놀람, 슬픔]</p>
           </div>
@@ -213,18 +213,18 @@
     </section>
 
     <section class="learning page-shell" aria-labelledby="learning-title">
-      <p class="section-label">06 / LEARNING</p>
+      <p class="section-label">06 / REVIEW</p>
       <div class="learning-layout">
-        <h2 id="learning-title">Technical Review<br>&amp; Project Significance</h2>
+        <h2 id="learning-title">Technical Review<br>&amp; Significance</h2>
         <div>
           <p>
-            BERT와 ChatGPT API를 연결한 초기 단계의 AI 활용 프로젝트.
-            정량적 모델 평가가 충분하지 않았으며, 복합 감정 입력에서 분류 성능이 저하되는 한계 존재.
+            사전에 구축된 BERT 감정 분석 서버와 ChatGPT API를 Backend에서 연결한 초기 단계의 AI 활용 프로젝트다. 직접 모델을 학습하거나 정량적으로 평가하지 않았으며, 복합적인 감정을 네 개 범주로 단순화한 결과가 음악 추천 전체에 영향을 주는 한계가 있었다. 또한 Prompt로 응답 형식을 제한했기 때문에 형식 안정성을 서버에서 보장하지 못했고, BERT·ChatGPT·Spotify의 순차 호출은 지연과 장애 지점을 늘렸다.
           </p>
           <p>
-            첫 팀 프로젝트를 통해 API 계약, 역할 분담, 클라이언트 연동,
-            외부 AI 서비스 오케스트레이션 및 서버 배포 과정 경험.
-            후속 AI·컴퓨터비전 프로젝트로 확장하기 위한 개발 기반 확보.
+            첫 팀 프로젝트에서 분석 모델의 출력을 단순히 화면에 표시하는 데 그치지 않고, 감정 점수와 사용자 취향을 다음 API의 입력으로 변환해 최종 추천 결과까지 연결했다. 이 과정에서 API 계약, DTO, 클라이언트 연동, 외부 서비스 오케스트레이션과 EC2 배포를 경험하며 AI 결과를 서비스 데이터로 다루는 Backend 기반을 확보했다.
+          </p>
+          <p>
+            EMUDA에서 기성 모델과 외부 API를 연결하는 방법을 익힌 뒤, Itinera에서는 외부 데이터를 자체 서비스 자산으로 축적하는 구조를 다뤘고 이후 바람 프로젝트부터는 데이터셋과 모델 학습 과정을 직접 구축하는 단계로 확장했다. 따라서 이 프로젝트의 의미는 모델 연구 성과보다 AI 기능이 실제 사용자 흐름 안에서 작동하도록 만든 첫 경험에 있다.
           </p>
         </div>
       </div>
@@ -247,7 +247,7 @@
 
     <nav class="project-navigation" aria-label="프로젝트 이동">
       <a href="../index.html#work"><span>BACK TO</span>All projects</a>
-      <div><span>NEXT PROJECT</span>Itinera</div>
+      <a href="./itinera.html"><span>NEXT PROJECT</span>Itinera</a>
     </nav>
   </main>
 
