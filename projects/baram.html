@@ -31,7 +31,7 @@
           <p>Korean Handwriting Analysis</p>
           <h1>바른글씨:<br>바람</h1>
         </div>
-        <p class="hero-summary">손글씨 문장을 문자와 자소 단위로 분해하고, 형태·위치·자간·크기·기울기를 분석하여 맞춤형 교정 피드백을 제공하는 딥러닝 기반 서비스.</p>
+        <p class="hero-summary">손글씨 문장을 문자와 자소 단위로 분해하고, 형태·위치·자간·크기·기울기를 분석하여 맞춤형 교정 피드백을 제공하는 딥러닝·기하학적 후처리 기반 서비스.</p>
       </div>
       <figure class="hero-image baram-hero-image">
         <img src="../assets/projects/baram/baram-logo.png" alt="바른글씨 바람 애플리케이션 로고">
@@ -90,7 +90,7 @@
         <div><h2 id="contribution-title">Owned Scope</h2><p>데이터셋 구축, FPN 학습, 문자 분리 후처리와 Python 분석 서버를 담당했습니다.</p></div>
       </div>
       <div class="contribution-grid">
-        <article><span>01</span><h3>데이터셋 구축</h3><p>실사용 한글 2,841자와 6개 폰트, 3종 Augmentation을 조합해 51,138개의 Label 데이터 자동 생성.</p></article>
+        <article><span>01</span><h3>데이터셋 구축</h3><p>실사용 한글 2,841자와 6개 폰트, 3종 Augmentation을 조합해 자소 단위 픽셀 레이블을 포함한 합성 이미지 51,138장 생성.</p></article>
         <article><span>02</span><h3>FPN 모델 학습</h3><p>한글 구조를 6개 유형으로 분류하고 유형별 FPN 모델을 학습하여 초성·중성·종성 Segmentation 수행.</p></article>
         <article><span>03</span><h3>손글씨 분석 설계</h3><p>CRAFT Character Region Score의 가중 중심 추출, 문장 기울기·자간 분석, Voronoi 기반 문자 분리와 연결 성분 Reclaim 후처리 구현.</p></article>
         <article><span>04</span><h3>Python 분석 서버</h3><p>전처리부터 점수 생성까지 분석 모듈을 연속 실행하고 결과 JSON과 이미지 경로를 서버에 반환하는 파이프라인 관리.</p></article>
@@ -137,7 +137,7 @@
     <section class="flow page-shell" aria-labelledby="craft-title">
       <div class="section-heading">
         <p class="section-label">05 / CRAFT DETECTION</p>
-        <div><h2 id="craft-title">문자 검출 모델을<br>중심점 추출기로 활용</h2><p>CRAFT의 본래 단어 영역 검출 결과를 그대로 사용하지 않고, Character Region Score에서 문자 영역 후보를 추출한 뒤 각 영역의 가중 중심을 글자 기준점으로 사용했다.</p></div>
+        <div><h2 id="craft-title">문자 검출 모델을<br>중심점 추출기로 활용</h2><p>CRAFT의 일반적인 텍스트 영역 검출 결과를 그대로 사용하지 않고, Character Region Score에서 문자 영역 후보를 추출한 뒤 각 영역의 가중 중심을 글자 기준점으로 사용했다.</p></div>
       </div>
       <figure class="media-frame craft-frame">
         <img src="../assets/projects/baram/baram-craft-centers.png" alt="손글씨 위에 시각화한 CRAFT 문자 중심 확률 맵">
@@ -191,7 +191,7 @@
         <article><span>01 / TILT</span><h3>문장 기울기</h3><p>인접 문자 중심을 잇는 각도를 평가한다. 1° 이하는 감점하지 않고, 30° 이상은 해당 구간을 0점으로 처리하며 그 사이는 비선형 감점한다.</p></article>
         <article><span>02 / SPACE</span><h3>자간 일관성</h3><p>일반 자간의 중앙값을 기준으로 상대 오차를 계산한다. 띄어쓰기 구간은 일반 자간의 1.3배를 기대값으로 사용한다.</p></article>
         <article><span>03 / SIZE</span><h3>문자 크기</h3><p>문자 Bounding Box의 폭과 높이를 각각 50%로 평가하고, 문장 내 중앙값 대비 상대 오차로 크기 일관성을 측정한다.</p></article>
-        <article><span>04 / JAMO SHAPE</span><h3>자소 형태</h3><p>선택한 인쇄체와 손글씨의 초·중·종성 Pixel 면적 비율을 비교해 형태 점수를 계산한다.</p></article>
+        <article><span>04 / JAMO SHAPE</span><h3>자소 형태</h3><p>선택한 인쇄체와 손글씨의 자소별 픽셀 수와 중첩 영역을 비교해 초·중·종성 형태의 유사도를 평가한다.</p></article>
         <article><span>05 / JAMO POSITION</span><h3>자소 상대 위치</h3><p>초성–중성, 중성–종성 중심 벡터의 각도와 길이를 기준 인쇄체와 비교해 공간 배치 점수를 계산한다.</p></article>
       </div>
       <div class="score-formula">
