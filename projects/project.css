@@ -91,6 +91,9 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 .how-it-works li > span { color: var(--blue); font: 500 .59rem var(--mono); }
 .how-it-works h4 { margin: 42px 0 14px; font-size: 1rem; letter-spacing: -.025em; }
 .how-it-works li p { margin: 0; color: var(--ink-soft); font-size: .75rem; line-height: 1.75; }
+.demo-scope { margin-top: 24px; padding: 24px 28px; display: grid; grid-template-columns: 160px 1fr; gap: 24px; border: 1px solid var(--line); background: rgba(255,255,255,.45); }
+.demo-scope strong { color: var(--blue); font: 500 .62rem var(--mono); letter-spacing: .1em; }
+.demo-scope p { margin: 0; color: var(--ink-soft); font-size: .76rem; line-height: 1.75; }
 .project-definition { margin-top: 85px; padding: 32px; display: grid; grid-template-columns: .6fr 1.4fr; gap: 50px; color: #fff; background: var(--ink); }
 .project-definition > span { color: var(--cyan); font: 500 .59rem var(--mono); letter-spacing: .08em; }
 .project-definition p { margin: 0; color: #a9b3c1; font-size: .84rem; line-height: 1.85; }
@@ -378,6 +381,7 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .how-it-works-heading { align-items: flex-start; flex-direction: column; }
   .how-it-works ol { margin-top: 25px; grid-template-columns: 1fr; }
   .how-it-works li { min-height: 180px; }
+  .demo-scope { grid-template-columns: 1fr; gap: 12px; padding: 22px; }
   .project-definition { margin-top: 65px; grid-template-columns: 1fr; gap: 22px; }
   .fact-grid div { min-height: 115px; }
   .fact-grid dd { margin-top: 28px; }
