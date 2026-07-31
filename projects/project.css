@@ -91,6 +91,10 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 .how-it-works li > span { color: var(--blue); font: 500 .59rem var(--mono); }
 .how-it-works h4 { margin: 42px 0 14px; font-size: 1rem; letter-spacing: -.025em; }
 .how-it-works li p { margin: 0; color: var(--ink-soft); font-size: .75rem; line-height: 1.75; }
+.project-definition { margin-top: 85px; padding: 32px; display: grid; grid-template-columns: .6fr 1.4fr; gap: 50px; color: #fff; background: var(--ink); }
+.project-definition > span { color: var(--cyan); font: 500 .59rem var(--mono); letter-spacing: .08em; }
+.project-definition p { margin: 0; color: #a9b3c1; font-size: .84rem; line-height: 1.85; }
+.project-definition strong { color: #fff; font-weight: 600; }
 
 .section-heading { margin-top: 0; grid-template-columns: .45fr 1.55fr; align-items: start; }
 .section-heading > div { display: grid; grid-template-columns: 1.15fr .85fr; gap: 60px; align-items: end; }
@@ -135,6 +139,9 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 .baram-comparison { margin-top: 70px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .baram-comparison .media-frame { margin: 0; }
 .baram-comparison img { width: 100%; display: block; }
+.baram-service-preview { margin-top: 70px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 24px; align-items: start; }
+.baram-service-preview .media-frame { margin: 0; }
+.baram-service-preview img { width: 100%; display: block; }
 .contribution-grid h3 small { display: block; margin-top: 8px; color: var(--blue); font: 500 .58rem var(--mono); letter-spacing: .04em; }
 .research-grid { margin-top: 70px; }
 .craft-frame { padding: clamp(24px, 5vw, 70px); background: #11192a; }
@@ -319,6 +326,7 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .decision-grid h3 { min-height: 0; }
   .how-it-works ol { grid-template-columns: repeat(2, 1fr); }
   .baram-comparison { grid-template-columns: 1fr; }
+  .baram-service-preview { grid-template-columns: 1fr 1fr; }
   .craft-notes { grid-template-columns: 1fr; }
   .dataset-metrics { grid-template-columns: 1fr 1fr; }
   .scoring-grid article, .scoring-grid article:nth-child(n+4) { grid-column: span 3; }
@@ -367,6 +375,7 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .how-it-works-heading { align-items: flex-start; flex-direction: column; }
   .how-it-works ol { margin-top: 25px; grid-template-columns: 1fr; }
   .how-it-works li { min-height: 180px; }
+  .project-definition { margin-top: 65px; grid-template-columns: 1fr; gap: 22px; }
   .fact-grid div { min-height: 115px; }
   .fact-grid dd { margin-top: 28px; }
   .media-frame { margin-top: 50px; }
@@ -398,6 +407,7 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .itinera-steps li p { grid-column: auto; }
   .evaluation-notes { grid-template-columns: 1fr; }
   .dataset-gallery .dataset-sample { grid-column: auto; }
+  .baram-service-preview { grid-template-columns: 1fr; }
   .dataset-gallery img, .dataset-gallery .dataset-sample img { height: auto; min-height: 240px; }
   .scoring-grid { grid-template-columns: 1fr; }
   .scoring-grid article, .scoring-grid article:nth-child(n+4) { grid-column: auto; min-height: 220px; }
