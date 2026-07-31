@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Google Places와 LLM 기반 감성 태그를 결합한 맞춤형 여행 일정 서비스 Itinera 개발 기록입니다.">
+  <meta name="theme-color" content="#f5f6f2">
+  <title>Itinera | 최세훈 Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./project.css?v=20260731-4">
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <header class="project-header">
+    <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All projects</a>
+    <a class="wordmark" href="../index.html">CSH <span>/ Visual Research Archive</span></a>
+    <a class="repo-link" href="https://github.com/ssu-capstone-Itinera" target="_blank" rel="noreferrer">GitHub ↗</a>
+  </header>
+
+  <main id="main">
+    <section class="project-hero itinera-project-hero">
+      <div class="hero-meta"><span>PROJECT 02</span><span>BACKEND · AI INTEGRATION</span><span>2025. 03 — 2025. 06</span></div>
+      <div class="hero-title">
+        <div><p>Personalized Travel Planning</p><h1>Itinera</h1></div>
+        <p class="hero-summary">사용자의 지역과 취향 태그를 기반으로 여행지를 추천하고, 원하는 장소를 직접 선택해 지도 위에서 일정을 구성하는 맞춤형 여행 계획 서비스.</p>
+      </div>
+      <figure class="hero-image itinera-hero-image">
+        <img src="../assets/projects/itinera/itinera-cover.jpg" alt="추천 여행지 카드와 일정 생성 기능을 제공하는 Itinera 메인 화면">
+        <figcaption><span>SERVICE OVERVIEW</span><span>PLACE DISCOVERY · PERSONALIZED ITINERARY</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="overview page-shell" aria-labelledby="overview-title">
+      <p class="section-label">00 / OVERVIEW</p>
+      <div class="overview-intro">
+        <h2 id="overview-title">외부 장소 데이터를<br>서비스 자산으로 전환</h2>
+        <p>Google Places의 위치·업종 정보에 리뷰 기반 감성 태그를 결합하고, 수집한 장소를 자체 DB와 Elasticsearch 검색 데이터로 축적했다. 사용자는 자동 생성된 일정을 그대로 수용하는 대신 추천 장소를 선택하고 순서와 경로를 직접 조정할 수 있다.</p>
+      </div>
+      <dl class="fact-grid">
+        <div><dt>Period</dt><dd>2025. 03<br>— 2025. 06</dd></div>
+        <div><dt>Team</dt><dd>4명<br>Backend 2명</dd></div>
+        <div><dt>Owned Role</dt><dd>Google Places API<br>Place Domain<br>Trip Creation</dd></div>
+        <div><dt>Core Stack</dt><dd>Spring Boot<br>MySQL · Elasticsearch<br>Google Places API</dd></div>
+      </dl>
+    </section>
+
+    <section class="contribution page-shell" aria-labelledby="scope-title">
+      <div class="section-heading"><p class="section-label">01 / CONTRIBUTION</p><div><h2 id="scope-title">Owned Scope</h2><p>외부 장소 수집부터 일정 생성까지 담당한 Backend 범위.</p></div></div>
+      <div class="contribution-grid">
+        <article><span>01</span><h3>Google Places 연동</h3><p>사용자의 지역과 Type·Keyword 조합을 Google Places 요청으로 변환하고, 장소 기본 정보와 상세 정보를 서비스 데이터 구조로 가공.</p></article>
+        <article><span>02</span><h3>Place Domain 구현</h3><p>장소의 위치·평점·운영시간·리뷰와 카테고리별 태그를 다루는 API 및 JPA 기반 Domain 로직 구현.</p></article>
+        <article><span>03</span><h3>맞춤 여행지 기능</h3><p>입력 지역과 관광명소·식당·카페 취향을 기준으로 추천 결과를 조회하고, DB에 없는 장소를 수집하는 흐름 구현.</p></article>
+        <article><span>04</span><h3>여행 일정 생성</h3><p>사용자가 선택한 장소와 방문 순서를 일자별 Trip으로 저장하고, 지도 기반 일정 설계 기능과 Backend 데이터를 연결.</p></article>
+      </div>
+    </section>
+
+    <section class="visual-section page-shell" aria-labelledby="architecture-title">
+      <div class="section-heading"><p class="section-label">02 / SYSTEM ARCHITECTURE</p><div><h2 id="architecture-title">검색·수집·저장을 분리한<br>Backend 구조</h2><p>React Client와 Spring Boot API, MySQL·Elasticsearch·Redis, Google Maps Platform과 LLM API를 기능별 Module로 연결했다.</p></div></div>
+      <figure class="media-frame media-light itinera-diagram">
+        <img src="../assets/projects/itinera/itinera-architecture.png" alt="Frontend, Backend 모듈, 데이터베이스와 외부 API로 구성된 Itinera 시스템 구조도">
+        <figcaption><span>SYSTEM ARCHITECTURE</span><span>SPRING BOOT · DATA LAYER · EXTERNAL API</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="flow page-shell" aria-labelledby="recommendation-title">
+      <div class="section-heading"><p class="section-label">03 / RECOMMENDATION FLOW</p><div><h2 id="recommendation-title">DB 우선 검색과<br>필요한 순간의 데이터 확장</h2><p>모든 요청마다 외부 API를 호출하지 않고 자체 DB를 먼저 검색한다. 결과가 부족한 태그에 대해서만 Google Places를 조회하고, 분석·저장한 뒤 다시 검색한다.</p></div></div>
+      <figure class="media-frame media-light itinera-flow-frame">
+        <img src="../assets/projects/itinera/itinera-recommendation-flow.png" alt="사용자 취향 입력부터 DB 검색, Google Places 조회, LLM 태그 분석과 재검색으로 이어지는 추천 흐름">
+        <figcaption><span>DATA EXPANSION LOOP</span><span>SEARCH → FETCH → TAG → STORE → RE-SEARCH</span></figcaption>
+      </figure>
+      <ol class="model-evolution itinera-steps">
+        <li><span>01</span><div><h3>자체 데이터 우선 검색</h3><p>입력 지역과 API·감성 태그를 Elasticsearch Query로 변환해 카테고리별 여행지를 조회.</p></div></li>
+        <li><span>02</span><div><h3>부족한 조건만 외부 조회</h3><p>결과가 충분하지 않은 태그를 Type·Keyword 조합으로 변환해 Google Places Nearby Search 호출.</p></div></li>
+        <li><span>03</span><div><h3>장소 정보 확장</h3><p>정형 장소 정보와 리뷰, 검색 태그 및 LLM이 선택한 감성 태그를 하나의 Place 정보로 구성.</p></div></li>
+        <li><span>04</span><div><h3>저장 후 재검색</h3><p>새 장소를 MySQL과 검색 문서에 축적하고 동일 추천 흐름으로 돌아가 결과 목록 생성.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="research page-shell" aria-labelledby="tag-title">
+      <div class="section-heading"><p class="section-label">04 / TAG DATA DESIGN</p><div><h2 id="tag-title">정형 분류를 넘어<br>여행지의 분위기까지</h2><p>Google의 포괄적인 Type만으로는 산·바다 같은 세부 유형이나 낭만적·한적한 분위기를 구분하기 어려웠다. 검색용 Type·Keyword와 제한된 감성 태그 집합을 함께 설계했다.</p></div></div>
+      <div class="decision-grid research-grid">
+        <article><p class="decision-index">DESIGN / 01</p><h3>Type + Keyword 조합</h3><dl><div><dt>Problem</dt><dd><code>natural_feature</code> 하나에 산과 바다가 함께 포함되는 광범위한 분류.</dd></div><div><dt>Approach</dt><dd>카테고리별로 효과적인 Type·Keyword 조합을 사전 정의해 장소 검색 정확도 보완.</dd></div></dl></article>
+        <article><p class="decision-index">DESIGN / 02</p><h3>리뷰 기반 감성 태그</h3><dl><div><dt>Problem</dt><dd>위치·업종만으로는 사용자가 기대하는 여행지의 분위기를 표현하기 어려움.</dd></div><div><dt>Approach</dt><dd>장소 설명과 리뷰를 LLM으로 분석해 한적한·낭만적인·활발한 등의 태그와 연결.</dd></div></dl></article>
+        <article><p class="decision-index">DESIGN / 03</p><h3>제한된 태그 Vocabulary</h3><dl><div><dt>Problem</dt><dd>LLM의 자유 생성은 태그 수를 무한히 늘리고 비정상적인 검색어를 만들 수 있음.</dd></div><div><dt>Approach</dt><dd>사전 정의된 태그 집합에서만 선택하도록 제한해 검색 일관성과 Elasticsearch 구조 유지.</dd></div></dl></article>
+      </div>
+    </section>
+
+    <section class="results page-shell" aria-labelledby="service-title">
+      <div class="section-heading"><p class="section-label">05 / SERVICE FLOW</p><div><h2 id="service-title">추천 결과를<br>사용자 주도 일정으로</h2><p>취향을 입력하고 추천 장소를 선택한 뒤, 지도에서 방문 순서와 이동 경로를 직접 조정한다.</p></div></div>
+      <div class="result-grid">
+        <article class="result-card"><figure><img src="../assets/projects/itinera/itinera-preference-tags.png" alt="관광지 식당 카페의 세부 취향 태그를 선택하는 Itinera 화면"></figure><div><span class="result-index">STEP / 01</span><h3>세분화된 취향 입력</h3><p>관광지 유형과 분위기, 식당 종류, 카페 편의 요소를 카테고리별 태그로 선택한다.</p></div></article>
+        <article class="result-card"><figure><img src="../assets/projects/itinera/itinera-place-selection.jpg" alt="지도 위에서 추천 여행지를 확인하고 선택하는 Itinera 일정 설계 화면"></figure><div><span class="result-index">STEP / 02</span><h3>장소 선택과 순서 조정</h3><p>추천 목록을 그대로 확정하지 않고 원하는 장소를 선택하거나 직접 검색해 일정에 추가한다.</p></div></article>
+        <article class="result-card"><figure><img src="../assets/projects/itinera/itinera-route-result.jpg" alt="선택한 여행지의 이동 경로와 상세 일정을 표시하는 Itinera 결과 화면"></figure><div><span class="result-index">STEP / 03</span><h3>경로 생성과 일정 저장</h3><p>Directions API로 장소 간 경로·거리·소요 시간을 계산하고 일자별 Trip으로 저장한다.</p></div></article>
+      </div>
+    </section>
+
+    <section class="evaluation page-shell" aria-labelledby="evaluation-title">
+      <div class="section-heading"><p class="section-label">06 / EVALUATION</p><div><h2 id="evaluation-title">높은 조건 반영률과<br>낮은 추천 Coverage</h2><p>25개 지역·태그 조합으로 추천 기능을 평가했다. 조건에 맞는 결과의 품질은 높았지만, 엄격한 일치 방식 때문에 결과 자체를 반환하지 못하는 경우가 많았다.</p></div></div>
+      <div class="metric-panel itinera-metrics">
+        <div><span>SUCCESS RATE</span><strong>52%</strong></div>
+        <div><span>TAG REFLECTION</span><strong>92%</strong></div>
+        <div><span>SUBJECTIVE FIT</span><strong>4.4/5</strong></div>
+        <p><strong>25 Test Cases</strong><br>태그 반영률과 감성 점수는 추천에 성공한 케이스만을 대상으로 측정했다. 강릉·부산·전주·제주·여수에서도 결과 반환을 확인했다.</p>
+      </div>
+      <div class="evaluation-notes">
+        <article><span>LIMIT / 01</span><h3>Strict Match의 낮은 Coverage</h3><p>태그와 정확히 일치하는 장소가 없으면 추천이 실패했다. 인기 장소 보조 추천과 유사 태그 검색이 필요하다.</p></article>
+        <article><span>LIMIT / 02</span><h3>카페 추천의 불안정성</h3><p>일부 카페 결과는 입력 태그와 연관성이 낮았다. 데이터 보강과 카테고리별 Filtering 재검토가 필요하다.</p></article>
+        <article><span>LIMIT / 03</span><h3>과도하게 넓은 지역 범위</h3><p>입력 지역에서 먼 장소까지 포함되는 사례가 있어 거리 반경을 사용자가 조정하는 기능이 필요하다.</p></article>
+      </div>
+    </section>
+
+    <section class="learning page-shell" aria-labelledby="review-title">
+      <p class="section-label">07 / REVIEW</p>
+      <div class="learning-layout">
+        <h2 id="review-title">Technical Review<br>&amp; Significance</h2>
+        <div>
+          <p>첫 팀 프로젝트인 EMUDA에서 API와 AI 응답을 하나의 서비스 흐름으로 연결했다면, Itinera에서는 외부 장소 데이터를 지속적으로 축적하고 다시 검색에 활용하는 Backend 구조로 확장했다. Google Places 결과를 일회성 응답으로 소비하지 않고 Place Domain과 자체 데이터로 변환하면서 데이터 모델과 API 경계의 중요성을 경험했다.</p>
+          <p>사용자 취향 입력, 장소 추천, 선택과 일정 저장으로 이어지는 기능을 구현하며 Spring Boot 기반 Backend가 화면의 개별 기능을 넘어 서비스 전체 상태를 어떻게 유지하는지 이해했다. 특히 Google API 호출 결과와 내부 Entity를 분리하고 Trip 생성 흐름을 연결하며 계층 간 DTO와 Transaction 설계를 구체화했다.</p>
+          <p>엄격한 태그 일치는 성공한 추천의 조건 반영률을 높였지만 전체 성공률을 낮추었다. 정답 조건을 강화하는 것만으로 좋은 추천이 완성되지 않으며, 정확도와 Coverage 사이의 균형을 평가해야 한다는 점을 확인했다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="stack page-shell" aria-labelledby="stack-title">
+      <p class="section-label">08 / STACK</p>
+      <h2 id="stack-title">Tools used</h2>
+      <ul><li>Java</li><li>Spring Boot</li><li>Spring Data JPA</li><li>MySQL</li><li>Elasticsearch</li><li>Redis</li><li>Google Places · Maps</li><li>OpenAI · Gemini API</li></ul>
+    </section>
+  </main>
+  <footer><span>© <span id="year"></span> Choi Se Hoon</span><a href="../index.html#work">Back to archive ↑</a></footer>
+  <script>document.querySelector("#year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
