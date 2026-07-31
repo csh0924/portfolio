@@ -3,14 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="백엔드 개발 경험에서 출발해 컴퓨터비전 연구로 확장해 온 최세훈의 포트폴리오입니다.">
+  <meta name="description" content="Backend 기반 위에서 데이터, Computer Vision 모델, AI Serving과 Multimodal Pipeline을 연결하는 최세훈의 포트폴리오입니다.">
   <meta name="theme-color" content="#f5f6f2">
+  <link rel="canonical" href="https://csh0924.github.io/portfolio/">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="Choi Se Hoon Portfolio">
+  <meta property="og:title" content="최세훈 | AI · Computer Vision Engineer">
+  <meta property="og:description" content="Backend 기반에서 Computer Vision과 Multimodal AI System 설계까지 확장해 온 프로젝트와 기술 역량을 소개합니다.">
+  <meta property="og:url" content="https://csh0924.github.io/portfolio/">
+  <meta property="og:image" content="https://csh0924.github.io/portfolio/assets/projects/burinake/burinake-cover.png">
+  <meta property="og:image:alt" content="화재와 연기를 탐지한 Burinake Computer Vision 결과">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="최세훈 | AI · Computer Vision Engineer">
+  <meta name="twitter:description" content="데이터, 모델, Backend와 Serving을 연결하는 AI 개발 포트폴리오">
+  <meta name="twitter:image" content="https://csh0924.github.io/portfolio/assets/projects/burinake/burinake-cover.png">
   <title>최세훈 | Computer Vision & AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=20260731-7">
-  <script src="./script.js?v=20260731-4" defer></script>
+  <link rel="stylesheet" href="./style.css?v=20260731-8">
+  <script src="./script.js?v=20260731-5" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "최세훈",
+    "alternateName": "Choi Se Hoon",
+    "url": "https://csh0924.github.io/portfolio/",
+    "email": "mailto:csh000924@gmail.com",
+    "sameAs": ["https://github.com/csh0924"],
+    "jobTitle": "AI / Computer Vision Engineer",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "숭실대학교"
+    },
+    "knowsAbout": [
+      "Computer Vision",
+      "Deep Learning",
+      "Object Detection",
+      "Semantic Segmentation",
+      "Multimodal AI",
+      "AI Serving",
+      "Backend Development"
+    ],
+    "subjectOf": [
+      {"@type": "CreativeWork", "name": "Burinake", "url": "https://csh0924.github.io/portfolio/projects/burinake.html"},
+      {"@type": "CreativeWork", "name": "CSAS", "url": "https://csh0924.github.io/portfolio/projects/csas.html"},
+      {"@type": "CreativeWork", "name": "바른글씨: 바람", "url": "https://csh0924.github.io/portfolio/projects/baram.html"},
+      {"@type": "CreativeWork", "name": "Itinera", "url": "https://csh0924.github.io/portfolio/projects/itinera.html"},
+      {"@type": "CreativeWork", "name": "Emuda", "url": "https://csh0924.github.io/portfolio/projects/emuda.html"}
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -85,12 +131,25 @@
       </header>
 
       <div class="filter-bar" role="group" aria-label="프로젝트 필터">
-        <button class="filter-button is-active" type="button" data-filter="all">All <span>00</span></button>
-        <button class="filter-button" type="button" data-filter="vision">AI / Vision <span>00</span></button>
-        <button class="filter-button" type="button" data-filter="backend">Backend <span>00</span></button>
+        <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All <span>00</span></button>
+        <button class="filter-button" type="button" data-filter="vision" aria-pressed="false">AI / Vision <span>00</span></button>
+        <button class="filter-button" type="button" data-filter="backend" aria-pressed="false">Backend <span>00</span></button>
       </div>
 
-      <div class="project-grid" id="project-grid" aria-live="polite"></div>
+      <div class="project-grid" id="project-grid" aria-live="polite">
+        <noscript>
+          <div class="noscript-projects">
+            <p>JavaScript를 사용할 수 없는 환경에서는 아래 링크에서 프로젝트 상세 내용을 확인할 수 있습니다.</p>
+            <ul>
+              <li><a href="./projects/burinake.html">Burinake — 화재·연기 Detection과 VLM을 결합한 AI 안전 관리 서비스</a></li>
+              <li><a href="./projects/csas.html">CSAS — 시설물 결함 Classification·Segmentation Cascade</a></li>
+              <li><a href="./projects/baram.html">바른글씨: 바람 — 한글 손글씨 자소 Segmentation 및 교정 서비스</a></li>
+              <li><a href="./projects/itinera.html">Itinera — 장소 데이터와 감성 태그 기반 맞춤형 여행 일정 서비스</a></li>
+              <li><a href="./projects/emuda.html">Emuda — 감정 분석 기반 음악 추천 서비스</a></li>
+            </ul>
+          </div>
+        </noscript>
+      </div>
     </section>
 
     <section class="journey section-shell" id="journey" aria-labelledby="journey-title">

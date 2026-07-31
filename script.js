@@ -24,7 +24,7 @@ const projects = [
     category: "backend",
     type: "Backend",
     title: "Itinera",
-    summary: "Google Places의 정형 장소 정보와 리뷰 기반 감성 태그를 자체 데이터로 축적하고, 사용자가 직접 여행지를 선택해 일정을 구성하는 맞춤형 여행 서비스입니다.",
+    summary: "Google Places의 장소 정보와 리뷰 기반 취향 태그를 자체 데이터로 축적하고, 이를 기반으로 사용자가 여행지를 선택해 일정을 구성하는 맞춤형 여행 서비스입니다.",
     tags: ["Spring Boot", "MySQL", "Elasticsearch", "Google Places API", "LLM Tagging"],
     stage: "Data-backed Service",
     period: "2025. 03 — 2025. 06",
@@ -43,16 +43,17 @@ const projects = [
     category: "vision",
     type: "AI / Computer Vision",
     title: "바른글씨: 바람",
-    summary: "CRAFT와 기하학적 후처리로 손글씨 문자를 분리하고, 직접 생성한 51,138개 데이터로 학습한 FPN을 통해 초·중·종성을 분석하는 한글 손글씨 교정 서비스입니다.",
-    tags: ["PyTorch", "CRAFT", "FPN", "OpenCV", "51,138 Pixel-labeled Synthetic Images"],
+    summary: "한글 손글씨를 문자와 자소 단위로 분석해 교정 피드백을 제공하는 컴퓨터비전 서비스입니다. CRAFT·기하학적 후처리와 직접 학습한 FPN을 하나의 분석 Pipeline으로 구성했습니다.",
+    tags: ["PyTorch", "CRAFT", "FPN", "OpenCV"],
+    metric: "DATASET · 51,138 IMAGES",
     stage: "First AI Pipeline",
     period: "2025. 09 — 2025. 12",
     role: "CV Pipeline · Dataset Engineering",
     link: "./projects/baram.html",
     repository: "https://github.com/csh0924/Baram_Handwritting_Analysis",
-    image: "./assets/projects/baram/baram-logo.png",
-    imageAlt: "바른글씨 바람 애플리케이션 로고",
-    imageLabel: "HANDWRITING ANALYSIS",
+    image: "./assets/projects/baram/baram-segmentation-result.png",
+    imageAlt: "손글씨 문장의 초성 중성 종성을 Pixel 단위로 구분한 바른글씨 바람 Segmentation 결과",
+    imageLabel: "JAMO SEGMENTATION",
     featuredRank: 3,
     featuredLabel: "FEATURED · CV PIPELINE",
   },
@@ -62,8 +63,8 @@ const projects = [
     category: "vision",
     type: "AI / Computer Vision",
     title: "CSAS",
-    summary: "불완전한 시설물 결함 Label을 전제로 11-class 분류 Logit을 SegFormer의 Hint로 연결하고, Custom Loss를 적용한 Cascade 컴퓨터비전 시스템입니다.",
-    tags: ["PyTorch", "EfficientNet", "SegFormer", "Custom Loss", "Docker · EKS"],
+    summary: "시설물 이미지에서 결함의 종류와 영역을 함께 판별하는 Cascade 컴퓨터비전 시스템입니다. 불완전한 Label을 보완하기 위해 분류 Logit을 SegFormer의 Hint로 활용하고 Custom Loss를 설계했습니다.",
+    tags: ["PyTorch", "EfficientNet", "SegFormer", "Custom Loss", "Docker", "AWS EKS"],
     stage: "Cascade Vision",
     period: "2026. 05 — 2026. 06",
     role: "Team Lead · AI Pipeline Design",
@@ -81,8 +82,8 @@ const projects = [
     category: "vision",
     type: "AI / Multimodal Vision",
     title: "Burinake",
-    summary: "YOLOv12의 실시간 탐지와 VLM의 맥락 이해를 조건부 Cascade로 결합해 화재·연기 후보의 위험도와 주변 상황을 분석하는 AI 안전 관리 서비스입니다.",
-    tags: ["YOLOv12", "DETR", "VLM", "Azure AI Foundry", "Docker · AKS"],
+    summary: "CCTV 영상에서 화재·연기 후보를 실시간 탐지하고 VLM으로 실제 위험 상황인지 재판단하는 AI 안전 관리 서비스입니다. YOLO와 VLM을 조건부 Cascade로 연결해 정확도·지연·비용을 함께 고려했습니다.",
+    tags: ["YOLOv12", "DETR", "VLM", "Azure AI Foundry", "Docker", "Azure AKS"],
     stage: "Multimodal Vision",
     period: "2026. 06 — 2026. 07",
     role: "Team Lead · Detection & VLM Pipeline",
@@ -119,6 +120,7 @@ function projectCard(project) {
         <div class="project-meta"><span>${project.role}</span><span>${project.period}</span></div>
         <h3>${title}</h3>
         ${project.summary ? `<p>${project.summary}</p>` : ""}
+        ${project.metric ? `<span class="project-metric">${project.metric}</span>` : ""}
         ${project.tags.length ? `<div class="project-tags">${project.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>` : ""}
       </div>
     </article>
@@ -185,7 +187,7 @@ const evolutionStages = [
 function timelineRow(stage) {
   return `
     <article class="timeline-row ${stage.category} reveal">
-      <div class="timeline-stage">${stage.order} / ${stage.period}</div>
+      <div class="timeline-stage"><span>MILESTONE ${stage.order}</span><small>${stage.period}</small></div>
       <div class="timeline-detail">
         <span class="timeline-dot" aria-hidden="true"></span>
         <div class="timeline-copy">
@@ -219,8 +221,11 @@ document.querySelectorAll(".filter-button").forEach((button) => {
 
 document.querySelectorAll(".filter-button").forEach((button) => {
   button.addEventListener("click", () => {
-    document.querySelector(".filter-button.is-active")?.classList.remove("is-active");
+    const previous = document.querySelector(".filter-button.is-active");
+    previous?.classList.remove("is-active");
+    previous?.setAttribute("aria-pressed", "false");
     button.classList.add("is-active");
+    button.setAttribute("aria-pressed", "true");
 
     const filter = button.dataset.filter;
     document.querySelectorAll(".project-card").forEach((card) => {
