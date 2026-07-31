@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=20260731-2">
+  <link rel="stylesheet" href="./style.css?v=20260731-3">
   <script src="./script.js?v=20260731-4" defer></script>
 </head>
 <body>
@@ -37,8 +37,8 @@
           <em>Teaching machines to see.</em>
         </h1>
         <p class="hero-intro">
-          백엔드 서비스 개발에서 시작해 AI 연동을 거쳐,<br>
-          직접 컴퓨터비전 파이프라인을 구축해 왔습니다.
+          데이터가 불완전하고 단일 모델만으로 해결하기 어려운 문제에서,<br>
+          데이터·모델·후처리·서빙을 연결하는 AI 시스템을 설계합니다.
         </p>
         <p class="hero-path"><span>Backend Systems</span><i>→</i><span>Computer Vision</span><i>→</i><span>Multimodal AI</span></p>
         <div class="hero-actions">
@@ -109,16 +109,79 @@
     <section class="profile section-shell" id="profile" aria-labelledby="profile-title">
       <header class="section-heading">
         <div>
-          <p class="section-index">03 / PROFILE</p>
-          <h2 id="profile-title">Profile<br>&amp; Background.</h2>
+          <p class="section-index">03 / PROFILE &amp; CAPABILITIES</p>
+          <h2 id="profile-title">What I build<br>&amp; how I work.</h2>
         </div>
-        <p>프로젝트에서 증명한 역량의 기반이 되는<br>학습 배경과 자격 정보를 정리했습니다.</p>
+        <p>5개 프로젝트에서 실제로 사용하고 검증한<br>문제 해결 역량과 기술 기반을 정리했습니다.</p>
       </header>
 
       <div class="profile-intro">
-        <h2>기반을 이해하고,<br>더 깊은 문제로 나아갑니다.</h2>
-        <p>백엔드 프로젝트를 통해 서비스 구조와 데이터 흐름을 익혔고, AI 모델의 출력을 서비스에 연결하는 경험을 거쳐 데이터 생성·학습·후처리를 포함하는 컴퓨터비전 파이프라인으로 문제 해결 범위를 확장했습니다.</p>
+        <h2>모델 하나보다,<br>전체 Pipeline을 설계합니다.</h2>
+        <p>Spring Boot 기반 서비스와 외부 AI 연동에서 시작해 데이터셋 생성, Detection·Segmentation 학습, 기하학적 후처리와 AI Serving까지 개발 범위를 확장했습니다. 최근에는 불완전한 Ground Truth를 고려한 Loss와 Cascade 구조, YOLO와 VLM의 Accuracy–Latency Trade-off처럼 실제 환경의 제약을 모델 설계에 반영하고 있습니다.</p>
       </div>
+
+      <section class="capabilities" aria-labelledby="capabilities-title">
+        <div class="capability-heading">
+          <p class="section-index">CORE CAPABILITIES</p>
+          <h3 id="capabilities-title">Project-proven strengths</h3>
+        </div>
+        <div class="capability-grid">
+          <article>
+            <span>01 / COMPUTER VISION</span>
+            <h4>데이터에서 결과까지 직접 구축</h4>
+            <p>합성 데이터 생성과 EDA, Detection·Segmentation 모델 학습, 정성·정량 평가 및 OpenCV 기반 후처리를 연결합니다.</p>
+            <small>바른글씨: 바람 · CSAS · Burinake</small>
+          </article>
+          <article>
+            <span>02 / MODEL DESIGN</span>
+            <h4>현실적인 제약을 구조에 반영</h4>
+            <p>불완전 Label, 클래스 불균형, 배경 편향과 Latency를 분석하고 Custom Loss와 조건부 Cascade로 대응합니다.</p>
+            <small>CSAS · Burinake</small>
+          </article>
+          <article>
+            <span>03 / AI INTEGRATION</span>
+            <h4>모델 출력을 서비스 기능으로</h4>
+            <p>REST API, 데이터베이스와 외부 AI API를 연결하고 분석 결과를 구조화된 응답과 사용자 기능으로 변환합니다.</p>
+            <small>EMUDA · Itinera · 바른글씨: 바람</small>
+          </article>
+          <article>
+            <span>04 / AI SERVING</span>
+            <h4>학습 모델을 운영 환경까지</h4>
+            <p>추론 서버를 API와 Docker 이미지로 구성하고 AWS·Azure의 Container 및 Kubernetes 환경에 연결합니다.</p>
+            <small>CSAS · Burinake</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="technical-stack" aria-labelledby="technical-stack-title">
+        <div class="capability-heading">
+          <p class="section-index">TECHNICAL STACK</p>
+          <h3 id="technical-stack-title">Used in projects</h3>
+        </div>
+        <div class="stack-groups">
+          <article>
+            <h4>Languages</h4>
+            <p><span>Python</span><span>Java</span><span>SQL</span></p>
+          </article>
+          <article>
+            <h4>AI / Computer Vision</h4>
+            <p><span>PyTorch</span><span>Ultralytics YOLO</span><span>DETR</span><span>EfficientNet</span><span>SegFormer</span><span>FPN</span><span>CRAFT</span><span>OpenCV</span></p>
+          </article>
+          <article>
+            <h4>Backend / Data</h4>
+            <p><span>Spring Boot</span><span>Spring Data JPA</span><span>REST API</span><span>MySQL</span><span>PostgreSQL</span><span>Elasticsearch</span><span>Redis</span></p>
+          </article>
+          <article>
+            <h4>LLM / Multimodal</h4>
+            <p><span>OpenAI API</span><span>Gemini API</span><span>Azure AI Foundry</span><span>Prompt Engineering</span><span>Structured JSON</span></p>
+          </article>
+          <article>
+            <h4>Cloud / DevOps</h4>
+            <p><span>Docker</span><span>AWS EC2</span><span>AWS ECR · EKS · S3</span><span>Azure ACR · AKS · Blob</span><span>Windows · Linux</span><span>Git · GitHub</span></p>
+          </article>
+        </div>
+        <p class="stack-note">기술 이름은 프로젝트에서 직접 사용하거나 통합한 범위를 기준으로 정리했습니다. 각 기술의 구체적인 적용 방식은 프로젝트 상세 페이지에서 확인할 수 있습니다.</p>
+      </section>
 
       <div class="profile-layout">
         <section class="profile-block profile-summary" aria-labelledby="summary-title">
