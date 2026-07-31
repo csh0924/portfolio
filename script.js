@@ -45,7 +45,6 @@ const projects = [
     title: "바른글씨: 바람",
     summary: "한글 손글씨를 문자와 자소 단위로 분석해 교정 피드백을 제공하는 컴퓨터비전 서비스입니다. CRAFT·기하학적 후처리와 직접 학습한 FPN을 하나의 분석 Pipeline으로 구성했습니다.",
     tags: ["PyTorch", "CRAFT", "FPN", "OpenCV"],
-    metric: "DATASET · 51,138 IMAGES",
     stage: "First AI Pipeline",
     period: "2025. 09 — 2025. 12",
     role: "CV Pipeline · Dataset Engineering",

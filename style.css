@@ -359,8 +359,6 @@ h1 em {
 .project-info > p { min-height: 3.2em; margin: 0; color: var(--ink-soft); font-size: .83rem; line-height: 1.65; }
 .project-tags { margin-top: 25px; display: flex; gap: 6px; flex-wrap: wrap; }
 .project-tags span { padding: 6px 8px; background: var(--surface); font: 400 .54rem var(--mono); text-transform: uppercase; }
-.project-metric { width: fit-content; margin-top: 22px; padding: 7px 9px; display: block; color: var(--blue); border: 1px solid rgba(28,85,255,.3); font: 500 .56rem var(--mono); letter-spacing: .04em; }
-.project-metric + .project-tags { margin-top: 10px; }
 
 .journey { border-top: 1px solid var(--line); }
 .timeline { position: relative; margin-top: 90px; }
