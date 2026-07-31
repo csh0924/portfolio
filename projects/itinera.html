@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Google Places와 LLM 기반 감성 태그를 결합한 맞춤형 여행 일정 서비스 Itinera 개발 기록입니다.">
+  <meta name="description" content="Google Places와 LLM 기반 분위기 태그를 결합한 맞춤형 여행 일정 서비스 Itinera 개발 기록입니다.">
   <meta name="theme-color" content="#f5f6f2">
   <title>Itinera | 최세훈 Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +36,7 @@
       <p class="section-label">00 / OVERVIEW</p>
       <div class="overview-intro">
         <h2 id="overview-title">외부 장소 데이터를<br>축적 가능한 추천 데이터로 전환</h2>
-        <p>Google Places의 위치·업종 정보에 리뷰 기반 감성 태그를 결합하고, 수집한 장소를 자체 DB와 Elasticsearch 검색 데이터로 축적했다. 사용자는 자동 생성된 일정을 그대로 수용하는 대신 추천 장소를 선택하고 순서와 경로를 직접 조정할 수 있다.</p>
+        <p>Google Places의 위치·업종 정보에 리뷰 기반 분위기 태그를 결합하고, 수집한 장소를 자체 DB와 Elasticsearch 검색 데이터로 축적했다. 사용자는 자동 생성된 일정을 그대로 수용하는 대신 추천 장소를 선택하고 순서와 경로를 직접 조정할 수 있다.</p>
       </div>
       <div class="how-it-works" aria-labelledby="how-it-works-title">
         <div class="how-it-works-heading">
@@ -47,14 +47,14 @@
           <li><span>01</span><h4>지역과 취향 입력</h4><p>사용자가 여행 지역과 관광지·식당·카페의 세부 취향 태그를 선택합니다.</p></li>
           <li><span>02</span><h4>자체 데이터 검색</h4><p>입력 조건을 Elasticsearch Query로 변환해 축적된 장소를 우선 검색합니다.</p></li>
           <li><span>03</span><h4>부족한 장소 수집</h4><p>결과가 부족한 조건만 Google Places로 조회해 장소 정보와 리뷰를 수집합니다.</p></li>
-          <li><span>04</span><h4>감성 태그 매칭</h4><p>Gemini가 리뷰와 설명을 분석해 사전에 정의된 분위기 태그를 선택합니다.</p></li>
-          <li><span>05</span><h4>저장 후 재추천</h4><p>정형 정보와 검색·감성 태그를 MySQL과 Elasticsearch에 저장한 뒤 다시 검색합니다.</p></li>
+          <li><span>04</span><h4>분위기 태그 매칭</h4><p>Gemini가 리뷰와 설명을 분석해 사전에 정의된 분위기 태그를 선택합니다.</p></li>
+          <li><span>05</span><h4>저장 후 재검색</h4><p>정형 정보와 검색·분위기 태그를 MySQL과 Elasticsearch에 저장한 뒤 다시 검색합니다.</p></li>
           <li><span>06</span><h4>일정 구성</h4><p>사용자가 장소와 방문 순서를 선택하고 경로를 계산해 일자별 일정으로 저장합니다.</p></li>
         </ol>
       </div>
       <dl class="fact-grid">
         <div><dt>Period</dt><dd>2025. 03<br>— 2025. 06</dd></div>
-        <div><dt>Team</dt><dd>4명<br>Backend 2명</dd></div>
+        <div><dt>Team</dt><dd>4명<br>백엔드 2명</dd></div>
         <div><dt>Owned Role</dt><dd>Google Places API<br>장소 도메인<br>여행 일정 생성</dd></div>
         <div><dt>Core Stack</dt><dd>Spring Boot<br>MySQL · Elasticsearch<br>Google Places API</dd></div>
       </dl>
@@ -65,38 +65,38 @@
       <div class="contribution-grid">
         <article><span>01</span><h3>Google Places 연동</h3><p>사용자의 지역과 Type·Keyword 조합을 Google Places 요청으로 변환하고, 장소 기본 정보와 상세 정보를 서비스 데이터 구조로 가공.</p></article>
         <article><span>02</span><h3>장소 도메인 구현</h3><p>장소의 위치·평점·운영시간·리뷰와 카테고리별 태그를 다루는 API 및 JPA 기반 도메인 로직 구현.</p></article>
-        <article><span>03</span><h3>맞춤 여행지 기능</h3><p>입력 지역과 관광명소·식당·카페 취향을 기준으로 추천 결과를 조회하고, DB에 없는 장소를 수집하는 흐름 구현.</p></article>
-        <article><span>04</span><h3>여행 일정 생성</h3><p>사용자가 선택한 장소와 방문 순서를 일자별 Trip으로 저장하고, 지도 기반 일정 설계 기능과 Backend 데이터를 연결.</p></article>
+        <article><span>03</span><h3>추천 및 LLM 태깅</h3><p>입력 지역과 취향을 기준으로 장소를 검색하고, DB에 없는 장소의 리뷰를 Gemini로 분석해 제한된 분위기 태그와 저장 구조에 연결.</p></article>
+        <article><span>04</span><h3>여행 일정 생성</h3><p>사용자가 선택한 장소와 방문 순서를 일자별 Trip으로 저장하고, 지도 기반 일정 설계 기능과 백엔드 데이터를 연결.</p></article>
       </div>
     </section>
 
     <section class="visual-section page-shell" aria-labelledby="architecture-title">
       <div class="section-heading"><p class="section-label">02 / SYSTEM ARCHITECTURE</p><div><h2 id="architecture-title">검색·수집·저장을 분리한<br>백엔드 구조</h2><p>React 클라이언트와 Spring Boot API, MySQL·Elasticsearch·Redis, Google Maps Platform과 Gemini API를 기능별 모듈로 연결했다.</p></div></div>
       <figure class="media-frame media-light itinera-diagram">
-        <img src="../assets/projects/itinera/itinera-architecture.png" alt="Frontend, Backend 모듈, 데이터베이스와 외부 API로 구성된 Itinera 시스템 구조도">
+        <img src="../assets/projects/itinera/itinera-architecture.png" alt="프론트엔드, 백엔드 모듈, 데이터베이스와 외부 API로 구성된 Itinera 시스템 구조도">
         <figcaption><span>SYSTEM ARCHITECTURE</span><span>SPRING BOOT · DATA LAYER · EXTERNAL API</span></figcaption>
       </figure>
     </section>
 
     <section class="flow page-shell" aria-labelledby="recommendation-title">
-      <div class="section-heading"><p class="section-label">03 / RECOMMENDATION FLOW</p><div><h2 id="recommendation-title">DB 우선 검색과<br>필요한 순간의 데이터 확장</h2><p>모든 요청마다 외부 API를 호출하지 않고 자체 DB를 먼저 검색한다. 결과가 부족한 태그에 대해서만 Google Places를 조회하고, 분석·저장한 뒤 다시 검색한다.</p></div></div>
+      <div class="section-heading"><p class="section-label">03 / RECOMMENDATION FLOW</p><div><h2 id="recommendation-title">DB 우선 검색과<br>필요한 순간의 데이터 확장</h2><p>앞선 전체 서비스 흐름 중 장소 추천을 위한 검색·수집·저장 과정을 백엔드 관점에서 분리했다. 추천은 학습형 모델이 아니라 사용자 취향 태그를 Elasticsearch 쿼리로 변환하는 검색 기반 방식이며, Gemini는 신규 장소의 리뷰와 설명에 제한된 분위기 태그를 부여한다.</p></div></div>
       <figure class="media-frame media-light itinera-flow-frame">
         <img src="../assets/projects/itinera/itinera-recommendation-flow.png" alt="사용자 취향 입력부터 DB 검색, Google Places 조회, LLM 태그 분석과 재검색으로 이어지는 추천 흐름">
         <figcaption><span>DATA EXPANSION LOOP</span><span>SEARCH → FETCH → TAG → STORE → RE-SEARCH</span></figcaption>
       </figure>
       <ol class="model-evolution itinera-steps">
-        <li><span>01</span><div><h3>자체 데이터 우선 검색</h3><p>입력 지역과 API·감성 태그를 Elasticsearch Query로 변환해 카테고리별 여행지를 조회.</p></div></li>
+        <li><span>01</span><div><h3>자체 데이터 우선 검색</h3><p>입력 지역과 Google Places Type·Keyword, 분위기 태그를 Elasticsearch 쿼리로 변환해 카테고리별 여행지를 조회.</p></div></li>
         <li><span>02</span><div><h3>부족한 조건만 외부 조회</h3><p>결과가 충분하지 않은 태그를 Type·Keyword 조합으로 변환해 Google Places Nearby Search 호출.</p></div></li>
-        <li><span>03</span><div><h3>장소 정보 확장</h3><p>정형 장소 정보와 리뷰, 검색 태그 및 LLM이 선택한 감성 태그를 하나의 Place 정보로 구성.</p></div></li>
+        <li><span>03</span><div><h3>장소 정보 확장</h3><p>정형 장소 정보와 리뷰, 검색 태그 및 Gemini가 선택한 분위기 태그를 하나의 Place 정보로 구성.</p></div></li>
         <li><span>04</span><div><h3>저장 후 재검색</h3><p>새 장소를 MySQL과 검색 문서에 축적하고 동일 추천 흐름으로 돌아가 결과 목록 생성.</p></div></li>
       </ol>
     </section>
 
     <section class="research page-shell" aria-labelledby="tag-title">
-      <div class="section-heading"><p class="section-label">04 / TAG DATA DESIGN</p><div><h2 id="tag-title">정형 분류를 넘어<br>여행지의 분위기까지</h2><p>Google의 포괄적인 Type만으로는 산·바다 같은 세부 유형이나 낭만적·한적한 분위기를 구분하기 어려웠다. 검색용 Type·Keyword와 제한된 감성 태그 집합을 함께 설계했다.</p></div></div>
+      <div class="section-heading"><p class="section-label">04 / TAG DATA DESIGN</p><div><h2 id="tag-title">정형 분류를 넘어<br>여행지의 분위기까지</h2><p>Google Places의 범용 Type 분류만으로는 산과 바다 같은 세부 장소 유형이나 낭만적·한적한 분위기를 구분하기 어려웠다. 검색용 Type·Keyword와 제한된 분위기 태그 집합을 함께 설계했다.</p></div></div>
       <div class="decision-grid research-grid">
         <article><p class="decision-index">DESIGN / 01</p><h3>Type + Keyword 조합</h3><dl><div><dt>Problem</dt><dd><code>natural_feature</code> 하나에 산과 바다가 함께 포함되는 광범위한 분류.</dd></div><div><dt>Approach</dt><dd>카테고리별로 효과적인 Type·Keyword 조합을 사전 정의해 장소 검색 정확도 보완.</dd></div></dl></article>
-        <article><p class="decision-index">DESIGN / 02</p><h3>리뷰 기반 감성 태그</h3><dl><div><dt>Problem</dt><dd>위치·업종만으로는 사용자가 기대하는 여행지의 분위기를 표현하기 어려움.</dd></div><div><dt>Approach</dt><dd>장소 설명과 리뷰를 LLM으로 분석해 한적한·낭만적인·활발한 등의 태그와 연결.</dd></div></dl></article>
+        <article><p class="decision-index">DESIGN / 02</p><h3>리뷰 기반 분위기 태그</h3><dl><div><dt>Problem</dt><dd>위치·업종만으로는 사용자가 기대하는 여행지의 분위기를 표현하기 어려움.</dd></div><div><dt>Approach</dt><dd>장소 설명과 리뷰를 LLM으로 분석해 한적한·낭만적인·활발한 등의 태그와 연결.</dd></div></dl></article>
         <article><p class="decision-index">DESIGN / 03</p><h3>제한된 태그 Vocabulary</h3><dl><div><dt>Problem</dt><dd>LLM의 자유 생성은 태그 수를 무한히 늘리고 비정상적인 검색어를 만들 수 있음.</dd></div><div><dt>Approach</dt><dd>사전 정의된 태그 집합에서만 선택하도록 제한해 검색 일관성과 Elasticsearch 구조 유지.</dd></div></dl></article>
       </div>
     </section>
@@ -116,11 +116,11 @@
         <div><span>SUCCESS RATE</span><strong>52%</strong></div>
         <div><span>TAG REFLECTION</span><strong>92%</strong></div>
         <div><span>SUBJECTIVE TAG FIT</span><strong>4.4/5</strong></div>
-        <p><strong>25 Test Cases</strong><br>태그 반영률과 감성 점수는 추천에 성공한 케이스만을 대상으로 측정했다. 강릉·부산·전주·제주·여수에서도 결과 반환을 확인했다.</p>
+        <p><strong>METRIC DEFINITIONS</strong><br>추천 장소가 하나도 없으면 실패로 판정했다. 태그 반영률은 성공 케이스별 ‘반영된 입력 태그 수 ÷ 입력 태그 수’의 평균이며, 분위기 적합도는 성공 결과를 팀원 4명 전원이 1–5점으로 평가한 평균이다.</p>
       </div>
       <div class="evaluation-notes">
         <article><span>LIMIT / 01</span><h3>엄격한 일치 조건의 한계</h3><p>태그와 정확히 일치하는 장소가 없으면 추천이 실패했다. 인기 장소 보조 추천과 유사 태그 검색이 필요하다.</p></article>
-        <article><span>LIMIT / 02</span><h3>카페 추천의 불안정성</h3><p>일부 카페 결과는 입력 태그와 연관성이 낮았다. 데이터 보강과 카테고리별 Filtering 재검토가 필요하다.</p></article>
+        <article><span>LIMIT / 02</span><h3>카페 추천의 불안정성</h3><p>일부 카페 결과는 입력 태그와 연관성이 낮았다. 데이터 보강과 카테고리별 필터링 재검토가 필요하다.</p></article>
         <article><span>LIMIT / 03</span><h3>과도하게 넓은 지역 범위</h3><p>입력 지역에서 먼 장소까지 포함되는 사례가 있어 거리 반경을 사용자가 조정하는 기능이 필요하다.</p></article>
       </div>
     </section>
@@ -130,10 +130,10 @@
       <div class="learning-layout">
         <h2 id="review-title">Technical Review<br>&amp; Significance</h2>
         <div>
-          <p>첫 팀 프로젝트인 EMUDA에서 API와 AI 응답을 하나의 서비스 흐름으로 연결했다면, Itinera에서는 외부 장소 데이터를 지속적으로 축적하고 다시 검색에 활용하는 Backend 구조로 확장했다. Google Places 결과를 일회성 응답으로 소비하지 않고 Place Domain과 자체 데이터로 변환하면서 데이터 모델과 API 경계의 중요성을 경험했다.</p>
-          <p>사용자 취향 입력, 장소 추천, 선택과 일정 저장으로 이어지는 기능을 구현하며 Spring Boot 기반 Backend가 화면의 개별 기능을 넘어 서비스 전체 상태를 어떻게 유지하는지 이해했다. 특히 Google API 호출 결과와 내부 Entity를 분리하고 Trip 생성 흐름을 연결하며 계층 간 DTO와 Transaction 설계를 구체화했다.</p>
+          <p>첫 팀 프로젝트인 EMUDA에서 API와 AI 응답을 하나의 서비스 흐름으로 연결했다면, Itinera에서는 외부 장소 데이터를 지속적으로 축적하고 다시 검색에 활용하는 백엔드 구조로 확장했다. Google Places 결과를 일회성 응답으로 소비하지 않고 장소 도메인과 자체 데이터로 변환하면서 데이터 모델과 API 경계의 중요성을 경험했다.</p>
+          <p>사용자 취향 입력, 장소 추천, 선택과 일정 저장으로 이어지는 기능을 구현하며 Spring Boot 기반 백엔드가 화면의 개별 기능을 넘어 서비스 전체 상태를 어떻게 유지하는지 이해했다. 특히 Google API 응답과 내부 엔티티를 분리하고 Trip 생성 흐름을 연결하면서 계층 간 DTO와 트랜잭션 경계를 구체화했다.</p>
           <p>엄격한 태그 일치는 성공한 추천의 조건 반영률을 높였지만 전체 성공률을 낮추었다. 정답 조건을 강화하는 것만으로 좋은 추천이 완성되지 않으며, 조건 반영 정확도와 추천 성공 범위 사이의 균형을 평가해야 한다는 점을 확인했다.</p>
-          <p>감성 태깅은 초기 OpenAI API로 구현했으나 개발 후반부에 크레딧 제약을 고려해 Gemini API로 전환했다. 최종 버전은 Gemini를 사용하며, 외부 LLM 교체 과정에서 프롬프트 입력과 제한된 태그 출력의 계약을 유지하는 방식으로 연동 구조를 정리했다.</p>
+          <p>분위기 태깅은 초기 OpenAI API로 구현했으나 개발 후반부에 크레딧 제약을 고려해 Gemini API로 전환했다. 최종 버전은 Gemini를 사용하며, 외부 LLM 교체 과정에서 프롬프트 입력과 제한된 태그 출력의 계약을 유지하는 방식으로 연동 구조를 정리했다.</p>
         </div>
       </div>
     </section>
@@ -143,6 +143,11 @@
       <h2 id="stack-title">Tools used</h2>
       <ul><li>Java</li><li>Spring Boot</li><li>Spring Data JPA</li><li>MySQL</li><li>Elasticsearch</li><li>Redis</li><li>Google Places · Maps</li><li>Gemini API</li><li>OpenAI API · Early Prototype</li></ul>
     </section>
+
+    <nav class="project-navigation" aria-label="프로젝트 이동">
+      <a href="../index.html#work"><span>BACK TO</span>All projects</a>
+      <a href="./baram.html"><span>NEXT PROJECT</span>바른글씨: 바람</a>
+    </nav>
   </main>
   <footer><span>© <span id="year"></span> Choi Se Hoon</span><a href="../index.html#work">Back to archive ↑</a></footer>
   <script>document.querySelector("#year").textContent = new Date().getFullYear();</script>
