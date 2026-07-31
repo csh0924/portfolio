@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260731-8">
+  <link rel="stylesheet" href="./project.css?v=20260731-9">
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -39,7 +39,7 @@
       <p class="section-label">00 / OVERVIEW</p>
       <div class="overview-intro">
         <h2 id="overview-title">불완전한 Label을 전제로<br>설계한 Cascade Vision</h2>
-        <p>Classification의 빠른 결함 판단과 Semantic Segmentation의 정밀한 위치 탐지를 결합했다. 단일 Label과 누락 Annotation이 공존하는 데이터의 한계를 모델 구조와 Loss 설계에 반영하고, 학습 모델을 컨테이너 기반 AI 서버로 연결했다.</p>
+        <p>분류 모델은 ‘어떤 결함인가’를 후보로 판별하고, Semantic Segmentation은 ‘결함이 어디에 있는가’를 픽셀 단위로 찾는다. 단일 Label과 누락 Annotation이 공존하는 데이터의 한계를 모델 구조와 Loss 설계에 반영하고, 학습 모델을 컨테이너 기반 AI 서버로 연결했다.</p>
       </div>
       <div class="how-it-works" aria-labelledby="how-it-works-title">
         <div class="how-it-works-heading">
@@ -49,8 +49,8 @@
         <ol>
           <li><span>01</span><h4>시설물 사진 업로드</h4><p>사용자가 결함이 의심되는 시설물 이미지를 서비스에 등록합니다.</p></li>
           <li><span>02</span><h4>입력 전처리</h4><p>추론 규격에 맞게 이미지를 변환하고 분류 모델에 전달합니다.</p></li>
-          <li><span>03</span><h4>결함 후보 분석</h4><p>EfficientNet이 11개 클래스의 Logit을 생성하고, 임계값 0.5 이상의 후보를 보존합니다.</p></li>
-          <li><span>04</span><h4>픽셀 단위 위치 탐지</h4><p>SegFormer가 전체 Logit Vector를 Hint로 받아 결함 종류와 영역을 예측합니다.</p></li>
+          <li><span>03</span><h4>결함 후보 분석</h4><p>EfficientNet의 11차원 Raw Logit을 Sigmoid Score로 변환하고, 0.5 이상의 후보를 보존합니다.</p></li>
+          <li><span>04</span><h4>픽셀 단위 위치 탐지</h4><p>SegFormer가 11개 클래스의 Sigmoid Score Vector를 Hint로 받아 결함 영역을 예측합니다.</p></li>
           <li><span>05</span><h4>분석 결과 구성</h4><p>결함별 픽셀 Mask와 클래스 정보를 서비스 응답으로 변환합니다.</p></li>
           <li><span>06</span><h4>결과 확인과 기록</h4><p>사용자가 탐지 이미지와 결함 정보를 확인하고 시설물 분석 기록으로 저장합니다.</p></li>
         </ol>
@@ -68,7 +68,7 @@
       <div class="contribution-grid">
         <article><span>01</span><h3>팀 리딩과 시스템 설계</h3><p>프로젝트 기획, 일정 및 38개 WBS Task를 관리하고 Classification–Segmentation 모델과 서비스의 전체 연결 구조를 설계.</p></article>
         <article><span>02</span><h3>데이터 EDA와 전처리</h3><p>AI Hub 시설물 결함 데이터 472,495장의 클래스 및 Label 분포를 분석하고, 과도한 균열 클래스에 Undersampling 적용.</p></article>
-        <article><span>03</span><h3>모델 진화 설계</h3><p>EfficientNet 기반 분류기와 SegFormer를 학습하고, 11-class Logit을 Hint Vector로 전달하는 Cascade 구조 및 Custom Loss 구현.</p></article>
+        <article><span>03</span><h3>모델 진화 설계</h3><p>EfficientNet·ResNet·MobileNet 비교 실험 후 분류기를 선정하고, 클래스별 Sigmoid Score를 SegFormer에 전달하는 Cascade와 Custom Loss 구현.</p></article>
         <article><span>04</span><h3>서비스 통합과 검증</h3><p>AI 추론 결과를 서버 흐름에 연결하고 통합 테스트를 수행. AI 서버 Docker 이미지를 구성하고 Cloud 담당 팀원과 협업해 ECR·EKS 서빙 환경에 통합.</p></article>
       </div>
     </section>
@@ -81,6 +81,7 @@
         <div><strong>321,597</strong><span>Train 균열 이미지</span></div>
         <div><strong>138,398</strong><span>Undersampling 후 분류 학습 데이터</span></div>
       </div>
+      <p class="dataset-note"><strong>CLASSIFICATION</strong> 138,398 images · 내부 80:20 split / <strong>SEGMENTATION</strong> 98,398 image–mask pairs / <strong>CLASSES</strong> 정상 1종 · 결함 10종</p>
       <div class="csas-issue-grid">
         <figure class="media-frame media-light"><img src="../assets/projects/csas/csas-unlabeled-defect.png" alt="실제 결함이 있지만 Annotation에서 누락된 시설물 이미지"><figcaption><span>INCOMPLETE LABEL</span><span>Unlabeled defect</span></figcaption></figure>
         <figure class="media-frame media-light"><img src="../assets/projects/csas/csas-multiple-defect.png" alt="한 이미지에 여러 결함이 함께 나타나는 시설물 이미지"><figcaption><span>MULTIPLE DEFECTS</span><span>Single-label limitation</span></figcaption></figure>
@@ -90,33 +91,52 @@
     <section class="research page-shell" aria-labelledby="evolution-title">
       <div class="section-heading"><p class="section-label">03 / MODEL EVOLUTION</p><div><h2 id="evolution-title">실패 원인에 따라<br>구조를 단계적으로 수정</h2><p>분류와 Segmentation을 독립적으로 최적화하는 대신, 데이터의 결함이 각 모델에 미치는 영향을 기준으로 네 차례 구조를 발전시켰다.</p></div></div>
       <ol class="model-evolution">
-        <li><span>V1.0</span><div><h3>Binary Classification → 10-class Segmentation</h3><p>EfficientNet-B0로 정상·결함을 선별한 뒤 결함 이미지만 SegFormer에 전달.</p></div></li>
-        <li><span>V1.1</span><div><h3>Cross-Entropy + Dice Loss</h3><p>결함 Pixel이 배경보다 극도로 적어 발생한 배경 편향을 줄이기 위해 영역 중첩을 함께 최적화.</p></div></li>
-        <li><span>V2.0</span><div><h3>11-class Classification Hint</h3><p>분류기를 11-class로 확장하고 전체 Logit을 SegFormer에 전달해 누락되거나 복수인 결함 후보를 보조 정보로 제공.</p></div></li>
-        <li><span>V2.1</span><div><h3>Incomplete-label-aware Custom Loss</h3><p>정답이 배경인 Pixel에서 모델이 결함을 예측했을 때의 Penalty를 낮춰, Annotation 누락을 무조건 오분류로 학습하지 않도록 조정.</p></div></li>
+        <li><span>V1.0</span><div><h3>Binary Classification → 10-class Segmentation</h3><p>EfficientNet-B0로 정상·결함을 선별한 뒤 결함 이미지만 SegFormer에 전달. 이진 Gate에서 복수 결함의 클래스 정보가 후단으로 이어지지 않았다.</p></div></li>
+        <li><span>V1.1</span><div><h3>Cross-Entropy + Dice Loss</h3><p>결함 픽셀이 배경보다 극도로 적어 발생한 배경 편향을 줄이기 위해 영역 중첩을 함께 최적화하고 미세 결함의 학습 신호를 보강했다.</p></div></li>
+        <li><span>V2.0</span><div><h3>11-output Independent Candidate Scores</h3><p>단일 대표 Label로 학습하되 클래스별 독립 Sigmoid Score를 출력해 여러 결함 후보를 동시에 보존하고 SegFormer의 Hint로 전달했다.</p></div></li>
+        <li><span>V2.1</span><div><h3>Incomplete-label-aware Custom Loss</h3><p>분류 Hint가 지지하는 미표기 결함 후보의 억제를 완화했다. 누락 후보를 보존하는 대신 False Positive가 증가할 가능성도 함께 남았다.</p></div></li>
       </ol>
     </section>
 
     <section class="flow page-shell" aria-labelledby="cascade-title">
-      <div class="section-heading"><p class="section-label">04 / CASCADE DESIGN</p><div><h2 id="cascade-title">분류 확률을<br>Segmentation의 Hint로</h2><p>Classification을 단순 Gate로 사용하지 않고, 클래스별 가능성을 유지한 Logit Vector를 후단 모델에 전달했다.</p></div></div>
+      <div class="section-heading"><p class="section-label">04 / CASCADE DESIGN</p><div><h2 id="cascade-title">분류 확률을<br>Segmentation의 Hint로</h2><p>가장 높은 하나의 클래스로 확정하지 않고, 클래스별 독립 Sigmoid Score를 유지한 Hint Vector를 후단 모델에 전달했다.</p></div></div>
       <figure class="media-frame media-light csas-logit-frame">
         <img src="../assets/projects/csas/csas-logit-hint.png" alt="여러 결함 클래스의 가능성을 나타내는 실제 Classification Logit Hint 그래프">
-        <figcaption><span>ACTUAL HINT VECTOR</span><span>Classifier logits → SegFormer</span></figcaption>
+        <figcaption><span>ACTUAL HINT VECTOR</span><span>Raw logits → Sigmoid scores → SegFormer</span></figcaption>
       </figure>
       <div class="metric-panel">
         <div><span>MICRO F1</span><strong>.90</strong></div>
         <div><span>MACRO F1</span><strong>.74</strong></div>
         <div><span>WEIGHTED F1</span><strong>.91</strong></div>
-        <p>최종 11-class 분류 평가. 가장 높은 클래스 하나를 확정하지 않고 임계값 0.5를 넘는 클래스를 모두 후단 Segmentation 후보로 전달해 Recall을 우선했다. <strong>Micro Recall .92</strong></p>
+        <p><strong>AI Hub Validation · N=52,500 · Sigmoid Threshold=0.5</strong><br>가장 높은 클래스 하나를 확정하지 않고 0.5를 넘는 후보를 모두 유지해 Recall을 우선했다. <strong>Micro Recall .92</strong></p>
+      </div>
+      <div class="decision-heading">
+        <p class="section-label">CUSTOM LOSS</p>
+        <h3>Hint가 지지하는 후보만 선택적으로 완화</h3>
+      </div>
+      <div class="cascade-decisions csas-loss-design">
+        <article><span>LOSS / 01</span><h3>Weighted Pixel Loss</h3><p>결함 클래스의 학습 신호를 높인 Pixel Cross-Entropy로 배경 편향을 완화했다.</p></article>
+        <article><span>LOSS / 02</span><h3>Forgive Mask</h3><p>Ground Truth는 배경이지만 예측이 결함이고 해당 클래스의 Hint Score가 0.3을 넘을 때만 Pixel Loss를 10%로 낮췄다.</p></article>
+        <article><span>LOSS / 03</span><h3>Existence Loss</h3><p>Segmentation 결과에 나타난 클래스 존재 여부와 Classification Hint가 일치하도록 Binary Cross-Entropy 보조 Loss를 더했다.</p></article>
       </div>
     </section>
 
     <section class="results page-shell" aria-labelledby="results-title">
-      <div class="section-heading"><p class="section-label">05 / QUALITATIVE RESULTS</p><div><h2 id="results-title">미세 균열과<br>복수 결함의 위치 탐지</h2><p>실제 입력의 Ground Truth와 최종 모델의 픽셀 단위 예측을 비교했다.</p></div></div>
+      <div class="section-heading"><p class="section-label">05 / RESULTS</p><div><h2 id="results-title">미세 균열과<br>복수 결함의 위치 탐지</h2><p>라벨이 제공된 검증 이미지에서 Ground Truth와 최종 모델의 픽셀 단위 예측을 비교했다. 누락 Annotation 때문에 미표기 결함 후보도 False Positive로 계산될 수 있어 정량 지표와 오류 사례를 함께 해석했다.</p></div></div>
       <div class="result-grid">
         <article class="result-card"><figure><img src="../assets/projects/csas/csas-result-multidefect.png" alt="Ground Truth의 균열과 모델이 추가로 탐지한 들뜸 후보를 비교한 Segmentation 결과"></figure><div><span class="result-index">RESULT / 01</span><h3>누락 결함 후보 보존</h3><p>Ground Truth에는 균열만 표기되어 있지만 모델은 이미지 상단을 들뜸 후보로 추가 예측했다. 누락 후보를 보존하려는 구조의 동작 사례이며, 별도의 정답 검증 없이 실제 결함이라고 단정하지 않았다.</p></div></article>
         <article class="result-card"><figure><img src="../assets/projects/csas/csas-result-crack.png" alt="가늘고 긴 균열의 Segmentation 결과"></figure><div><span class="result-index">RESULT / 02</span><h3>연속적인 미세 균열</h3><p>배경 비중이 큰 표면에서도 길고 가는 균열의 연속적인 형태를 추적했다.</p></div></article>
         <article class="result-card"><figure class="phone-result"><img src="../assets/projects/csas/csas-service-result.png" alt="결함 분석 결과를 표시하는 CSAS 모바일 서비스 화면"></figure><div><span class="result-index">RESULT / 03</span><h3>서비스 결과 연결</h3><p>탐지 이미지와 결함 정보를 모바일 화면에서 확인하고 시설물 분석 기록으로 관리하도록 연결했다.</p></div></article>
+      </div>
+      <div class="decision-heading">
+        <p class="section-label">SEGMENTATION EVALUATION</p>
+        <h3>불완전한 Ground Truth 기준의 정량 결과</h3>
+      </div>
+      <div class="metric-panel">
+        <div><span>DEFECT mIoU</span><strong>11.39%</strong></div>
+        <div><span>BACKGROUND IoU</span><strong>98.38%</strong></div>
+        <div><span>CRACK IoU</span><strong>20.60%</strong></div>
+        <p><strong>AI Hub Validation Masks · N=52,500 · Score Threshold=0.4</strong><br>배경을 제외한 10개 결함 클래스 평균이다. 소수 클래스 성능과 Ground Truth 누락의 영향으로 낮은 결과를 보였으며, 절대적인 실제 결함 탐지 성능으로 해석하지 않았다.</p>
       </div>
     </section>
 
@@ -136,8 +156,8 @@
       <div class="learning-layout">
         <h2 id="review-title">Technical Review<br>&amp; Significance</h2>
         <div>
-          <p>이번 프로젝트에서 가장 의미 있었던 지점은 주어진 Ground Truth를 완전한 정답으로 전제하고 이를 정확히 재현하는 일반적인 Supervised Learning을 넘어섰다는 점이다. 실제 데이터에는 하나의 이미지에 여러 결함이 존재해도 일부만 Labeling되거나, 육안으로 확인되는 결함이 배경으로 처리된 사례가 있었다. 따라서 Ground Truth와 다른 예측을 모두 오답으로 간주하면 오히려 유효한 결함 특징이 억제될 수 있다고 판단했다.</p>
-          <p>이 문제에 대응하기 위해 11-class 분류 Logit을 SegFormer의 Hint로 전달하여 Label에 기록되지 않은 결함 후보도 후단 모델이 참고하도록 했다. 또한 Ground Truth가 배경인 Pixel에서 결함을 예측했을 때의 Loss Penalty를 낮추는 Custom Loss를 적용했다. 정답을 그대로 추종하는 모델이 아니라, 정답 자체의 불완전성을 모델 설계에 반영하며 어떤 오류를 허용하고 어떤 후보를 보존할지 결정한 경험이다.</p>
+          <p>이번 프로젝트에서 가장 의미 있었던 지점은 주어진 Ground Truth를 완전한 정답으로 전제하고 이를 정확히 재현하는 일반적인 지도학습을 넘어섰다는 점이다. 실제 데이터에는 하나의 이미지에 여러 결함이 존재해도 일부만 레이블링되거나, 육안으로 확인되는 결함이 배경으로 처리된 사례가 있었다. 따라서 Ground Truth와 다른 예측을 모두 오답으로 간주하면 오히려 유효한 결함 특징이 억제될 수 있다고 판단했다.</p>
+          <p>이 문제에 대응하기 위해 11개 클래스의 Sigmoid Hint Score를 SegFormer에 전달하고, Hint가 지지하는 미표기 결함 후보에만 Forgive Mask를 적용했다. 또한 Segmentation의 클래스 존재 여부와 Hint를 정렬하는 Existence Loss를 추가했다. 정답을 그대로 추종하는 모델이 아니라, 정답 자체의 불완전성을 모델 설계에 반영하며 어떤 오류를 허용하고 어떤 후보를 보존할지 결정한 경험이다.</p>
           <p>팀장으로서 연구 일정과 시스템 통합을 관리하고 AI 서버의 Docker 이미지를 구성했다. Cloud 담당 팀원과 협업해 모델을 ECR·EKS 서빙 환경에 통합하며 데이터 분석, 모델 실험, 서비스 통합과 배포를 하나의 AI 시스템 생명주기로 이해하게 되었다.</p>
           <p>배경 페널티 완화는 누락된 결함 후보를 보존하는 대신 실제 배경을 결함으로 판단하는 False Positive를 늘릴 수 있다. 별도로 재라벨링한 검증 데이터가 없어 두 경우를 정량적으로 구분하지 못했으며, 독립적인 Label 검증과 Segmentation 평가 체계 강화가 후속 과제다.</p>
           <p>Macro F1이 Weighted F1보다 낮은 결과는 소수 클래스의 성능 편차가 남아 있음을 보여준다. 클래스별 추가 데이터 확보와 Label 정제도 함께 필요하다.</p>
@@ -148,7 +168,7 @@
     <section class="stack page-shell" aria-labelledby="stack-title">
       <p class="section-label">08 / STACK</p>
       <h2 id="stack-title">Tools used</h2>
-      <ul><li>Python</li><li>PyTorch</li><li>EfficientNet</li><li>SegFormer</li><li>MobileNet</li><li>Docker</li><li>AWS ECR · EKS</li><li>S3 · Weaviate · OpenSearch</li></ul>
+      <ul><li>Python</li><li>PyTorch</li><li>EfficientNet</li><li>SegFormer</li><li>MobileNet · Benchmark</li><li>Docker</li><li>AWS ECR · EKS</li><li>S3 · Weaviate · OpenSearch</li></ul>
     </section>
 
     <nav class="project-navigation" aria-label="프로젝트 이동">

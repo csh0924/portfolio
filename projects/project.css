@@ -157,6 +157,8 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 .dataset-metrics div { min-height: 155px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .dataset-metrics strong { color: var(--blue); font: 500 clamp(1.6rem, 3vw, 2.8rem) var(--mono); letter-spacing: -.06em; }
 .dataset-metrics span { color: var(--ink-soft); font-size: .7rem; line-height: 1.5; }
+.dataset-note { margin: 0; padding: 24px 28px; color: var(--ink-soft); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); font-size: .75rem; line-height: 1.8; }
+.dataset-note strong { color: var(--blue); font: 500 .6rem var(--mono); }
 .dataset-steps { margin: 55px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
 .dataset-steps li { padding: 26px 0; display: grid; grid-template-columns: 90px 1fr; border-bottom: 1px solid var(--line); }
 .dataset-steps li > span { color: var(--blue); font: 500 .62rem var(--mono); }
@@ -256,6 +258,7 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 .cascade-decisions span { color: var(--blue); font: 500 .56rem var(--mono); }
 .cascade-decisions h3 { margin: 42px 0 15px; font-size: 1.05rem; }
 .cascade-decisions p { margin: 0; color: var(--ink-soft); font-size: .73rem; line-height: 1.75; }
+.csas-loss-design article { min-height: 255px; }
 .vlm-contract { margin-top: 75px; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .vlm-contract > div { min-height: 220px; padding: 28px; display: flex; flex-direction: column; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .vlm-cases { margin-top: 65px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
