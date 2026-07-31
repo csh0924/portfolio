@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="CRAFT와 FPN 기반 한글 손글씨 분석 및 교정 서비스, 바른글씨 바람의 개발 기록입니다.">
   <meta name="theme-color" content="#f5f6f2">
+  <link rel="canonical" href="https://csh0924.github.io/portfolio/projects/baram.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="Choi Se Hoon Portfolio">
+  <meta property="og:title" content="바른글씨: 바람 | 최세훈 Portfolio">
+  <meta property="og:description" content="CRAFT와 FPN을 결합해 한글 손글씨를 문자·자소 단위로 분석한 컴퓨터비전 프로젝트">
+  <meta property="og:url" content="https://csh0924.github.io/portfolio/projects/baram.html">
+  <meta property="og:image" content="https://csh0924.github.io/portfolio/assets/projects/baram/baram-segmentation-refinement.png">
+  <meta property="og:image:alt" content="한글 손글씨 자소 Segmentation 후처리 결과">
+  <meta name="twitter:card" content="summary_large_image">
   <title>바른글씨: 바람 | 최세훈 Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +45,7 @@
         <p class="hero-summary">손글씨 문장을 문자와 자소 단위로 분해하고, 형태·위치·자간·크기·기울기를 분석하여 맞춤형 교정 피드백을 제공하는 딥러닝·기하학적 후처리 기반 서비스.</p>
       </div>
       <figure class="hero-image baram-hero-image">
-        <img src="../assets/projects/baram/baram-logo.png" alt="바른글씨 바람 애플리케이션 로고">
+        <img loading="eager" decoding="async" fetchpriority="high" src="../assets/projects/baram/baram-logo.png" alt="바른글씨 바람 애플리케이션 로고">
       </figure>
     </section>
 
@@ -79,7 +90,7 @@
         </div>
       </div>
       <figure class="media-frame media-light">
-        <img src="../assets/projects/baram/baram-pipeline.png" alt="클라이언트, 서버, CRAFT와 FPN 분석 모듈로 구성된 바람 전체 파이프라인">
+        <img loading="lazy" decoding="async" src="../assets/projects/baram/baram-pipeline.png" alt="클라이언트, 서버, CRAFT와 FPN 분석 모듈로 구성된 바람 전체 파이프라인">
         <figcaption><span>ANALYSIS PIPELINE</span><span>CRAFT · Geometry · FPN · Evaluation</span></figcaption>
       </figure>
     </section>
@@ -128,9 +139,9 @@
         <li><span>04</span><div><h3>조합 및 증강</h3><p>2,841자 × 나눔손글씨 6폰트 × 위치·크기 변형 3종 = 자소 단위 Pixel Label을 포함한 합성 문자 이미지 51,138장.</p></div></li>
       </ol>
       <div class="dataset-gallery">
-        <figure class="media-frame media-dark"><img src="../assets/projects/baram/baram-dataset-component.png" alt="완성형 한글 가에서 초성과 중성 Component를 Masking으로 분리하는 과정"><figcaption><span>COMPONENT EXTRACTION</span><span>Masking</span></figcaption></figure>
-        <figure class="media-frame media-dark"><img src="../assets/projects/baram/baram-dataset-composition.png" alt="초성 중성 종성 Component를 조합해 완성형 한글을 만드는 과정"><figcaption><span>LABEL COMPOSITION</span><span>Initial · Medial · Final</span></figcaption></figure>
-        <figure class="media-frame media-dark dataset-sample"><img src="../assets/projects/baram/baram-dataset-samples.png" alt="여러 나눔손글씨 폰트와 증강으로 생성된 Label 데이터 예시"><figcaption><span>SYNTHETIC DATA</span><span>6 Fonts · 3 Augmentations</span></figcaption></figure>
+        <figure class="media-frame media-dark"><img loading="lazy" decoding="async" src="../assets/projects/baram/baram-dataset-component.png" alt="완성형 한글 가에서 초성과 중성 Component를 Masking으로 분리하는 과정"><figcaption><span>COMPONENT EXTRACTION</span><span>Masking</span></figcaption></figure>
+        <figure class="media-frame media-dark"><img loading="lazy" decoding="async" src="../assets/projects/baram/baram-dataset-composition.png" alt="초성 중성 종성 Component를 조합해 완성형 한글을 만드는 과정"><figcaption><span>LABEL COMPOSITION</span><span>Initial · Medial · Final</span></figcaption></figure>
+        <figure class="media-frame media-dark dataset-sample"><img loading="lazy" decoding="async" src="../assets/projects/baram/baram-dataset-samples.png" alt="여러 나눔손글씨 폰트와 증강으로 생성된 Label 데이터 예시"><figcaption><span>SYNTHETIC DATA</span><span>6 Fonts · 3 Augmentations</span></figcaption></figure>
       </div>
     </section>
 
@@ -140,7 +151,7 @@
         <div><h2 id="craft-title">문자 검출 모델을<br>중심점 추출기로 활용</h2><p>CRAFT의 일반적인 텍스트 영역 검출 결과를 그대로 사용하지 않고, Character Region Score에서 문자 영역 후보를 추출한 뒤 각 영역의 가중 중심을 글자 기준점으로 사용했다.</p></div>
       </div>
       <figure class="media-frame craft-frame">
-        <img src="../assets/projects/baram/baram-craft-centers.png" alt="손글씨 위에 시각화한 CRAFT 문자 중심 확률 맵">
+        <img loading="lazy" decoding="async" src="../assets/projects/baram/baram-craft-centers.png" alt="손글씨 위에 시각화한 CRAFT 문자 중심 확률 맵">
         <figcaption><span>CHARACTER REGION SCORE</span><span>Center Probability Map</span></figcaption>
       </figure>
       <div class="craft-notes">
@@ -156,8 +167,8 @@
         <div><h2 id="separation-title">중심점에서 확장하고<br>연결 성분으로 재할당</h2><p>CRAFT로 추출한 문자 중심을 Seed로 Voronoi 영역을 생성한 뒤, 서로 연결된 픽셀은 같은 글자일 가능성이 높다는 가정으로 Label을 보정했다. 단, 획이 맞닿는 손글씨에서는 이 가정이 항상 성립하지 않는다.</p></div>
       </div>
       <div class="baram-comparison">
-        <figure class="media-frame media-light"><img src="../assets/projects/baram/baram-voronoi.png" alt="각 픽셀을 가장 가까운 CRAFT 문자 중심의 Label로 할당한 Voronoi 영역"><figcaption><span>STEP 01</span><span>NEAREST-CENTER VORONOI ASSIGNMENT</span></figcaption></figure>
-        <figure class="media-frame media-light"><img src="../assets/projects/baram/baram-reclaim.png" alt="연결 성분에 포함된 픽셀을 다수 문자 Label로 다시 할당한 결과"><figcaption><span>STEP 02</span><span>CONNECTED-COMPONENT RECLAIM ×2</span></figcaption></figure>
+        <figure class="media-frame media-light"><img loading="lazy" decoding="async" src="../assets/projects/baram/baram-voronoi.png" alt="각 픽셀을 가장 가까운 CRAFT 문자 중심의 Label로 할당한 Voronoi 영역"><figcaption><span>STEP 01</span><span>NEAREST-CENTER VORONOI ASSIGNMENT</span></figcaption></figure>
+        <figure class="media-frame media-light"><img loading="lazy" decoding="async" src="../assets/projects/baram/baram-reclaim.png" alt="연결 성분에 포함된 픽셀을 다수 문자 Label로 다시 할당한 결과"><figcaption><span>STEP 02</span><span>CONNECTED-COMPONENT RECLAIM ×2</span></figcaption></figure>
       </div>
     </section>
 
@@ -168,15 +179,15 @@
       </div>
       <div class="result-grid">
         <article class="result-card">
-          <figure class="media-frame media-light"><img src="../assets/projects/baram/baram-training-curves.png" alt="한글 유형별 여섯 FPN 모델의 학습 및 검증 손실 그래프"></figure>
+          <figure class="media-frame media-light"><img loading="lazy" decoding="async" src="../assets/projects/baram/baram-training-curves.png" alt="한글 유형별 여섯 FPN 모델의 학습 및 검증 손실 그래프"></figure>
           <div><span class="result-index">RESULT / 01</span><h3>유형별 6개 모델 학습</h3><p>종성 유무 2종과 모음 형태 3종을 조합해 모델이 처리해야 할 한글 배치 복잡도를 분리했다.</p></div>
         </article>
         <article class="result-card">
-          <figure class="media-frame media-light"><img src="../assets/projects/baram/baram-segmentation-result.png" alt="캡스톤디자인 손글씨의 초성 중성 종성 Segmentation 시각화"></figure>
+          <figure class="media-frame media-light"><img loading="lazy" decoding="async" src="../assets/projects/baram/baram-segmentation-result.png" alt="캡스톤디자인 손글씨의 초성 중성 종성 Segmentation 시각화"></figure>
           <div><span class="result-index">RESULT / 02</span><h3>정성 결과와 오류 확인</h3><p>‘캡스톤디자인’ 문장의 자소 분할을 시각화했다. 일부 글자의 오분류도 함께 확인하여 후처리 보강의 필요성을 도출했다.</p></div>
         </article>
         <article class="result-card">
-          <figure class="media-frame media-dark"><img src="../assets/projects/baram/baram-segmentation-refinement.png" alt="인쇄체 기준과 연결 성분을 이용한 자소 Segmentation 보강 과정"></figure>
+          <figure class="media-frame media-dark"><img loading="lazy" decoding="async" src="../assets/projects/baram/baram-segmentation-refinement.png" alt="인쇄체 기준과 연결 성분을 이용한 자소 Segmentation 보강 과정"></figure>
           <div><span class="result-index">RESULT / 03</span><h3>Segmentation 후처리</h3><p>선택한 인쇄체의 자소 Label까지의 Euclidean distance map으로 각 잉크 픽셀을 최근접 Label에 할당하고, 하나의 연결 성분에 섞인 소수 Label을 다수 Label로 통일하여 경계 오분류를 보강했다.</p></div>
         </article>
       </div>
@@ -217,8 +228,8 @@
         <div><h2 id="service-ui-title">작성부터<br>분석 결과 확인까지</h2><p>사용자는 예문과 목표 인쇄체를 선택해 Canvas에 손글씨를 작성하고, 종합 점수와 다섯 평가 항목의 결과를 확인합니다.</p></div>
       </div>
       <div class="baram-service-preview">
-        <figure class="media-frame media-light"><img src="../assets/projects/baram/baram-writing-ui.png" alt="예문과 목표 인쇄체를 선택하고 Canvas에 손글씨를 작성하는 화면"><figcaption><span>STEP 01</span><span>REFERENCE · TARGET FONT · CANVAS</span></figcaption></figure>
-        <figure class="media-frame media-light"><img src="../assets/projects/baram/baram-score-ui.png" alt="종합 점수와 자형 위치 자간 크기 기울기 항목별 점수를 보여주는 화면"><figcaption><span>STEP 02</span><span>OVERALL SCORE · FIVE DIMENSIONS</span></figcaption></figure>
+        <figure class="media-frame media-light"><img loading="lazy" decoding="async" src="../assets/projects/baram/baram-writing-ui.png" alt="예문과 목표 인쇄체를 선택하고 Canvas에 손글씨를 작성하는 화면"><figcaption><span>STEP 01</span><span>REFERENCE · TARGET FONT · CANVAS</span></figcaption></figure>
+        <figure class="media-frame media-light"><img loading="lazy" decoding="async" src="../assets/projects/baram/baram-score-ui.png" alt="종합 점수와 자형 위치 자간 크기 기울기 항목별 점수를 보여주는 화면"><figcaption><span>STEP 02</span><span>OVERALL SCORE · FIVE DIMENSIONS</span></figcaption></figure>
       </div>
     </section>
 

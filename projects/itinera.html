@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Google Places와 LLM 기반 분위기 태그를 결합한 맞춤형 여행 일정 서비스 Itinera 개발 기록입니다.">
   <meta name="theme-color" content="#f5f6f2">
+  <link rel="canonical" href="https://csh0924.github.io/portfolio/projects/itinera.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="Choi Se Hoon Portfolio">
+  <meta property="og:title" content="Itinera | 최세훈 Portfolio">
+  <meta property="og:description" content="Google Places와 LLM 태깅을 결합한 맞춤형 여행 일정 Backend 프로젝트">
+  <meta property="og:url" content="https://csh0924.github.io/portfolio/projects/itinera.html">
+  <meta property="og:image" content="https://csh0924.github.io/portfolio/assets/projects/itinera/itinera-cover.jpg">
+  <meta property="og:image:alt" content="Itinera 맞춤형 여행 일정 서비스 화면">
+  <meta name="twitter:card" content="summary_large_image">
   <title>Itinera | 최세훈 Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +38,7 @@
         <p class="hero-summary">사용자의 지역과 취향 태그를 기반으로 여행지를 추천하고, 원하는 장소를 직접 선택해 지도 위에서 일정을 구성하는 맞춤형 여행 계획 서비스.</p>
       </div>
       <figure class="hero-image itinera-hero-image">
-        <img src="../assets/projects/itinera/itinera-cover.jpg" alt="추천 여행지 카드와 일정 생성 기능을 제공하는 Itinera 메인 화면">
+        <img loading="eager" decoding="async" fetchpriority="high" src="../assets/projects/itinera/itinera-cover.jpg" alt="추천 여행지 카드와 일정 생성 기능을 제공하는 Itinera 메인 화면">
         <figcaption><span>SERVICE OVERVIEW</span><span>PLACE DISCOVERY · PERSONALIZED ITINERARY</span></figcaption>
       </figure>
     </section>
@@ -73,7 +84,7 @@
     <section class="visual-section page-shell" aria-labelledby="architecture-title">
       <div class="section-heading"><p class="section-label">02 / SYSTEM ARCHITECTURE</p><div><h2 id="architecture-title">검색·수집·저장을 분리한<br>백엔드 구조</h2><p>React 클라이언트와 Spring Boot API, MySQL·Elasticsearch·Redis, Google Maps Platform과 Gemini API를 기능별 모듈로 연결했다.</p></div></div>
       <figure class="media-frame media-light itinera-diagram">
-        <img src="../assets/projects/itinera/itinera-architecture.png" alt="프론트엔드, 백엔드 모듈, 데이터베이스와 외부 API로 구성된 Itinera 시스템 구조도">
+        <img loading="lazy" decoding="async" src="../assets/projects/itinera/itinera-architecture.png" alt="프론트엔드, 백엔드 모듈, 데이터베이스와 외부 API로 구성된 Itinera 시스템 구조도">
         <figcaption><span>SYSTEM ARCHITECTURE</span><span>SPRING BOOT · DATA LAYER · EXTERNAL API</span></figcaption>
       </figure>
     </section>
@@ -81,7 +92,7 @@
     <section class="flow page-shell" aria-labelledby="recommendation-title">
       <div class="section-heading"><p class="section-label">03 / RECOMMENDATION FLOW</p><div><h2 id="recommendation-title">DB 우선 검색과<br>필요한 순간의 데이터 확장</h2><p>앞선 전체 서비스 흐름 중 장소 추천을 위한 검색·수집·저장 과정을 백엔드 관점에서 분리했다. 추천은 학습형 모델이 아니라 사용자 취향 태그를 Elasticsearch 쿼리로 변환하는 검색 기반 방식이며, Gemini는 신규 장소의 리뷰와 설명에 제한된 분위기 태그를 부여한다.</p></div></div>
       <figure class="media-frame media-light itinera-flow-frame">
-        <img src="../assets/projects/itinera/itinera-recommendation-flow.png" alt="사용자 취향 입력부터 DB 검색, Google Places 조회, LLM 태그 분석과 재검색으로 이어지는 추천 흐름">
+        <img loading="lazy" decoding="async" src="../assets/projects/itinera/itinera-recommendation-flow.png" alt="사용자 취향 입력부터 DB 검색, Google Places 조회, LLM 태그 분석과 재검색으로 이어지는 추천 흐름">
         <figcaption><span>DATA EXPANSION LOOP</span><span>SEARCH → FETCH → TAG → STORE → RE-SEARCH</span></figcaption>
       </figure>
       <ol class="model-evolution itinera-steps">
@@ -104,9 +115,9 @@
     <section class="results page-shell" aria-labelledby="service-title">
       <div class="section-heading"><p class="section-label">05 / SERVICE FLOW</p><div><h2 id="service-title">추천 결과를<br>사용자 주도 일정으로</h2><p>취향을 입력하고 추천 장소를 선택한 뒤, 지도에서 방문 순서와 이동 경로를 직접 조정한다.</p></div></div>
       <div class="result-grid">
-        <article class="result-card"><figure><img src="../assets/projects/itinera/itinera-preference-tags.png" alt="관광지 식당 카페의 세부 취향 태그를 선택하는 Itinera 화면"></figure><div><span class="result-index">STEP / 01</span><h3>세분화된 취향 입력</h3><p>관광지 유형과 분위기, 식당 종류, 카페 편의 요소를 카테고리별 태그로 선택한다.</p></div></article>
-        <article class="result-card"><figure><img src="../assets/projects/itinera/itinera-place-selection.jpg" alt="지도 위에서 추천 여행지를 확인하고 선택하는 Itinera 일정 설계 화면"></figure><div><span class="result-index">STEP / 02</span><h3>장소 선택과 순서 조정</h3><p>추천 목록을 그대로 확정하지 않고 원하는 장소를 선택하거나 직접 검색해 일정에 추가한다.</p></div></article>
-        <article class="result-card"><figure><img src="../assets/projects/itinera/itinera-route-result.jpg" alt="선택한 여행지의 이동 경로와 상세 일정을 표시하는 Itinera 결과 화면"></figure><div><span class="result-index">STEP / 03</span><h3>경로 생성과 일정 저장</h3><p>Directions API로 장소 간 경로·거리·소요 시간을 계산하고 일자별 Trip으로 저장한다.</p></div></article>
+        <article class="result-card"><figure><img loading="lazy" decoding="async" src="../assets/projects/itinera/itinera-preference-tags.png" alt="관광지 식당 카페의 세부 취향 태그를 선택하는 Itinera 화면"></figure><div><span class="result-index">STEP / 01</span><h3>세분화된 취향 입력</h3><p>관광지 유형과 분위기, 식당 종류, 카페 편의 요소를 카테고리별 태그로 선택한다.</p></div></article>
+        <article class="result-card"><figure><img loading="lazy" decoding="async" src="../assets/projects/itinera/itinera-place-selection.jpg" alt="지도 위에서 추천 여행지를 확인하고 선택하는 Itinera 일정 설계 화면"></figure><div><span class="result-index">STEP / 02</span><h3>장소 선택과 순서 조정</h3><p>추천 목록을 그대로 확정하지 않고 원하는 장소를 선택하거나 직접 검색해 일정에 추가한다.</p></div></article>
+        <article class="result-card"><figure><img loading="lazy" decoding="async" src="../assets/projects/itinera/itinera-route-result.jpg" alt="선택한 여행지의 이동 경로와 상세 일정을 표시하는 Itinera 결과 화면"></figure><div><span class="result-index">STEP / 03</span><h3>경로 생성과 일정 저장</h3><p>Directions API로 장소 간 경로·거리·소요 시간을 계산하고 일자별 Trip으로 저장한다.</p></div></article>
       </div>
     </section>
 

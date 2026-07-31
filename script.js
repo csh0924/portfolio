@@ -81,7 +81,7 @@ const projects = [
     category: "vision",
     type: "AI / Multimodal Vision",
     title: "Burinake",
-    summary: "CCTV 영상에서 화재·연기 후보를 실시간 탐지하고 VLM으로 실제 위험 상황인지 재판단하는 AI 안전 관리 서비스입니다. YOLO와 VLM을 조건부 Cascade로 연결해 정확도·지연·비용을 함께 고려했습니다.",
+    summary: "주기적으로 전달되는 CCTV 이미지에서 화재·연기 후보를 빠르게 탐지하고 VLM으로 실제 위험 상황인지 재판단하는 AI 안전 관리 서비스입니다. YOLO와 VLM을 조건부 Cascade로 연결해 정확도·지연·비용을 함께 고려했습니다.",
     tags: ["YOLOv12", "DETR", "VLM", "Azure AI Foundry", "Docker", "Azure AKS"],
     stage: "Multimodal Vision",
     period: "2026. 06 — 2026. 07",
@@ -178,7 +178,7 @@ const evolutionStages = [
     category: "vision",
     label: "DETECTION & VLM CASCADE",
     title: "시각적 탐지에서 맥락과 상황 이해로",
-    description: "YOLO의 실시간 후보 탐지와 VLM의 상황 이해를 조건부 Cascade로 결합하며, Latency와 비용을 제어하는 멀티모달 AI Pipeline으로 확장했습니다.",
+    description: "YOLO 기반 준실시간 후보 탐지와 VLM의 상황 이해를 조건부 Cascade로 결합하며, Latency와 비용을 제어하는 멀티모달 AI Pipeline으로 확장했습니다.",
     reference: "BURINAKE",
   },
 ];
