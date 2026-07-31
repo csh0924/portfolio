@@ -393,7 +393,6 @@ h1 em {
 .stack-groups h4 { margin: 4px 0 0; font: 500 .64rem var(--mono); text-transform: uppercase; }
 .stack-groups p { margin: 0; display: flex; flex-wrap: wrap; gap: 9px; }
 .stack-groups span { padding: 9px 12px; color: var(--ink); background: var(--surface); border: 1px solid rgba(18,29,47,.08); font: 500 .62rem var(--mono); }
-.stack-note { max-width: 720px; margin: 24px 0 0 auto; color: var(--ink-soft); font-size: .68rem; line-height: 1.75; }
 .profile-layout {
   margin-top: 0;
   display: grid;
