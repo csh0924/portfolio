@@ -126,6 +126,22 @@ function projectCard(project) {
   `;
 }
 
+function projectPlaceholder() {
+  return `
+    <article class="project-card project-card-placeholder reveal" data-category="placeholder" aria-hidden="true">
+      <div class="project-image project-placeholder-visual">
+        <div class="image-label"><span>NEXT CASE</span><span>OPEN SLOT</span></div>
+        <span class="placeholder-mark">+</span>
+      </div>
+      <div class="project-info project-placeholder-info">
+        <div class="project-meta"><span>Future Work</span><span>—</span></div>
+        <h3>Next project.</h3>
+        <p>새로운 문제와 결과를 위한 자리</p>
+      </div>
+    </article>
+  `;
+}
+
 const evolutionStages = [
   {
     order: "01",
@@ -205,7 +221,7 @@ const featuredProjects = publishedProjects
   .filter((project) => project.featured !== false && project.link)
   .sort((a, b) => a.featuredRank - b.featuredRank);
 
-projectGrid.innerHTML = featuredProjects.map(projectCard).join("");
+projectGrid.innerHTML = featuredProjects.map(projectCard).join("") + projectPlaceholder();
 timeline.innerHTML = evolutionStages.map(timelineRow).join("");
 document.querySelector("#project-count").textContent = String(projects.length).padStart(2, "0");
 document.querySelector("#year").textContent = new Date().getFullYear();
