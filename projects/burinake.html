@@ -20,9 +20,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260731-13">
+  <link rel="stylesheet" href="./project.css?v=20260802-14">
 </head>
-<body>
+<body class="burinake-page">
   <a class="skip-link" href="#main">본문으로 바로가기</a>
   <header class="project-header">
     <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All projects</a>
@@ -49,7 +49,7 @@
     <section class="overview page-shell" aria-labelledby="overview-title">
       <p class="section-label">00 / OVERVIEW</p>
       <div class="overview-intro">
-        <h2 id="overview-title">빠른 탐지와<br>깊은 상황 이해의 결합</h2>
+        <h2 id="overview-title">빠른 탐지와 깊은 상황 이해의 결합</h2>
         <p>YOLO의 빠른 추론과 VLM의 맥락 이해 능력을 서로 대체 관계로 보지 않고, 각 모델을 가장 적합한 단계에 배치했다. Object Detection이 화재·연기 후보를 빠르게 선별하고, 사건(Issue) 관리 정책이 상황 변화를 확인한 경우에만 VLM이 연속 프레임과 메타데이터를 분석하는 조건부 Cascade를 설계했다.</p>
       </div>
       <div class="how-it-works" aria-label="Burinake 처리 흐름">
@@ -87,7 +87,7 @@
     </section>
 
     <section class="dataset page-shell" aria-labelledby="dataset-title">
-      <div class="section-heading"><p class="section-label">02 / DATASET ENGINEERING</p><div><h2 id="dataset-title" class="controlled-lines"><span>서로 다른 데이터셋을</span><span>하나의 탐지 문제로</span></h2><p>Kaggle의 두 화재·연기 데이터셋을 통합하고 상반된 클래스 인덱스를 재정의했다. 기존 증강은 유지하면서 CCTV의 야간·저조도 환경과 색상 정보 손실을 고려한 흑백 변환을 추가했다.</p></div></div>
+      <div class="section-heading"><p class="section-label">02 / DATASET ENGINEERING</p><div><h2 id="dataset-title">서로 다른 데이터셋을 하나의 탐지 문제로</h2><p>Kaggle의 두 화재·연기 데이터셋을 통합하고 상반된 클래스 인덱스를 재정의했다. 기존 증강은 유지하면서 CCTV의 야간·저조도 환경과 색상 정보 손실을 고려한 흑백 변환을 추가했다.</p></div></div>
       <div class="dataset-metrics">
         <div><strong>49,817</strong><span>Train Images</span></div>
         <div><strong>7,991</strong><span>Validation Images</span></div>
@@ -101,7 +101,7 @@
     </section>
 
     <section class="research page-shell" aria-labelledby="benchmark-title">
-      <div class="section-heading"><p class="section-label">03 / MODEL BENCHMARK</p><div><h2 id="benchmark-title">최고 점수보다<br>운영 목적에 맞는 모델</h2><p>화재·연기 후보의 누락을 줄이기 위해 Recall을 우선하고, 3초 단위 Snapshot을 처리할 수 있는 Latency를 함께 평가했다. 후단에서 VLM이 재검증하므로 1차 모델은 최종 판정보다 빠르고 넓은 후보 선별에 집중했다.</p></div></div>
+      <div class="section-heading"><p class="section-label">03 / MODEL BENCHMARK</p><div><h2 id="benchmark-title">최고 점수보다 운영 목적에 맞는 모델</h2><p>화재·연기 후보의 누락을 줄이기 위해 Recall을 우선하고, 3초 단위 Snapshot을 처리할 수 있는 Latency를 함께 평가했다. 후단에서 VLM이 재검증하므로 1차 모델은 최종 판정보다 빠르고 넓은 후보 선별에 집중했다.</p></div></div>
       <div class="benchmark-table" role="table" aria-label="Object Detection 모델 성능 비교">
         <div class="benchmark-row benchmark-head" role="row"><span role="columnheader">MODEL</span><span role="columnheader">PRECISION</span><span role="columnheader">RECALL</span><span role="columnheader">mAP50</span><span role="columnheader">mAP50–95</span><span role="columnheader">LATENCY</span></div>
         <div class="benchmark-row" role="row"><strong role="cell">YOLOv11</strong><span role="cell">.531</span><span role="cell">.619</span><span role="cell">.426</span><span role="cell">.234</span><span role="cell">—</span></div>
@@ -116,7 +116,7 @@
     </section>
 
     <section class="flow page-shell" aria-labelledby="cascade-title">
-      <div class="section-heading"><p class="section-label">04 / CONDITIONAL CASCADE</p><div><h2 id="cascade-title">VLM을 항상 호출하지 않는<br>멀티모달 설계</h2><p>VLM의 맥락 분석 능력을 활용하되, 모든 프레임에 사용하는 방식에서 발생하는 지연과 비용을 사건 기반 호출 정책으로 제어했다.</p></div></div>
+      <div class="section-heading"><p class="section-label">04 / CONDITIONAL CASCADE</p><div><h2 id="cascade-title">VLM을 항상 호출하지 않는 멀티모달 설계</h2><p>VLM의 맥락 분석 능력을 활용하되, 모든 프레임에 사용하는 방식에서 발생하는 지연과 비용을 사건 기반 호출 정책으로 제어했다.</p></div></div>
       <div class="cascade-flow">
         <div><small>01 / EVERY 3 SEC</small><strong>CCTV Snapshot</strong><p>Backend로 이미지 전달</p></div><i>→</i>
         <div><small>02 / FAST FILTER</small><strong>YOLOv12</strong><p>Fire · Smoke 후보 탐지</p></div><i>→</i>
@@ -131,7 +131,7 @@
     </section>
 
     <section class="vlm page-shell" aria-labelledby="vlm-title">
-      <div class="section-heading"><p class="section-label">05 / VLM CONTEXT ANALYSIS</p><div><h2 id="vlm-title" class="controlled-lines"><span>한 장의 탐지를</span><span>시간과 상황으로 확장</span></h2><p>Azure AI Foundry의 <code>gpt-5-mini</code>에 탐지 시점 전후를 포함한 총 5개 연속 프레임, YOLO의 클래스·점수·Bounding Box와 CCTV 위치·시간·ID를 함께 전달했다.</p></div></div>
+      <div class="section-heading"><p class="section-label">05 / VLM CONTEXT ANALYSIS</p><div><h2 id="vlm-title">한 장의 탐지를 시간과 상황으로 확장</h2><p>Azure AI Foundry의 <code>gpt-5-mini</code>에 탐지 시점 전후를 포함한 총 5개 연속 프레임, YOLO의 클래스·점수·Bounding Box와 CCTV 위치·시간·ID를 함께 전달했다.</p></div></div>
       <div class="vlm-contract">
         <div><span>INPUT / 01</span><strong>Five-frame Sequence</strong><p>탐지 시점 전후를 포함한 총 5개 연속 프레임의 변화</p></div>
         <div><span>INPUT / 02</span><strong>YOLO Output</strong><p>Fire·Smoke Label, Confidence, Bounding Box</p></div>
@@ -156,7 +156,7 @@
     </section>
 
     <section class="results page-shell" aria-labelledby="result-title">
-      <div class="section-heading"><p class="section-label">06 / SERVICE RESULT</p><div><h2 id="result-title">탐지에서 사건 단위<br>의사결정 지원으로</h2><p>반복되는 프레임 탐지를 하나의 사건으로 관리하고 Detection, VLM 판단, 위험도와 대응 정보를 관제 화면에 통합했다. VLM은 자동 신고 결정을 대체하지 않으며, 관제 담당자가 근거와 연속 프레임을 검토한 후 최종 신고 여부를 결정한다.</p></div></div>
+      <div class="section-heading"><p class="section-label">06 / SERVICE RESULT</p><div><h2 id="result-title">탐지에서 사건 단위 의사결정 지원으로</h2><p>반복되는 프레임 탐지를 하나의 사건으로 관리하고 Detection, VLM 판단, 위험도와 대응 정보를 관제 화면에 통합했다. VLM은 자동 신고 결정을 대체하지 않으며, 관제 담당자가 근거와 연속 프레임을 검토한 후 최종 신고 여부를 결정한다.</p></div></div>
       <div class="result-grid">
         <article class="result-card"><figure><img loading="lazy" decoding="async" src="../assets/projects/burinake/burinake-detection-result.png" alt="주차장 화재와 연기를 Bounding Box로 탐지한 결과"></figure><div><span class="result-index">RESULT / 01</span><h3>실제 화재 영상 정성 테스트</h3><p>국내 CCTV 환경을 보완하기 위해 실제 화재 영상과 뉴스 이미지에서도 Fire·Smoke 후보 탐지를 추가로 확인했다.</p></div></article>
         <article class="result-card"><figure><img loading="lazy" decoding="async" src="../assets/projects/burinake/burinake-issue-detail.png" alt="화재 가능성, VLM 분석 결과와 대응 정보를 표시하는 Burinake Issue 상세 화면"></figure><div><span class="result-index">RESULT / 02</span><h3>Issue 기반 분석 화면</h3><p>YOLO 결과, 연속 Snapshot, VLM 상황 요약과 신고 판단을 하나의 사건 기록으로 제공한다.</p></div></article>
@@ -166,7 +166,7 @@
     <section class="learning page-shell" aria-labelledby="review-title">
       <p class="section-label">07 / REVIEW</p>
       <div class="learning-layout">
-        <h2 id="review-title">Technical Review<br>&amp; Significance</h2>
+        <h2 id="review-title">Technical Review &amp; Significance</h2>
         <div>
           <p>기존 컴퓨터비전 프로젝트에서 직접 학습한 모델로 시각적 특징을 검출·분할했다면, Burinake에서는 VLM을 도입해 이미지의 주변 맥락과 시간적 변화까지 해석 범위를 확장했다. 그러나 VLM을 단순히 추가하는 데 그치지 않고, 기존 Detection 모델과 VLM이 가진 서로 다른 강점과 비용을 분석해 역할을 분리했다.</p>
           <p>YOLOv12는 실시간 후보 탐지에 집중하고 VLM은 선별된 사건의 진위와 위험도를 해석한다. 빠르지만 맥락이 제한적인 기존 딥러닝 모델과, 풍부한 상황 이해가 가능하지만 느리고 비용이 큰 VLM을 조건부 Cascade로 결합함으로써 최신 모델이 기존 모델을 대체하는 것이 아니라 상호 보완할 수 있음을 확인했다.</p>

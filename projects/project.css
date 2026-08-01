@@ -331,6 +331,32 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 .project-navigation a:hover { color: var(--cyan); }
 footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; justify-content: space-between; color: rgba(255,255,255,.5); background: var(--ink); border-top: 1px solid rgba(255,255,255,.18); font: 400 .55rem var(--mono); text-transform: uppercase; }
 
+/* Burinake: unified editorial heading flow */
+.burinake-page .overview-intro,
+.burinake-page .section-heading,
+.burinake-page .section-heading > div,
+.burinake-page .learning-layout {
+  display: block;
+}
+.burinake-page .overview-intro h2,
+.burinake-page .section-heading h2,
+.burinake-page .learning h2,
+.burinake-page .stack h2 {
+  font-size: clamp(2.35rem, 3.4vw, 3.6rem);
+  line-height: 1.08;
+  white-space: nowrap;
+}
+.burinake-page .overview-intro > p,
+.burinake-page .section-heading > div > p {
+  max-width: 1080px;
+  margin: 24px 0 0;
+}
+.burinake-page .section-heading > .section-label { margin-bottom: 24px; }
+.burinake-page .learning-layout > div {
+  max-width: 1080px;
+  margin-top: 30px;
+}
+
 @media (max-width: 900px) {
   .project-header, .project-hero, .page-shell { width: min(100% - 40px, 1360px); }
   .hero-title, .overview-intro { grid-template-columns: 1fr; gap: 35px; }
@@ -442,6 +468,16 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .project-navigation > * { min-height: 180px; padding: 35px 24px; }
   .project-navigation > *:last-child { align-items: flex-start; border-top: 1px solid rgba(255,255,255,.2); border-left: 0; }
   footer { padding-inline: 24px; }
+}
+
+@media (max-width: 900px) {
+  .burinake-page .overview-intro h2,
+  .burinake-page .section-heading h2,
+  .burinake-page .learning h2,
+  .burinake-page .stack h2 {
+    font-size: clamp(2.05rem, 8.8vw, 2.7rem);
+    white-space: normal;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
