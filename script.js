@@ -5,6 +5,7 @@ const projects = [
     category: "backend",
     type: "Backend",
     title: "Emuda",
+    cardTitle: "감정 일기 분석 · 음악 추천 서비스",
     summary: "감정 일기를 BERT로 분석하고 ChatGPT·Spotify를 연결해 사용자 취향과 감정에 맞는 음악을 추천하는 서비스입니다.",
     tags: ["Spring Boot", "MySQL", "BERT API", "ChatGPT API", "AWS EC2"],
     stage: "First Team Project",
@@ -24,6 +25,7 @@ const projects = [
     category: "backend",
     type: "Backend",
     title: "Itinera",
+    cardTitle: "취향 기반 여행지 추천 · 일정 설계 서비스",
     summary: "Google Places의 장소 정보와 리뷰 기반 취향 태그를 자체 데이터로 축적하고, 이를 기반으로 사용자가 여행지를 선택해 일정을 구성하는 맞춤형 여행 서비스입니다.",
     tags: ["Spring Boot", "MySQL", "Elasticsearch", "Google Places API", "LLM Tagging"],
     stage: "Data-backed Service",
@@ -43,6 +45,7 @@ const projects = [
     category: "vision",
     type: "AI / Computer Vision",
     title: "바른글씨: 바람",
+    cardTitle: "한글 손글씨 분석 · 교정 서비스",
     summary: "한글 손글씨를 문자와 자소 단위로 분석해 교정 피드백을 제공하는 컴퓨터비전 서비스입니다. CRAFT·기하학적 후처리와 직접 학습한 FPN을 하나의 분석 Pipeline으로 구성했습니다.",
     tags: ["PyTorch", "CRAFT", "FPN", "OpenCV"],
     stage: "First AI Pipeline",
@@ -62,6 +65,7 @@ const projects = [
     category: "vision",
     type: "AI / Computer Vision",
     title: "CSAS",
+    cardTitle: "시설물 결함 분류 · 영역 분석 서비스",
     summary: "시설물 이미지에서 결함의 종류와 영역을 함께 판별하는 Cascade 컴퓨터비전 시스템입니다. 불완전한 Label을 보완하기 위해 분류 Logit을 SegFormer의 Hint로 활용하고 Custom Loss를 설계했습니다.",
     tags: ["PyTorch", "EfficientNet", "SegFormer", "Custom Loss", "Docker", "AWS EKS"],
     stage: "Cascade Vision",
@@ -81,6 +85,7 @@ const projects = [
     category: "vision",
     type: "AI / Multimodal Vision",
     title: "Burinake",
+    cardTitle: "YOLO · VLM 기반 화재 탐지 · 관제 지원 서비스",
     summary: "주기적으로 전달되는 CCTV 이미지에서 화재·연기 후보를 빠르게 탐지하고 VLM으로 실제 위험 상황인지 재판단하는 AI 안전 관리 서비스입니다. YOLO와 VLM을 조건부 Cascade로 연결해 정확도·지연·비용을 함께 고려했습니다.",
     tags: ["YOLOv12", "DETR", "VLM", "Azure AI Foundry", "Docker", "Azure AKS"],
     stage: "Multimodal Vision",
@@ -102,8 +107,8 @@ const timeline = document.querySelector("#timeline");
 
 function projectCard(project) {
   const title = project.link
-    ? `<a href="${project.link}"${project.link.startsWith("http") ? ' target="_blank" rel="noreferrer"' : ""}>${project.title} <span aria-hidden="true">↗</span></a>`
-    : project.title;
+    ? `<a href="${project.link}"${project.link.startsWith("http") ? ' target="_blank" rel="noreferrer"' : ""}><small>${project.cardTitle}</small><strong>${project.title} <span aria-hidden="true">↗</span></strong></a>`
+    : `<small>${project.cardTitle}</small><strong>${project.title}</strong>`;
   const image = project.image
     ? `<img src="${project.image}" alt="${project.imageAlt}" loading="lazy">`
     : "";
