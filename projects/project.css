@@ -294,17 +294,36 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 .itinera-hero-image { padding: 0; position: relative; overflow: hidden; background: #dff7f8; }
 .itinera-hero-image img { width: 100%; height: clamp(430px, 49vw, 680px); object-fit: cover; object-position: center top; mix-blend-mode: normal; }
 .itinera-hero-image figcaption { position: absolute; right: 0; bottom: 0; left: 0; color: #fff; background: rgba(18,29,47,.84); border: 0; }
+.itinera-page .how-it-works-heading { display: block; }
+.itinera-page .how-it-works-heading h3 { margin-top: 24px; }
+.itinera-page .how-it-works ol { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.itinera-page .how-it-works li { min-height: 170px; padding: 20px; display: flex; flex-direction: column; }
+.itinera-page .how-it-works h4 { min-height: 3em; margin: 34px 0 12px; line-height: 1.45; }
+.itinera-page .fact-grid { margin-top: 56px; }
+.itinera-page .fact-grid div { min-height: 132px; padding: 24px; display: flex; flex-direction: column; }
+.itinera-page .fact-grid dd { margin: 28px 0 0; }
+.itinera-page .contribution-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.itinera-page .contribution-grid article { min-height: 220px; padding: 28px; display: flex; flex-direction: column; }
+.itinera-page .contribution-grid h3 { min-height: 2.7em; margin: 42px 0 16px; }
 .itinera-diagram img, .itinera-flow-frame img { max-height: 760px; object-fit: contain; }
-.itinera-steps li { grid-template-columns: 100px .75fr 1.25fr; }
+.itinera-steps li { grid-template-columns: 100px minmax(0, 1fr); }
+.itinera-steps li > div { max-width: 1080px; }
+.itinera-steps h3 { margin-bottom: 14px; }
 .itinera-steps li p { grid-column: auto; }
 .research-grid code { color: var(--blue); font: 500 .68rem var(--mono); }
-.itinera-metrics { margin-top: 75px; }
-.itinera-metrics > div:nth-child(3) strong { font-size: 1.8rem; }
+.itinera-page .decision-grid > article { min-height: 280px; display: flex; flex-direction: column; }
+.itinera-page .decision-grid h3 { min-height: 2.7em; margin: 42px 0 20px; }
+.itinera-metrics { margin-top: 56px; }
+.itinera-metrics > div,
+.itinera-metrics > p { min-height: 132px; padding: 24px; }
+.itinera-metrics > div:nth-child(3) strong { font-size: 2rem; }
 .evaluation-notes { display: grid; grid-template-columns: repeat(3, 1fr); border-left: 1px solid var(--line); }
 .evaluation-notes article { min-height: 235px; padding: 30px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .evaluation-notes span { color: var(--blue); font: 500 .56rem var(--mono); }
 .evaluation-notes h3 { margin: 42px 0 15px; font-size: 1.05rem; }
 .evaluation-notes p { margin: 0; color: var(--ink-soft); font-size: .73rem; line-height: 1.75; }
+.itinera-page .evaluation-notes article { min-height: 220px; display: flex; flex-direction: column; }
+.itinera-page .evaluation-notes h3 { min-height: 2.8em; margin: 42px 0 15px; }
 .result-card h3 { margin: 15px 0 18px; font-size: clamp(1.7rem, 3vw, 2.8rem); letter-spacing: -.05em; }
 .result-card > div > p:last-child { margin: 0; color: var(--ink-soft); font-size: .87rem; line-height: 1.85; }
 .result-card > div > .result-note {
@@ -336,34 +355,34 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; justify-content: space-between; color: rgba(255,255,255,.5); background: var(--ink); border-top: 1px solid rgba(255,255,255,.18); font: 400 .55rem var(--mono); text-transform: uppercase; }
 
 /* Project-specific unified editorial heading flow */
-:is(.burinake-page, .csas-page, .baram-page) .overview-intro,
-:is(.burinake-page, .csas-page, .baram-page) .section-heading,
-:is(.burinake-page, .csas-page, .baram-page) .section-heading > div,
-:is(.burinake-page, .csas-page, .baram-page) .learning-layout {
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .overview-intro,
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .section-heading,
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .section-heading > div,
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .learning-layout {
   display: block;
 }
-:is(.burinake-page, .csas-page, .baram-page) .hero-title {
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .hero-title {
   display: block;
 }
-:is(.burinake-page, .csas-page, .baram-page) .hero-summary {
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .hero-summary {
   max-width: 1080px;
   margin: 28px 0 0;
 }
-:is(.burinake-page, .csas-page, .baram-page) .overview-intro h2,
-:is(.burinake-page, .csas-page, .baram-page) .section-heading h2,
-:is(.burinake-page, .csas-page, .baram-page) .learning h2,
-:is(.burinake-page, .csas-page, .baram-page) .stack h2 {
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .overview-intro h2,
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .section-heading h2,
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .learning h2,
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .stack h2 {
   font-size: clamp(2.35rem, 3.4vw, 3.6rem);
   line-height: 1.08;
   white-space: nowrap;
 }
-:is(.burinake-page, .csas-page, .baram-page) .overview-intro > p,
-:is(.burinake-page, .csas-page, .baram-page) .section-heading > div > p {
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .overview-intro > p,
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .section-heading > div > p {
   max-width: 1080px;
   margin: 24px 0 0;
 }
-:is(.burinake-page, .csas-page, .baram-page) .section-heading > .section-label { margin-bottom: 24px; }
-:is(.burinake-page, .csas-page, .baram-page) .learning-layout > div {
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .section-heading > .section-label { margin-bottom: 24px; }
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .learning-layout > div {
   max-width: 1080px;
   margin-top: 30px;
 }
@@ -665,6 +684,12 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .baram-page .contribution-grid article:last-child {
     grid-column: 1 / -1;
   }
+  .itinera-page .how-it-works ol {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .itinera-page .contribution-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 900px) {
@@ -699,6 +724,7 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .prompt-review { grid-template-columns: 1fr; gap: 25px; }
   .itinera-steps li { grid-template-columns: 80px 1fr; }
   .itinera-steps li p { grid-column: 2; }
+  .itinera-page .how-it-works ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .feedback-contract ol { grid-template-columns: 1fr; }
 }
 
@@ -761,6 +787,14 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .prompt-review { padding: 28px; }
   .itinera-project-hero h1 { font-size: clamp(3.4rem, 17vw, 5rem); }
   .itinera-hero-image figcaption { align-items: flex-start; flex-direction: column; gap: 6px; }
+  .itinera-page .how-it-works ol,
+  .itinera-page .contribution-grid { grid-template-columns: 1fr; }
+  .itinera-page .how-it-works li { min-height: 138px; }
+  .itinera-page .how-it-works h4,
+  .itinera-page .contribution-grid h3,
+  .itinera-page .decision-grid h3,
+  .itinera-page .evaluation-notes h3 { min-height: 0; }
+  .itinera-page .contribution-grid article { min-height: 190px; padding: 24px; }
   .itinera-steps li { grid-template-columns: 1fr; }
   .itinera-steps li p { grid-column: auto; }
   .evaluation-notes { grid-template-columns: 1fr; }
@@ -799,10 +833,10 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
 }
 
 @media (max-width: 1100px) {
-  :is(.burinake-page, .csas-page, .baram-page) .overview-intro h2,
-  :is(.burinake-page, .csas-page, .baram-page) .section-heading h2,
-  :is(.burinake-page, .csas-page, .baram-page) .learning h2,
-  :is(.burinake-page, .csas-page, .baram-page) .stack h2 {
+  :is(.burinake-page, .csas-page, .baram-page, .itinera-page) .overview-intro h2,
+  :is(.burinake-page, .csas-page, .baram-page, .itinera-page) .section-heading h2,
+  :is(.burinake-page, .csas-page, .baram-page, .itinera-page) .learning h2,
+  :is(.burinake-page, .csas-page, .baram-page, .itinera-page) .stack h2 {
     font-size: clamp(2.05rem, 8.8vw, 2.7rem);
     white-space: normal;
   }
