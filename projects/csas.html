@@ -20,9 +20,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260731-12">
+  <link rel="stylesheet" href="./project.css?v=20260802-18">
 </head>
-<body>
+<body class="csas-page">
   <a class="skip-link" href="#main">본문으로 바로가기</a>
   <header class="project-header">
     <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All projects</a>
@@ -49,8 +49,8 @@
     <section class="overview page-shell" aria-labelledby="overview-title">
       <p class="section-label">00 / OVERVIEW</p>
       <div class="overview-intro">
-        <h2 id="overview-title">불완전한 Label을 전제로<br>설계한 Cascade Vision</h2>
-        <p>분류 모델은 ‘어떤 결함인가’를 후보로 판별하고, Semantic Segmentation은 ‘결함이 어디에 있는가’를 픽셀 단위로 찾는다. 단일 Label과 누락 Annotation이 공존하는 데이터의 한계를 모델 구조와 Loss 설계에 반영하고, 학습 모델을 컨테이너 기반 AI 서버로 연결했다.</p>
+        <h2 id="overview-title">불완전한 Label을 전제로 설계한 Cascade Vision</h2>
+        <p>분류 모델은 ‘어떤 결함인가’를 후보로 판별하고, Semantic Segmentation은 ‘결함이 어디에 있는가’를 픽셀 단위로 찾는다.<br>단일 Label과 누락 Annotation이 공존하는 데이터의 한계를 모델 구조와 Loss 설계에 반영하고, 학습 모델을 컨테이너 기반 AI 서버로 연결했다.</p>
       </div>
       <div class="how-it-works" aria-labelledby="how-it-works-title">
         <div class="how-it-works-heading">
@@ -85,7 +85,7 @@
     </section>
 
     <section class="dataset page-shell" aria-labelledby="data-title">
-      <div class="section-heading"><p class="section-label">02 / DATASET</p><div><h2 id="data-title">현실 데이터의<br>두 가지 불완전성</h2><p>클래스 수와 Pixel 분포의 불균형뿐 아니라, 한 이미지의 복수 결함과 누락 Annotation까지 학습 설계에 반영했다.</p></div></div>
+      <div class="section-heading"><p class="section-label">02 / DATASET</p><div><h2 id="data-title">현실 데이터의 두 가지 불완전성</h2><p>클래스 수와 Pixel 분포의 불균형뿐 아니라, 한 이미지의 복수 결함과 누락 Annotation까지 학습 설계에 반영했다.</p></div></div>
       <div class="dataset-metrics">
         <div><strong>472,495</strong><span>전체 시설물 이미지</span></div>
         <div><strong>11</strong><span>정상 및 결함 클래스</span></div>
@@ -100,7 +100,7 @@
     </section>
 
     <section class="research page-shell" aria-labelledby="evolution-title">
-      <div class="section-heading"><p class="section-label">03 / MODEL EVOLUTION</p><div><h2 id="evolution-title">실패 원인에 따라<br>구조를 단계적으로 수정</h2><p>분류와 Segmentation을 독립적으로 최적화하는 대신, 데이터의 결함이 각 모델에 미치는 영향을 기준으로 네 차례 구조를 발전시켰다.</p></div></div>
+      <div class="section-heading"><p class="section-label">03 / MODEL EVOLUTION</p><div><h2 id="evolution-title">실패 원인에 따라 구조를 단계적으로 수정</h2><p>분류와 Segmentation을 독립적으로 최적화하는 대신, 데이터의 결함이 각 모델에 미치는 영향을 기준으로 네 차례 구조를 발전시켰다.</p></div></div>
       <ol class="model-evolution">
         <li><span>V1.0</span><div><h3>Binary Classification → 10-class Segmentation</h3><p>EfficientNet-B0로 정상·결함을 선별한 뒤 결함 이미지만 SegFormer에 전달. 이진 Gate에서 복수 결함의 클래스 정보가 후단으로 이어지지 않았다.</p></div></li>
         <li><span>V1.1</span><div><h3>Cross-Entropy + Dice Loss</h3><p>결함 픽셀이 배경보다 극도로 적어 발생한 배경 편향을 줄이기 위해 영역 중첩을 함께 최적화하고 미세 결함의 학습 신호를 보강했다.</p></div></li>
@@ -110,7 +110,7 @@
     </section>
 
     <section class="flow page-shell" aria-labelledby="cascade-title">
-      <div class="section-heading"><p class="section-label">04 / CASCADE DESIGN</p><div><h2 id="cascade-title">분류 확률을<br>Segmentation의 Hint로</h2><p>가장 높은 하나의 클래스로 확정하지 않고, 클래스별 독립 Sigmoid Score를 유지한 Hint Vector를 후단 모델에 전달했다.</p></div></div>
+      <div class="section-heading"><p class="section-label">04 / CASCADE DESIGN</p><div><h2 id="cascade-title">분류 확률을 Segmentation의 Hint로</h2><p>가장 높은 하나의 클래스로 확정하지 않고, 클래스별 독립 Sigmoid Score를 유지한 Hint Vector를 후단 모델에 전달했다.</p></div></div>
       <figure class="media-frame media-light csas-logit-frame">
         <img loading="lazy" decoding="async" src="../assets/projects/csas/csas-logit-hint.png" alt="여러 결함 클래스의 가능성을 나타내는 실제 Classification Logit Hint 그래프">
         <figcaption><span>ACTUAL HINT VECTOR</span><span>Raw logits → Sigmoid scores → SegFormer</span></figcaption>
@@ -133,7 +133,7 @@
     </section>
 
     <section class="results page-shell" aria-labelledby="results-title">
-      <div class="section-heading"><p class="section-label">05 / RESULTS</p><div><h2 id="results-title">미세 균열과<br>복수 결함의 위치 탐지</h2><p>라벨이 제공된 검증 이미지에서 Ground Truth와 최종 모델의 픽셀 단위 예측을 비교했다. 누락 Annotation 때문에 미표기 결함 후보도 False Positive로 계산될 수 있어 정량 지표와 오류 사례를 함께 해석했다.</p></div></div>
+      <div class="section-heading"><p class="section-label">05 / RESULTS</p><div><h2 id="results-title">미세 균열과 복수 결함의 위치 탐지</h2><p>라벨이 제공된 검증 이미지에서 Ground Truth와 최종 모델의 픽셀 단위 예측을 비교했다.<br>누락 Annotation 때문에 미표기 결함 후보도 False Positive로 계산될 수 있어 정량 지표와 오류 사례를 함께 해석했다.</p></div></div>
       <div class="result-grid">
         <article class="result-card"><figure><img loading="lazy" decoding="async" src="../assets/projects/csas/csas-result-multidefect.png" alt="Ground Truth의 균열과 모델이 추가로 탐지한 들뜸 후보를 비교한 Segmentation 결과"></figure><div><span class="result-index">RESULT / 01</span><h3>누락 결함 후보 보존</h3><p>Ground Truth에는 균열만 표기되어 있지만 모델은 이미지 상단을 들뜸 후보로 추가 예측했다. 누락 후보를 보존하려는 구조의 동작 사례이며, 별도의 정답 검증 없이 실제 결함이라고 단정하지 않았다.</p></div></article>
         <article class="result-card"><figure><img loading="lazy" decoding="async" src="../assets/projects/csas/csas-result-crack.png" alt="가늘고 긴 균열의 Segmentation 결과"></figure><div><span class="result-index">RESULT / 02</span><h3>연속적인 미세 균열</h3><p>배경 비중이 큰 표면에서도 길고 가는 균열의 연속적인 형태를 추적했다.</p></div></article>
@@ -152,7 +152,7 @@
     </section>
 
     <section class="serving page-shell" aria-labelledby="serving-title">
-      <div class="section-heading"><p class="section-label">06 / AI SERVING</p><div><h2 id="serving-title">학습 모델에서<br>운영 가능한 AI 서버로</h2><p>모델 파일과 이미지 저장, 검색 및 추론 서버를 컨테이너 기반 인프라에 연결했다.</p></div></div>
+      <div class="section-heading"><p class="section-label">06 / AI SERVING</p><div><h2 id="serving-title">학습 모델에서 운영 가능한 AI 서버로</h2><p>모델 파일과 이미지 저장, 검색 및 추론 서버를 컨테이너 기반 인프라에 연결했다.</p></div></div>
       <div class="architecture-flow" aria-label="CSAS 서비스 아키텍처">
         <div><small>CLIENT</small><strong>Mobile Web</strong></div><i>→</i>
         <div><small>APPLICATION</small><strong>Spring Boot</strong></div><i>→</i>
@@ -165,7 +165,7 @@
     <section class="learning page-shell" aria-labelledby="review-title">
       <p class="section-label">07 / REVIEW</p>
       <div class="learning-layout">
-        <h2 id="review-title">Technical Review<br>&amp; Significance</h2>
+        <h2 id="review-title">Technical Review &amp; Significance</h2>
         <div>
           <p>이번 프로젝트에서 가장 의미 있었던 지점은 주어진 Ground Truth를 완전한 정답으로 전제하고 이를 정확히 재현하는 일반적인 지도학습을 넘어섰다는 점이다. 실제 데이터에는 하나의 이미지에 여러 결함이 존재해도 일부만 레이블링되거나, 육안으로 확인되는 결함이 배경으로 처리된 사례가 있었다. 따라서 Ground Truth와 다른 예측을 모두 오답으로 간주하면 오히려 유효한 결함 특징이 억제될 수 있다고 판단했다.</p>
           <p>이 문제에 대응하기 위해 11개 클래스의 Sigmoid Hint Score를 SegFormer에 전달하고, Hint가 지지하는 미표기 결함 후보에만 Forgive Mask를 적용했다. 또한 Segmentation의 클래스 존재 여부와 Hint를 정렬하는 Existence Loss를 추가했다. 정답을 그대로 추종하는 모델이 아니라, 정답 자체의 불완전성을 모델 설계에 반영하며 어떤 오류를 허용하고 어떤 후보를 보존할지 결정한 경험이다.</p>

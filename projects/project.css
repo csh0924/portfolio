@@ -331,35 +331,35 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 .project-navigation a:hover { color: var(--cyan); }
 footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; justify-content: space-between; color: rgba(255,255,255,.5); background: var(--ink); border-top: 1px solid rgba(255,255,255,.18); font: 400 .55rem var(--mono); text-transform: uppercase; }
 
-/* Burinake: unified editorial heading flow */
-.burinake-page .overview-intro,
-.burinake-page .section-heading,
-.burinake-page .section-heading > div,
-.burinake-page .learning-layout {
+/* Project-specific unified editorial heading flow */
+:is(.burinake-page, .csas-page) .overview-intro,
+:is(.burinake-page, .csas-page) .section-heading,
+:is(.burinake-page, .csas-page) .section-heading > div,
+:is(.burinake-page, .csas-page) .learning-layout {
   display: block;
 }
-.burinake-page .hero-title {
+:is(.burinake-page, .csas-page) .hero-title {
   display: block;
 }
-.burinake-page .hero-summary {
+:is(.burinake-page, .csas-page) .hero-summary {
   max-width: 1080px;
   margin: 28px 0 0;
 }
-.burinake-page .overview-intro h2,
-.burinake-page .section-heading h2,
-.burinake-page .learning h2,
-.burinake-page .stack h2 {
+:is(.burinake-page, .csas-page) .overview-intro h2,
+:is(.burinake-page, .csas-page) .section-heading h2,
+:is(.burinake-page, .csas-page) .learning h2,
+:is(.burinake-page, .csas-page) .stack h2 {
   font-size: clamp(2.35rem, 3.4vw, 3.6rem);
   line-height: 1.08;
   white-space: nowrap;
 }
-.burinake-page .overview-intro > p,
-.burinake-page .section-heading > div > p {
+:is(.burinake-page, .csas-page) .overview-intro > p,
+:is(.burinake-page, .csas-page) .section-heading > div > p {
   max-width: 1080px;
   margin: 24px 0 0;
 }
-.burinake-page .section-heading > .section-label { margin-bottom: 24px; }
-.burinake-page .learning-layout > div {
+:is(.burinake-page, .csas-page) .section-heading > .section-label { margin-bottom: 24px; }
+:is(.burinake-page, .csas-page) .learning-layout > div {
   max-width: 1080px;
   margin-top: 30px;
 }
@@ -426,6 +426,82 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   line-height: 1.45;
 }
 
+.csas-page .how-it-works-heading {
+  display: block;
+}
+.csas-page .how-it-works-heading h3 {
+  margin-top: 24px;
+}
+.csas-page .how-it-works ol {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.csas-page .how-it-works li {
+  min-height: 170px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.csas-page .how-it-works h4 {
+  margin: auto 0 12px;
+  line-height: 1.45;
+}
+.csas-page .fact-grid {
+  margin-top: 56px;
+}
+.csas-page .fact-grid div {
+  min-height: 132px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.csas-page .fact-grid dd {
+  margin: auto 0 0;
+}
+.csas-page .contribution-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.csas-page .contribution-grid article {
+  min-height: 220px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+.csas-page .contribution-grid h3 {
+  margin: auto 0 16px;
+}
+.csas-page .dataset-metrics {
+  margin-top: 56px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.csas-page .dataset-metrics div {
+  min-height: 132px;
+  padding: 24px;
+}
+.csas-page .model-evolution {
+  margin-top: 56px;
+}
+.csas-page .decision-heading {
+  margin-top: 75px;
+  display: block;
+}
+.csas-page .decision-heading h3 {
+  margin: 24px 0 0;
+}
+.csas-page .metric-panel > div,
+.csas-page .metric-panel > p {
+  min-height: 132px;
+  padding: 24px;
+}
+.csas-page .csas-loss-design article {
+  min-height: 210px;
+}
+.csas-page .architecture-flow {
+  margin-top: 56px;
+}
+.csas-page .architecture-flow div {
+  min-height: 110px;
+}
+
 @media (max-width: 1100px) {
   .burinake-page .how-it-works ol {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -441,6 +517,13 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
     grid-column: 1 / -1;
   }
   .burinake-page .vlm-contract {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .csas-page .how-it-works ol {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .csas-page .contribution-grid,
+  .csas-page .dataset-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -575,12 +658,33 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
 }
 
 @media (max-width: 900px) {
-  .burinake-page .overview-intro h2,
-  .burinake-page .section-heading h2,
-  .burinake-page .learning h2,
-  .burinake-page .stack h2 {
+  :is(.burinake-page, .csas-page) .overview-intro h2,
+  :is(.burinake-page, .csas-page) .section-heading h2,
+  :is(.burinake-page, .csas-page) .learning h2,
+  :is(.burinake-page, .csas-page) .stack h2 {
     font-size: clamp(2.05rem, 8.8vw, 2.7rem);
     white-space: normal;
+  }
+  .csas-page .how-it-works ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .csas-page .how-it-works ol,
+  .csas-page .contribution-grid,
+  .csas-page .dataset-metrics {
+    grid-template-columns: 1fr;
+  }
+  .csas-page .how-it-works li {
+    min-height: 138px;
+  }
+  .csas-page .contribution-grid article {
+    min-height: 190px;
+    padding: 24px;
+  }
+  .csas-page .csas-loss-design article {
+    min-height: 180px;
   }
 }
 
