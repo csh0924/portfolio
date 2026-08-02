@@ -20,9 +20,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260731-12">
+  <link rel="stylesheet" href="./project.css?v=20260802-20">
 </head>
-<body>
+<body class="baram-page">
   <a class="skip-link" href="#main">본문으로 바로가기</a>
   <header class="project-header">
     <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All projects</a>
@@ -40,7 +40,7 @@
       <div class="hero-title">
         <div>
           <p>Korean Handwriting Analysis</p>
-          <h1>바른글씨:<br>바람</h1>
+          <h1>바른글씨: 바람</h1>
         </div>
         <p class="hero-summary">손글씨 문장을 문자와 자소 단위로 분해하고, 형태·위치·자간·크기·기울기를 분석하여 맞춤형 교정 피드백을 제공하는 딥러닝·기하학적 후처리 기반 서비스.</p>
       </div>
@@ -52,8 +52,8 @@
     <section class="overview page-shell" aria-labelledby="overview-title">
       <p class="section-label">00 / OVERVIEW</p>
       <div class="overview-intro">
-        <h2 id="overview-title">첫 엔드투엔드<br>딥러닝 파이프라인</h2>
-        <p>데이터셋 생성부터 한글 구조별 FPN 학습 전략 및 추론 파이프라인 구성, 후처리 알고리즘, Python 분석 서버 구현까지 전 과정을 직접 수행한 첫 딥러닝 모델 개발 프로젝트. CRAFT의 Character Region Score와 기하학 알고리즘을 결합해 문자를 분리하고, FPN 모델로 초성·중성·종성을 픽셀 단위로 분석했다.</p>
+        <h2 id="overview-title">첫 엔드투엔드 딥러닝 파이프라인</h2>
+        <p>데이터셋 생성부터 한글 구조별 FPN 학습 전략 및 추론 파이프라인 구성, 후처리 알고리즘, Python 분석 서버 구현까지 전 과정을 직접 수행한 첫 딥러닝 모델 개발 프로젝트.<br>CRAFT의 Character Region Score와 기하학 알고리즘을 결합해 문자를 분리하고, FPN 모델로 초성·중성·종성을 픽셀 단위로 분석했다.</p>
       </div>
       <div class="project-definition">
         <span>WHAT IT IS — AND IS NOT</span>
@@ -85,8 +85,8 @@
       <div class="section-heading">
         <p class="section-label">01 / PIPELINE</p>
         <div>
-          <h2 id="pipeline-title">문장에서 자소까지<br>역순으로 분해</h2>
-          <p>한글이 자소에서 문자와 문장으로 조합되는 과정을 거꾸로 추적한다. 문장 정규화 → CRAFT 중심 추출 → Voronoi 문자 분리 → FPN 자소 Segmentation → 형태·위치 평가 → 점수 및 피드백 생성.</p>
+          <h2 id="pipeline-title">문장에서 자소까지 역순으로 분해</h2>
+          <p>한글이 자소에서 문자와 문장으로 조합되는 과정을 거꾸로 추적한다.<br>문장 정규화 → CRAFT 중심 추출 → Voronoi 문자 분리 → FPN 자소 Segmentation → 형태·위치 평가 → 점수 및 피드백 생성.</p>
         </div>
       </div>
       <figure class="media-frame media-light">
@@ -112,7 +112,7 @@
     <section class="research page-shell" aria-labelledby="research-title">
       <div class="section-heading">
         <p class="section-label">03 / RESEARCH DESIGN</p>
-        <div><h2 id="research-title">한글 구조를 반영한<br>분석 문제 설계</h2><p>일반적인 문자 인식이 아니라 손글씨의 구조적 완성도와 시각적 정렬성을 정량화하는 문제로 정의했다.</p></div>
+        <div><h2 id="research-title">한글 구조를 반영한 분석 문제 설계</h2><p>일반적인 문자 인식이 아니라 손글씨의 구조적 완성도와 시각적 정렬성을 정량화하는 문제로 정의했다.</p></div>
       </div>
       <div class="decision-grid research-grid">
         <article><p class="decision-index">QUESTION / 01</p><h3>연결된 손글씨에서 개별 문자를 어떻게 분리할 것인가?</h3><dl><div><dt>Approach</dt><dd>CRAFT의 Character Region Score에서 문자 영역 후보를 추출하고, 각 영역의 가중 중심을 문자 기준점으로 사용. 글자 수와 후보 수를 비교해 과검출 중심을 병합.</dd></div></dl></article>
@@ -124,7 +124,7 @@
     <section class="dataset page-shell" aria-labelledby="dataset-title">
       <div class="section-heading">
         <p class="section-label">04 / DATASET ENGINEERING</p>
-        <div><h2 id="dataset-title">한글 조합 원리로<br>Label을 생성</h2><p>모든 완성형 문자를 수작업으로 Labeling하는 대신, 한글의 초성·중성·종성 조합 규칙을 데이터 생성 알고리즘으로 전환했다.</p></div>
+        <div><h2 id="dataset-title">한글 조합 원리로 Label을 생성</h2><p>모든 완성형 문자를 수작업으로 Labeling하는 대신, 한글의 초성·중성·종성 조합 규칙을 데이터 생성 알고리즘으로 전환했다.</p></div>
       </div>
       <div class="dataset-metrics" aria-label="데이터셋 생성 규모">
         <div><strong>11,172</strong><span>표현 가능한 한글</span></div>
@@ -148,7 +148,7 @@
     <section class="flow page-shell" aria-labelledby="craft-title">
       <div class="section-heading">
         <p class="section-label">05 / CRAFT DETECTION</p>
-        <div><h2 id="craft-title">문자 검출 모델을<br>중심점 추출기로 활용</h2><p>CRAFT의 일반적인 텍스트 영역 검출 결과를 그대로 사용하지 않고, Character Region Score에서 문자 영역 후보를 추출한 뒤 각 영역의 가중 중심을 글자 기준점으로 사용했다.</p></div>
+        <div><h2 id="craft-title">문자 검출 모델을 중심점 추출기로 활용</h2><p>CRAFT의 일반적인 텍스트 영역 검출 결과를 그대로 사용하지 않고, Character Region Score에서 문자 영역 후보를 추출한 뒤 각 영역의 가중 중심을 글자 기준점으로 사용했다.</p></div>
       </div>
       <figure class="media-frame craft-frame">
         <img loading="lazy" decoding="async" src="../assets/projects/baram/baram-craft-centers.png" alt="손글씨 위에 시각화한 CRAFT 문자 중심 확률 맵">
@@ -164,7 +164,7 @@
     <section class="flow page-shell" aria-labelledby="separation-title">
       <div class="section-heading">
         <p class="section-label">06 / CHARACTER SEPARATION</p>
-        <div><h2 id="separation-title">중심점에서 확장하고<br>연결 성분으로 재할당</h2><p>CRAFT로 추출한 문자 중심을 Seed로 Voronoi 영역을 생성한 뒤, 서로 연결된 픽셀은 같은 글자일 가능성이 높다는 가정으로 Label을 보정했다. 단, 획이 맞닿는 손글씨에서는 이 가정이 항상 성립하지 않는다.</p></div>
+        <div><h2 id="separation-title">중심점에서 확장하고 연결 성분으로 재할당</h2><p>CRAFT로 추출한 문자 중심을 Seed로 Voronoi 영역을 생성한 뒤, 서로 연결된 픽셀은 같은 글자일 가능성이 높다는 가정으로 Label을 보정했다.<br>단, 획이 맞닿는 손글씨에서는 이 가정이 항상 성립하지 않는다.</p></div>
       </div>
       <div class="baram-comparison">
         <figure class="media-frame media-light"><img loading="lazy" decoding="async" src="../assets/projects/baram/baram-voronoi.png" alt="각 픽셀을 가장 가까운 CRAFT 문자 중심의 Label로 할당한 Voronoi 영역"><figcaption><span>STEP 01</span><span>NEAREST-CENTER VORONOI ASSIGNMENT</span></figcaption></figure>
@@ -175,7 +175,7 @@
     <section class="results page-shell" aria-labelledby="results-title">
       <div class="section-heading">
         <p class="section-label">07 / SEGMENTATION</p>
-        <div><h2 id="results-title">초·중·종성<br>Pixel Segmentation</h2><p>여러 해상도의 특징을 결합하는 FPN 구조로 자소를 분리하고, 사용자가 목표로 선택한 인쇄체의 자소 배치를 기준 템플릿으로 활용해 결과를 보강했다.</p></div>
+        <div><h2 id="results-title">초·중·종성 Pixel Segmentation</h2><p>여러 해상도의 특징을 결합하는 FPN 구조로 자소를 분리하고, 사용자가 목표로 선택한 인쇄체의 자소 배치를 기준 템플릿으로 활용해 결과를 보강했다.</p></div>
       </div>
       <div class="result-grid">
         <article class="result-card">
@@ -196,7 +196,7 @@
     <section class="scoring page-shell" aria-labelledby="scoring-title">
       <div class="section-heading">
         <p class="section-label">08 / SCORING &amp; FEEDBACK</p>
-        <div><h2 id="scoring-title">분석값을<br>교정 피드백으로 변환</h2><p>문자 중심, Bounding Box, 자소 Segmentation을 다섯 평가 항목으로 변환하고, 구조화된 결과를 Gemini에 전달해 설명형 피드백을 생성했다.</p></div>
+        <div><h2 id="scoring-title">분석값을 교정 피드백으로 변환</h2><p>문자 중심, Bounding Box, 자소 Segmentation을 다섯 평가 항목으로 변환하고, 구조화된 결과를 Gemini에 전달해 설명형 피드백을 생성했다.</p></div>
       </div>
       <div class="scoring-grid">
         <article><span>01 / TILT</span><h3>문장 기울기</h3><p>인접 문자 중심을 잇는 각도를 평가한다. 1° 이하는 감점하지 않고, 30° 이상은 해당 구간을 0점으로 처리하며 그 사이는 비선형 감점한다.</p></article>
@@ -225,7 +225,7 @@
     <section class="visual-section page-shell" aria-labelledby="service-ui-title">
       <div class="section-heading">
         <p class="section-label">09 / SERVICE EXPERIENCE</p>
-        <div><h2 id="service-ui-title">작성부터<br>분석 결과 확인까지</h2><p>사용자는 예문과 목표 인쇄체를 선택해 Canvas에 손글씨를 작성하고, 종합 점수와 다섯 평가 항목의 결과를 확인합니다.</p></div>
+        <div><h2 id="service-ui-title">작성부터 분석 결과 확인까지</h2><p>사용자는 예문과 목표 인쇄체를 선택해 Canvas에 손글씨를 작성하고, 종합 점수와 다섯 평가 항목의 결과를 확인합니다.</p></div>
       </div>
       <div class="baram-service-preview">
         <figure class="media-frame media-light"><img loading="lazy" decoding="async" src="../assets/projects/baram/baram-writing-ui.png" alt="예문과 목표 인쇄체를 선택하고 Canvas에 손글씨를 작성하는 화면"><figcaption><span>STEP 01</span><span>REFERENCE · TARGET FONT · CANVAS</span></figcaption></figure>
@@ -236,7 +236,7 @@
     <section class="demo page-shell" aria-labelledby="demo-title">
       <div class="section-heading">
         <p class="section-label">10 / DEMO</p>
-        <div><h2 id="demo-title">End-to-End<br>Service Demo</h2><p>손글씨 작성부터 분석 결과와 항목별 교정 피드백을 확인하는 전체 서비스 흐름.</p></div>
+        <div><h2 id="demo-title">End-to-End Service Demo</h2><p>손글씨 작성부터 분석 결과와 항목별 교정 피드백을 확인하는 전체 서비스 흐름.</p></div>
       </div>
       <figure class="media-frame demo-frame">
         <video controls preload="metadata" playsinline poster="../assets/projects/baram/baram-demo-poster.jpg">
@@ -250,7 +250,7 @@
     <section class="learning page-shell" aria-labelledby="learning-title">
       <p class="section-label">11 / REVIEW</p>
       <div class="learning-layout">
-        <h2 id="learning-title">Technical Review<br>&amp; Significance</h2>
+        <h2 id="learning-title">Technical Review &amp; Significance</h2>
         <div>
           <p>정제된 데이터와 준비된 모델이 제공되는 학습 환경에서 벗어나, 불완전한 데이터와 예외가 존재하는 현실적인 조건에서 처음 수행한 딥러닝 모델 개발 프로젝트다. 문제 정의, 데이터셋 생성, 모델 학습, 후처리 및 서비스 연동까지 직접 연결하며 실제 AI 개발 과정의 불확실성을 경험했다.</p>
           <p>한글의 조합 원리를 데이터 설계에 반영하고 CRAFT·FPN·기하학적 후처리를 하나의 분석 파이프라인으로 완성한 경험은 컴퓨터비전 문제를 독립적으로 설계하고 구현할 수 있다는 확신으로 이어졌다. 이 프로젝트를 기점으로 이후 두 프로젝트 또한 컴퓨터비전 중심의 딥러닝 연구로 확장했다.</p>

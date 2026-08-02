@@ -332,34 +332,34 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; justify-content: space-between; color: rgba(255,255,255,.5); background: var(--ink); border-top: 1px solid rgba(255,255,255,.18); font: 400 .55rem var(--mono); text-transform: uppercase; }
 
 /* Project-specific unified editorial heading flow */
-:is(.burinake-page, .csas-page) .overview-intro,
-:is(.burinake-page, .csas-page) .section-heading,
-:is(.burinake-page, .csas-page) .section-heading > div,
-:is(.burinake-page, .csas-page) .learning-layout {
+:is(.burinake-page, .csas-page, .baram-page) .overview-intro,
+:is(.burinake-page, .csas-page, .baram-page) .section-heading,
+:is(.burinake-page, .csas-page, .baram-page) .section-heading > div,
+:is(.burinake-page, .csas-page, .baram-page) .learning-layout {
   display: block;
 }
-:is(.burinake-page, .csas-page) .hero-title {
+:is(.burinake-page, .csas-page, .baram-page) .hero-title {
   display: block;
 }
-:is(.burinake-page, .csas-page) .hero-summary {
+:is(.burinake-page, .csas-page, .baram-page) .hero-summary {
   max-width: 1080px;
   margin: 28px 0 0;
 }
-:is(.burinake-page, .csas-page) .overview-intro h2,
-:is(.burinake-page, .csas-page) .section-heading h2,
-:is(.burinake-page, .csas-page) .learning h2,
-:is(.burinake-page, .csas-page) .stack h2 {
+:is(.burinake-page, .csas-page, .baram-page) .overview-intro h2,
+:is(.burinake-page, .csas-page, .baram-page) .section-heading h2,
+:is(.burinake-page, .csas-page, .baram-page) .learning h2,
+:is(.burinake-page, .csas-page, .baram-page) .stack h2 {
   font-size: clamp(2.35rem, 3.4vw, 3.6rem);
   line-height: 1.08;
   white-space: nowrap;
 }
-:is(.burinake-page, .csas-page) .overview-intro > p,
-:is(.burinake-page, .csas-page) .section-heading > div > p {
+:is(.burinake-page, .csas-page, .baram-page) .overview-intro > p,
+:is(.burinake-page, .csas-page, .baram-page) .section-heading > div > p {
   max-width: 1080px;
   margin: 24px 0 0;
 }
-:is(.burinake-page, .csas-page) .section-heading > .section-label { margin-bottom: 24px; }
-:is(.burinake-page, .csas-page) .learning-layout > div {
+:is(.burinake-page, .csas-page, .baram-page) .section-heading > .section-label { margin-bottom: 24px; }
+:is(.burinake-page, .csas-page, .baram-page) .learning-layout > div {
   max-width: 1080px;
   margin-top: 30px;
 }
@@ -508,6 +508,79 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   min-height: 110px;
 }
 
+.baram-page .hero-title h1 {
+  white-space: nowrap;
+}
+.baram-page .how-it-works-heading {
+  display: block;
+}
+.baram-page .how-it-works-heading h3 {
+  margin-top: 24px;
+}
+.baram-page .how-it-works ol {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.baram-page .how-it-works li {
+  min-height: 170px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.baram-page .how-it-works h4 {
+  margin: auto 0 12px;
+  line-height: 1.45;
+}
+.baram-page .fact-grid {
+  margin-top: 56px;
+}
+.baram-page .fact-grid div {
+  min-height: 132px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.baram-page .fact-grid dd {
+  margin: auto 0 0;
+}
+.baram-page .contribution-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.baram-page .contribution-grid article {
+  min-height: 210px;
+  padding: 30px;
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+}
+.baram-page .contribution-grid article:nth-child(n + 4) {
+  grid-column: span 3;
+}
+.baram-page .contribution-grid h3 {
+  margin: auto 0 16px;
+}
+.baram-page .dataset-metrics {
+  margin-top: 56px;
+}
+.baram-page .dataset-metrics div {
+  min-height: 132px;
+  padding: 24px;
+}
+.baram-page .scoring-grid article {
+  min-height: 210px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+.baram-page .scoring-grid h3 {
+  margin: auto 0 16px;
+}
+.baram-page .feedback-heading {
+  display: block;
+}
+.baram-page .feedback-heading h3 {
+  margin: 24px 0 0;
+}
+
 @media (max-width: 1100px) {
   .burinake-page .how-it-works ol {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -531,6 +604,19 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .csas-page .contribution-grid,
   .csas-page .dataset-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .baram-page .how-it-works ol {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .baram-page .contribution-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .baram-page .contribution-grid article,
+  .baram-page .contribution-grid article:nth-child(n + 4) {
+    grid-column: auto;
+  }
+  .baram-page .contribution-grid article:last-child {
+    grid-column: 1 / -1;
   }
 }
 
@@ -663,15 +749,21 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   }
 }
 
-@media (max-width: 900px) {
-  :is(.burinake-page, .csas-page) .overview-intro h2,
-  :is(.burinake-page, .csas-page) .section-heading h2,
-  :is(.burinake-page, .csas-page) .learning h2,
-  :is(.burinake-page, .csas-page) .stack h2 {
+@media (max-width: 1100px) {
+  :is(.burinake-page, .csas-page, .baram-page) .overview-intro h2,
+  :is(.burinake-page, .csas-page, .baram-page) .section-heading h2,
+  :is(.burinake-page, .csas-page, .baram-page) .learning h2,
+  :is(.burinake-page, .csas-page, .baram-page) .stack h2 {
     font-size: clamp(2.05rem, 8.8vw, 2.7rem);
     white-space: normal;
   }
+}
+
+@media (max-width: 900px) {
   .csas-page .how-it-works ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .baram-page .how-it-works ol {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .csas-page .model-evolution li {
@@ -698,6 +790,27 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .csas-page .model-evolution li {
     grid-template-columns: 1fr;
     gap: 14px;
+  }
+  .baram-page .hero-title h1 {
+    white-space: normal;
+  }
+  .baram-page .how-it-works ol,
+  .baram-page .contribution-grid {
+    grid-template-columns: 1fr;
+  }
+  .baram-page .contribution-grid article,
+  .baram-page .contribution-grid article:nth-child(n + 4),
+  .baram-page .contribution-grid article:last-child {
+    grid-column: auto;
+  }
+  .baram-page .how-it-works li {
+    min-height: 138px;
+  }
+  .baram-page .contribution-grid article,
+  .baram-page .scoring-grid article,
+  .baram-page .scoring-grid article:nth-child(n + 4) {
+    min-height: 190px;
+    padding: 24px;
   }
 }
 
