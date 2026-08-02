@@ -581,6 +581,49 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   margin: 24px 0 0;
 }
 
+/* Shared card zones: label, title, then body copy */
+:is(.burinake-page, .csas-page, .baram-page) .fact-grid div,
+:is(.burinake-page, .csas-page, .baram-page) .dataset-metrics div {
+  justify-content: flex-start;
+}
+:is(.burinake-page, .csas-page, .baram-page) .fact-grid dd {
+  margin: 28px 0 0;
+}
+:is(.burinake-page, .csas-page, .baram-page) .dataset-metrics span {
+  min-height: 3em;
+  margin-top: 24px;
+}
+.burinake-page .how-it-works li > div {
+  margin-top: 34px;
+}
+.burinake-page .how-it-works li strong,
+:is(.csas-page, .baram-page) .how-it-works h4 {
+  min-height: 3em;
+}
+:is(.csas-page, .baram-page) .how-it-works h4 {
+  margin: 34px 0 12px;
+}
+:is(.burinake-page, .csas-page, .baram-page) .contribution-grid h3 {
+  min-height: 2.7em;
+  margin: 42px 0 16px;
+}
+.baram-page .scoring-grid h3,
+.baram-page .craft-notes h3,
+:is(.burinake-page, .csas-page) .cascade-decisions h3,
+.burinake-page .vlm-cases h3 {
+  min-height: 3em;
+}
+.baram-page .scoring-grid h3 {
+  margin: 42px 0 16px;
+}
+.burinake-page .cascade-flow strong {
+  min-height: 3em;
+  margin-top: 34px;
+}
+.burinake-page .vlm-contract strong {
+  min-height: 2.9em;
+}
+
 @media (max-width: 1100px) {
   .burinake-page .how-it-works ol {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -811,6 +854,18 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .baram-page .scoring-grid article:nth-child(n + 4) {
     min-height: 190px;
     padding: 24px;
+  }
+  .burinake-page .how-it-works li strong,
+  :is(.csas-page, .baram-page) .how-it-works h4,
+  :is(.burinake-page, .csas-page, .baram-page) .contribution-grid h3,
+  .baram-page .scoring-grid h3,
+  .baram-page .craft-notes h3,
+  :is(.burinake-page, .csas-page) .cascade-decisions h3,
+  .burinake-page .vlm-cases h3,
+  .burinake-page .cascade-flow strong,
+  .burinake-page .vlm-contract strong,
+  :is(.burinake-page, .csas-page, .baram-page) .dataset-metrics span {
+    min-height: 0;
   }
 }
 
