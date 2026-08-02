@@ -107,14 +107,14 @@ const timeline = document.querySelector("#timeline");
 
 function projectCard(project) {
   const title = project.link
-    ? `<a href="${project.link}"${project.link.startsWith("http") ? ' target="_blank" rel="noreferrer"' : ""}><small>${project.cardTitle}</small><strong>${project.title} <span aria-hidden="true">↗</span></strong></a>`
-    : `<small>${project.cardTitle}</small><strong>${project.title}</strong>`;
+    ? `<a href="${project.link}"${project.link.startsWith("http") ? ' target="_blank" rel="noreferrer"' : ""}><small>${project.title}</small><strong>${project.cardTitle} <span aria-hidden="true">↗</span></strong></a>`
+    : `<small>${project.title}</small><strong>${project.cardTitle}</strong>`;
   const image = project.image
     ? `<img src="${project.image}" alt="${project.imageAlt}" loading="lazy">`
     : "";
 
   return `
-    <article class="project-card ${project.featuredPrimary ? "is-primary" : ""} reveal" data-category="${project.category}">
+    <article class="project-card ${project.featuredPrimary ? "is-primary" : ""} reveal" data-category="${project.category}" data-project="${project.id}">
       <div class="project-image ${project.category} ${project.image ? "has-image" : ""}" style="--visual-color: ${project.category === "vision" ? "#1c55ff" : "#77ddd1"}">
         ${image}
         <div class="image-label"><span>${project.featuredLabel}</span><span>${project.imageLabel}</span></div>
@@ -131,26 +131,10 @@ function projectCard(project) {
   `;
 }
 
-function projectPlaceholder() {
-  return `
-    <article class="project-card project-card-placeholder reveal" data-category="placeholder" aria-hidden="true">
-      <div class="project-image project-placeholder-visual">
-        <div class="image-label"><span>NEXT CASE</span><span>OPEN SLOT</span></div>
-        <span class="placeholder-mark">+</span>
-      </div>
-      <div class="project-info project-placeholder-info">
-        <div class="project-meta"><span>Future Work</span><span>—</span></div>
-        <h3>Next project.</h3>
-        <p>새로운 문제와 결과를 위한 자리</p>
-      </div>
-    </article>
-  `;
-}
-
 const evolutionStages = [
   {
     order: "01",
-    period: "2024 · FOUNDATION",
+    period: "FOUNDATION",
     category: "backend",
     label: "BACKEND FOUNDATION",
     title: "API와 AI 출력을 서비스 흐름으로",
@@ -159,7 +143,7 @@ const evolutionStages = [
   },
   {
     order: "02",
-    period: "2025 · DATA SYSTEM",
+    period: "DATA SYSTEM",
     category: "backend",
     label: "DATA-BACKED RECOMMENDATION",
     title: "외부 데이터를 축적 가능한 서비스 자산으로",
@@ -168,7 +152,7 @@ const evolutionStages = [
   },
   {
     order: "03",
-    period: "2025 · DEVELOPMENT",
+    period: "DEVELOPMENT",
     category: "vision",
     label: "DEEP LEARNING DEVELOPMENT",
     title: "데이터와 학습 과정을 직접 구축",
@@ -177,7 +161,7 @@ const evolutionStages = [
   },
   {
     order: "04",
-    period: "2025 · VISION",
+    period: "VISION",
     category: "vision",
     label: "COMPUTER VISION PIPELINE",
     title: "검출·분리·Segmentation·평가의 결합",
@@ -186,7 +170,7 @@ const evolutionStages = [
   },
   {
     order: "05",
-    period: "2026 · SERVING",
+    period: "SERVING",
     category: "vision",
     label: "CASCADE VISION & AI SERVING",
     title: "불완전한 데이터에서 운영 가능한 AI 시스템으로",
@@ -195,7 +179,7 @@ const evolutionStages = [
   },
   {
     order: "06",
-    period: "2026 · MULTIMODAL",
+    period: "MULTIMODAL",
     category: "vision",
     label: "DETECTION & VLM CASCADE",
     title: "시각적 탐지에서 맥락과 상황 이해로",
@@ -226,9 +210,8 @@ const featuredProjects = publishedProjects
   .filter((project) => project.featured !== false && project.link)
   .sort((a, b) => a.featuredRank - b.featuredRank);
 
-projectGrid.innerHTML = featuredProjects.map(projectCard).join("") + projectPlaceholder();
+projectGrid.innerHTML = featuredProjects.map(projectCard).join("");
 timeline.innerHTML = evolutionStages.map(timelineRow).join("");
-document.querySelector("#project-count").textContent = String(projects.length).padStart(2, "0");
 document.querySelector("#year").textContent = new Date().getFullYear();
 
 document.querySelectorAll(".filter-button").forEach((button) => {
@@ -253,3 +236,74 @@ document.querySelectorAll(".filter-button").forEach((button) => {
     });
   });
 });
+
+const tabBar = document.querySelector(".portfolio-tabbar");
+const tabButtons = [...document.querySelectorAll("[data-tab-target]")];
+const tabPanels = [...document.querySelectorAll("[data-tab-panel]")];
+const tabIds = new Set(tabPanels.map((panel) => panel.id));
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+function activateTab(tabId, { updateHistory = false, scrollToTabs = false } = {}) {
+  if (!tabIds.has(tabId)) return;
+
+  tabPanels.forEach((panel) => {
+    panel.hidden = panel.id !== tabId;
+  });
+
+  tabButtons.forEach((button) => {
+    const isActive = button.dataset.tabTarget === tabId;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-selected", String(isActive));
+    button.tabIndex = isActive ? 0 : -1;
+  });
+
+  if (updateHistory && window.location.hash !== `#${tabId}`) {
+    window.history.pushState({ tabId }, "", `#${tabId}`);
+  }
+
+  if (scrollToTabs) {
+    window.requestAnimationFrame(() => {
+      window.scrollTo({
+        top: tabBar.offsetTop,
+        behavior: reducedMotion.matches ? "auto" : "smooth",
+      });
+    });
+  }
+}
+
+tabButtons.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    activateTab(button.dataset.tabTarget, { updateHistory: true, scrollToTabs: true });
+  });
+
+  button.addEventListener("keydown", (event) => {
+    let nextIndex;
+    if (event.key === "ArrowRight") nextIndex = (index + 1) % tabButtons.length;
+    if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+    if (event.key === "Home") nextIndex = 0;
+    if (event.key === "End") nextIndex = tabButtons.length - 1;
+    if (nextIndex === undefined) return;
+
+    event.preventDefault();
+    tabButtons[nextIndex].focus();
+    tabButtons[nextIndex].click();
+  });
+});
+
+window.addEventListener("popstate", () => {
+  const tabId = window.location.hash.slice(1);
+  activateTab(tabIds.has(tabId) ? tabId : "work", { scrollToTabs: true });
+});
+
+const initialTab = window.location.hash.slice(1);
+activateTab(tabIds.has(initialTab) ? initialTab : "work");
+
+if (tabIds.has(initialTab)) {
+  window.requestAnimationFrame(() => {
+    window.scrollTo({ top: tabBar.offsetTop });
+  });
+} else if (initialTab) {
+  window.requestAnimationFrame(() => {
+    document.getElementById(initialTab)?.scrollIntoView();
+  });
+}
