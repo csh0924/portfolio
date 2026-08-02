@@ -480,6 +480,9 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
 .csas-page .model-evolution {
   margin-top: 56px;
 }
+.csas-page .model-evolution li {
+  grid-template-columns: 120px minmax(0, 1fr);
+}
 .csas-page .decision-heading {
   margin-top: 75px;
   display: block;
@@ -494,6 +497,9 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
 }
 .csas-page .csas-loss-design article {
   min-height: 210px;
+}
+.csas-page .csas-loss-design {
+  border-top: 1px solid var(--line);
 }
 .csas-page .architecture-flow {
   margin-top: 56px;
@@ -668,6 +674,9 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .csas-page .how-it-works ol {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .csas-page .model-evolution li {
+    grid-template-columns: 80px minmax(0, 1fr);
+  }
 }
 
 @media (max-width: 620px) {
@@ -685,6 +694,10 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   }
   .csas-page .csas-loss-design article {
     min-height: 180px;
+  }
+  .csas-page .model-evolution li {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 }
 
