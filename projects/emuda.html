@@ -20,9 +20,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260731-12">
+  <link rel="stylesheet" href="./project.css?v=20260802-25">
 </head>
-<body>
+<body class="emuda-page">
   <a class="skip-link" href="#main">본문으로 바로가기</a>
 
   <header class="project-header">
@@ -56,7 +56,7 @@
     <section class="overview page-shell" aria-labelledby="overview-title">
       <p class="section-label">00 / OVERVIEW</p>
       <div class="overview-intro">
-        <h2 id="overview-title">첫 번째 팀 프로젝트<br>API 개발과 서비스 흐름 연결</h2>
+        <h2 id="overview-title">첫 번째 팀 프로젝트 API 개발과 서비스 흐름 연결</h2>
         <p>
           Spring Boot 기반 REST API 개발과 데이터 구조 설계 담당.
           BERT 감정 분석 결과, 사용자 음악 취향, ChatGPT 추천 결과와
@@ -113,7 +113,7 @@
       <div class="section-heading">
         <p class="section-label">01 / PRODUCT</p>
         <div>
-          <h2 id="product-title">감정 기록 및<br>음악 추천 경험 설계</h2>
+          <h2 id="product-title">감정 기록 및 음악 추천 경험 설계</h2>
           <p>
             일기 작성, 감정별 분석 결과 확인, 사용자 취향 및 감정 기반
             플레이리스트 추천으로 이어지는 서비스 기능 구성.
@@ -130,7 +130,7 @@
       <div class="section-heading">
         <p class="section-label">02 / CONTRIBUTION</p>
         <div>
-          <h2 id="contribution-title">Backend Development<br>&amp; AI Integration</h2>
+          <h2 id="contribution-title">Backend Development &amp; AI Integration</h2>
           <p>백엔드 API 개발 및 외부 AI·음악 서비스 연동 담당.</p>
         </div>
       </div>
@@ -196,7 +196,7 @@
       <div class="section-heading">
         <p class="section-label">03 / SERVICE FLOW</p>
         <div>
-          <h2 id="flow-title">Diary-to-Playlist<br>Service Flow</h2>
+          <h2 id="flow-title">Diary-to-Playlist Service Flow</h2>
           <p>일기 입력과 감정 분석부터 추천 후보 생성, Spotify 곡 조회 및 저장까지 이어지는 전체 처리 과정.</p>
         </div>
       </div>
@@ -210,7 +210,7 @@
       <div class="section-heading">
         <p class="section-label">04 / ARCHITECTURE</p>
         <div>
-          <h2 id="architecture-title">System<br>Architecture</h2>
+          <h2 id="architecture-title">System Architecture</h2>
           <p>클라이언트, Spring 서버, AI 모델 서버, 외부 API와 데이터베이스의 구성.</p>
         </div>
       </div>
@@ -224,7 +224,7 @@
       <div class="section-heading">
         <p class="section-label">05 / RESULTS</p>
         <div>
-          <h2 id="results-title">Implementation Results<br>&amp; Limitations</h2>
+          <h2 id="results-title">Implementation Results &amp; Limitations</h2>
           <p>감정 분류 및 음악 추천 구현 결과와 기술적 한계.</p>
         </div>
       </div>
@@ -264,7 +264,7 @@
     <section class="learning page-shell" aria-labelledby="learning-title">
       <p class="section-label">06 / REVIEW</p>
       <div class="learning-layout">
-        <h2 id="learning-title">Technical Review<br>&amp; Significance</h2>
+        <h2 id="learning-title">Technical Review &amp; Significance</h2>
         <div>
           <p>
             사전에 구축된 BERT 감정 분석 서버와 ChatGPT API를 Backend에서 연결한 초기 단계의 AI 활용 프로젝트다. 직접 모델을 학습하거나 정량적으로 평가하지 않았으며, 복합적인 감정을 네 개 범주로 단순화한 결과가 음악 추천 전체에 영향을 주는 한계가 있었다. 또한 Prompt로 응답 형식을 제한했기 때문에 형식 안정성을 서버에서 보장하지 못했고, BERT·ChatGPT·Spotify의 순차 호출은 지연과 장애 지점을 늘렸다.

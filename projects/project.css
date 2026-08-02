@@ -291,6 +291,21 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 .prompt-review { padding: 40px; display: grid; grid-template-columns: .7fr 1.3fr; gap: 60px; border: 1px solid var(--line); border-top: 0; }
 .prompt-review h3 { margin: 0; font-size: 1.3rem; }
 .prompt-review code { color: var(--blue); font: 500 .7rem var(--mono); }
+.emuda-page .how-it-works-heading { display: block; }
+.emuda-page .how-it-works-heading h3 { margin-top: 24px; }
+.emuda-page .how-it-works ol { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.emuda-page .how-it-works li { min-height: 170px; padding: 20px; display: flex; flex-direction: column; }
+.emuda-page .how-it-works h4 { min-height: 3em; margin: 34px 0 12px; line-height: 1.45; }
+.emuda-page .fact-grid { margin-top: 56px; }
+.emuda-page .fact-grid div { min-height: 132px; padding: 24px; display: flex; flex-direction: column; }
+.emuda-page .fact-grid dd { margin: 28px 0 0; }
+.emuda-page .contribution-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.emuda-page .contribution-grid article { min-height: 240px; padding: 28px; display: flex; flex-direction: column; }
+.emuda-page .contribution-grid h3 { min-height: 2.7em; margin: 42px 0 16px; }
+.emuda-page .decision-heading { display: block; }
+.emuda-page .decision-heading h3 { margin: 24px 0 0; }
+.emuda-page .decision-grid > article { min-height: 390px; display: flex; flex-direction: column; }
+.emuda-page .decision-grid h3 { min-height: 2.7em; margin: 42px 0 20px; }
 .itinera-hero-image { padding: 0; position: relative; overflow: hidden; background: #dff7f8; }
 .itinera-hero-image img { width: 100%; height: clamp(430px, 49vw, 680px); object-fit: cover; object-position: center top; mix-blend-mode: normal; }
 .itinera-hero-image figcaption { position: absolute; right: 0; bottom: 0; left: 0; color: #fff; background: rgba(18,29,47,.84); border: 0; }
@@ -355,34 +370,34 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; justify-content: space-between; color: rgba(255,255,255,.5); background: var(--ink); border-top: 1px solid rgba(255,255,255,.18); font: 400 .55rem var(--mono); text-transform: uppercase; }
 
 /* Project-specific unified editorial heading flow */
-:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .overview-intro,
-:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .section-heading,
-:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .section-heading > div,
-:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .learning-layout {
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .overview-intro,
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .section-heading,
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .section-heading > div,
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .learning-layout {
   display: block;
 }
-:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .hero-title {
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .hero-title {
   display: block;
 }
-:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .hero-summary {
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .hero-summary {
   max-width: 1080px;
   margin: 28px 0 0;
 }
-:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .overview-intro h2,
-:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .section-heading h2,
-:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .learning h2,
-:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .stack h2 {
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .overview-intro h2,
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .section-heading h2,
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .learning h2,
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .stack h2 {
   font-size: clamp(2.35rem, 3.4vw, 3.6rem);
   line-height: 1.08;
   white-space: nowrap;
 }
-:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .overview-intro > p,
-:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .section-heading > div > p {
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .overview-intro > p,
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .section-heading > div > p {
   max-width: 1080px;
   margin: 24px 0 0;
 }
-:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .section-heading > .section-label { margin-bottom: 24px; }
-:is(.burinake-page, .csas-page, .baram-page, .itinera-page) .learning-layout > div {
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .section-heading > .section-label { margin-bottom: 24px; }
+:is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .learning-layout > div {
   max-width: 1080px;
   margin-top: 30px;
 }
@@ -690,6 +705,12 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .itinera-page .contribution-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .emuda-page .how-it-works ol {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .emuda-page .contribution-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 900px) {
@@ -725,6 +746,7 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .itinera-steps li { grid-template-columns: 80px 1fr; }
   .itinera-steps li p { grid-column: 2; }
   .itinera-page .how-it-works ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .emuda-page .how-it-works ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .feedback-contract ol { grid-template-columns: 1fr; }
 }
 
@@ -797,6 +819,14 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .itinera-page .contribution-grid article { min-height: 190px; padding: 24px; }
   .itinera-steps li { grid-template-columns: 1fr; }
   .itinera-steps li p { grid-column: auto; }
+  .emuda-page .how-it-works ol,
+  .emuda-page .contribution-grid { grid-template-columns: 1fr; }
+  .emuda-page .how-it-works li { min-height: 138px; }
+  .emuda-page .how-it-works h4,
+  .emuda-page .contribution-grid h3,
+  .emuda-page .decision-grid h3 { min-height: 0; }
+  .emuda-page .contribution-grid article { min-height: 190px; padding: 24px; }
+  .emuda-page .decision-grid > article { min-height: 0; }
   .evaluation-notes { grid-template-columns: 1fr; }
   .dataset-gallery .dataset-sample { grid-column: auto; }
   .baram-service-preview { grid-template-columns: 1fr; }
@@ -833,10 +863,10 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
 }
 
 @media (max-width: 1100px) {
-  :is(.burinake-page, .csas-page, .baram-page, .itinera-page) .overview-intro h2,
-  :is(.burinake-page, .csas-page, .baram-page, .itinera-page) .section-heading h2,
-  :is(.burinake-page, .csas-page, .baram-page, .itinera-page) .learning h2,
-  :is(.burinake-page, .csas-page, .baram-page, .itinera-page) .stack h2 {
+  :is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .overview-intro h2,
+  :is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .section-heading h2,
+  :is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .learning h2,
+  :is(.burinake-page, .csas-page, .baram-page, .itinera-page, .emuda-page) .stack h2 {
     font-size: clamp(2.05rem, 8.8vw, 2.7rem);
     white-space: normal;
   }
