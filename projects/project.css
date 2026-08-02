@@ -157,7 +157,6 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 .baram-service-preview { margin-top: 70px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 24px; align-items: start; }
 .baram-service-preview .media-frame { margin: 0; }
 .baram-service-preview img { width: 100%; display: block; }
-.contribution-grid h3 small { display: block; margin-top: 8px; color: var(--blue); font: 500 .58rem var(--mono); letter-spacing: .04em; }
 .research-grid { margin-top: 70px; }
 .craft-frame { padding: clamp(24px, 5vw, 70px); background: #11192a; }
 .craft-frame img { width: 100%; display: block; }
@@ -241,7 +240,9 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 .architecture-flow small { font: 500 .55rem var(--mono); }
 .architecture-flow strong { font-size: .82rem; }
 .architecture-flow i { color: var(--blue); font-style: normal; }
-.architecture-note { max-width: 800px; margin: 30px 0 0 auto; color: var(--ink-soft); font-size: .8rem; line-height: 1.8; }
+.architecture-note { margin-top: 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.architecture-note p { min-height: 128px; margin: 0; padding: 26px; color: var(--ink-soft); font-size: .78rem; line-height: 1.8; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.architecture-note span { display: block; margin-bottom: 28px; color: var(--blue); font: 500 .56rem var(--mono); letter-spacing: .06em; }
 .burinake-hero-image { padding: 0; position: relative; overflow: hidden; background: #090d12; }
 .burinake-hero-image img { width: 100%; height: clamp(420px, 50vw, 680px); object-fit: cover; object-position: center 44%; mix-blend-mode: normal; filter: saturate(.82) contrast(1.08); }
 .burinake-hero-image figcaption { position: absolute; right: 0; bottom: 0; left: 0; color: #fff; background: rgba(18,29,47,.86); border: 0; }
@@ -258,7 +259,6 @@ h1 { font-size: clamp(4.5rem, 9vw, 8.2rem); line-height: .9; }
 .benchmark-row strong small { color: var(--blue); font: 500 .52rem var(--mono); }
 .benchmark-row.selected { color: #fff; background: var(--blue); }
 .benchmark-row.selected strong small { color: var(--cyan); }
-.vlm-case-note { max-width: 920px; margin: 24px 0 0 auto; color: var(--ink-soft); font-size: .7rem; line-height: 1.75; }
 .speed-comparison img { height: 290px; object-fit: contain; }
 .cascade-flow { margin-top: 75px; padding: 34px; display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; gap: 18px; align-items: center; background: var(--surface); border: 1px solid var(--line); }
 .cascade-flow > div { min-height: 165px; padding: 24px; display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--line); }
@@ -746,6 +746,7 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   .model-evolution p { grid-column: auto; }
   .metric-panel { grid-template-columns: 1fr; }
   .metric-panel > p { grid-column: auto; }
+  .architecture-note { grid-template-columns: 1fr; }
   .burinake-data-grid, .speed-comparison, .vlm-cases { grid-template-columns: 1fr; }
   .burinake-data-grid img { height: auto; min-height: 260px; }
   .benchmark-table { overflow-x: auto; }

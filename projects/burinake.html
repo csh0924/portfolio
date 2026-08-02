@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260802-21">
+  <link rel="stylesheet" href="./project.css?v=20260802-22">
 </head>
 <body class="burinake-page">
   <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -147,7 +147,6 @@
           <div><span>CASE B / REAL FIRE</span><h3>화재 감지 → 위험 상황 분석</h3><p>화염과 연기의 확산, 주변 공간을 종합해 실제 화재로 판단하고 위험도와 긴급 신고 초안을 생성했다.</p></div>
         </article>
       </div>
-      <p class="vlm-case-note">두 사례는 조건부 Cascade의 동작을 확인한 정성 테스트이며, VLM의 일반화 성능을 나타내는 정량 평가 결과는 아닙니다.</p>
       <div class="prompt-review">
         <h3>판단 근거까지 보존하는 출력 설계</h3>
         <p>단순 화재 여부를 넘어 <code>visual_evidence</code>, <code>temporal_summary</code>, <code>inferred_cause</code>, <code>spread_risk</code>, <code>recommended_action</code>, <code>emergency_report_119</code> 등의 필드를 정의했다.<br>구조화된 데이터의 일관성을 유지하면서 시각·시간적 근거와 추정 원인, 대응 정보를 함께 보존하고, 오탐 판단 시 신고 초안을 비우는 Guardrail을 적용했다.</p>
