@@ -413,6 +413,18 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
 .burinake-page .contribution-grid h3 {
   margin: auto 0 16px;
 }
+.burinake-page .vlm-contract {
+  margin-top: 56px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.burinake-page .vlm-contract > div {
+  min-height: 0;
+  padding: 24px;
+}
+.burinake-page .vlm-contract strong {
+  margin-top: 32px;
+  line-height: 1.45;
+}
 
 @media (max-width: 1100px) {
   .burinake-page .how-it-works ol {
@@ -427,6 +439,9 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   }
   .burinake-page .contribution-grid article:last-child {
     grid-column: 1 / -1;
+  }
+  .burinake-page .vlm-contract {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -543,7 +558,8 @@ footer { padding: 30px max(32px, calc((100vw - 1360px) / 2)); display: flex; jus
   footer { padding-inline: 24px; }
 
   .burinake-page .how-it-works ol,
-  .burinake-page .contribution-grid {
+  .burinake-page .contribution-grid,
+  .burinake-page .vlm-contract {
     grid-template-columns: 1fr;
   }
   .burinake-page .contribution-grid article:last-child {
