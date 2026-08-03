@@ -347,6 +347,12 @@ h1 em {
 .project-info h3 { margin: 14px 0 20px; letter-spacing: -.045em; }
 .project-info h3 a { display: flex; align-items: flex-start; flex-direction: column; gap: 8px; }
 .project-info h3 small { color: var(--blue); font: 600 1.22rem/1.55 var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+.project-card[data-project="vision-01"] .project-info h3 small {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  text-transform: none;
+}
 .project-info h3 strong { color: var(--ink); font-size: clamp(1.2rem, 1.58vw, 1.6rem); line-height: 1.28; font-weight: 700; }
 .project-info h3 a:hover { color: var(--blue); }
 .project-info h3 a:hover strong { color: var(--blue); }
@@ -363,7 +369,7 @@ h1 em {
 .project-role span { color: var(--blue); font: 500 1.2rem var(--mono); letter-spacing: .08em; }
 .project-role strong { color: var(--ink-soft); font: 500 1.2rem/1.5 var(--mono); text-transform: uppercase; }
 .project-tags { margin-top: 15px; padding-top: 0; display: flex; gap: 8px; flex-wrap: wrap; }
-.project-tags span { padding: 6px 8px; background: var(--surface); font: 400 1.2rem var(--mono); text-transform: uppercase; }
+.project-tags span { padding: 6px 8px; background: var(--surface); font: 400 1.2rem var(--mono); }
 .journey { border-top: 1px solid var(--line); }
 .timeline { position: relative; margin-top: 90px; }
 .timeline::before { content: ""; position: absolute; top: 0; bottom: 0; left: 25%; width: 1px; background: var(--line); }
