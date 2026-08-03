@@ -17,7 +17,6 @@
 | 메인 | 최세훈 | `.wordmark > span` → `font-size: 1.2rem` |
 | 메인 | AI · Computer Vision Portfolio | `.wordmark small` → `font: 500 1.2rem/1.3 var(--mono)` |
 | 메인 | PORTFOLIO / 2026 · OPEN TO OPPORTUNITIES | `.kicker` → `font: 500 1.2rem var(--mono)` |
-| 메인 | 최세훈 — AI / Computer Vision Engineer | `.hero-identity` → `font: 600 1.25rem var(--mono)` |
 | 메인 | Building systems. · Teaching machines to see. | `h1` → `font-size: clamp(2.8rem, 4.7vw, 5.1rem)` |
 | 메인 | Teaching machines to see.의 파란색 강조 | `h1 em` → 크기는 `h1` 상속 |
 | 메인 | APPROACH · EVOLUTION 말머리 | `.hero-summary-label` → `font: 500 1.2rem/1.25 var(--mono)` |
@@ -42,6 +41,7 @@
 | 메인 프로젝트 | ROLE | `.project-role span` → `font: 500 1.2rem var(--mono)` |
 | 메인 프로젝트 | Team Lead · Detection & VLM Pipeline · Backend · Place & Trip Domain 등 역할 | `.project-role strong` → `font: 500 1.2rem/1.5 var(--mono)` |
 | 메인 프로젝트 | YOLOv12 · DETR · VLM · Spring Boot · PyTorch 등 모든 기술 태그 | `.project-tags span` → `font: 400 1.2rem var(--mono)` |
+| 메인 프로젝트 | YOLOv12 · DETR · VLM · EfficientNet · SegFormer · CRAFT · FPN · Elasticsearch 설명 툴팁 | `.tag-tooltip` → `font: 500 1.05rem/1.55 "Noto Sans KR", sans-serif` |
 | Evolution | MILESTONE 01–06 | `.timeline-stage` 및 `.timeline-stage span` → `font: 500 1.2rem var(--mono)`, `font-size: 1.2rem` |
 | Evolution | FOUNDATION · DATA SYSTEM · DEVELOPMENT · VISION · SERVING · MULTIMODAL | `.timeline-stage small` → `font: 400 1.2rem var(--mono)` |
 | Evolution | BACKEND FOUNDATION · DATA-BACKED RECOMMENDATION · DEEP LEARNING DEVELOPMENT · COMPUTER VISION PIPELINE · CASCADE VISION & AI SERVING · DETECTION & VLM CASCADE | `.timeline-detail small` → `font: 500 1.2rem var(--mono)` |
@@ -74,7 +74,7 @@
 | 메인 Footer | Let's explore the next problem. | `footer h2` → `font-size: clamp(2.2rem, 3.7vw, 4rem)` |
 | 메인 Footer | GitHub · Email | `.footer-links a` → `font: 500 1.2rem var(--mono)` |
 | 메인 Footer | github.com/csh0924 · csh000924@gmail.com | `.footer-links .contact-value` → `font-size: 1.2rem` |
-| 메인 Footer | © 연도 Choi Se Hoon · Back to top | `.copyright`, `.back-to-top` → `font: 400 1.2rem var(--mono)` |
+| 메인 Footer | © 연도 Choi Se Hoon · BACK TO THE TOP | `.copyright`, `.back-to-top` → `font: 400 1.2rem var(--mono)` |
 
 ## 2. 프로젝트 상세 공통 — `projects/project.css`
 
@@ -251,7 +251,6 @@
 | 페이지 | 문구 | CSS 선택자와 현재 값 |
 |---|---|---|
 | 메인 · 680px 이하 | PORTFOLIO / 2026 · OPEN TO OPPORTUNITIES | `@media (max-width: 680px) .kicker` → `1.2rem` |
-| 메인 · 680px 이하 | 최세훈 — AI / Computer Vision Engineer | `.hero-identity` → `1.25rem` |
 | 메인 · 680px 이하 | Building systems. · Teaching machines to see. | `h1` → `clamp(2rem, 8vw, 2.55rem)` |
 | 메인 · 680px 이하 | Teaching machines to see. | `h1 em` → `.9em` (상위 `h1`에 대한 상대 배율) |
 | 메인 · 680px 이하 | 문제의 특성과 서비스 환경을~~ | `.hero-intro` → `1.28rem` |

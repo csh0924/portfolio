@@ -95,6 +95,24 @@ const projects = [
 const projectGrid = document.querySelector("#project-grid");
 const timeline = document.querySelector("#timeline");
 
+const tagDescriptions = Object.freeze({
+  YOLOv12: "이미지에서 객체의 위치와 종류를 실시간에 가까운 속도로 예측하는 Object Detection 모델입니다.",
+  DETR: "Transformer를 이용해 객체의 위치와 종류를 한 번에 예측하는 Object Detection 모델입니다.",
+  VLM: "이미지와 텍스트를 함께 이해해 장면의 의미와 맥락을 분석하는 멀티모달 AI 모델입니다.",
+  EfficientNet: "모델의 Depth, Width, Resolution을 밸런스있게 확장한 이미지 분류 모델입니다.",
+  SegFormer: "이미지의 각 픽셀이 무엇인지 구분하는 Semantic Segmentation을 Transformer로 구현한 모델입니다.",
+  CRAFT: "NAVER CLAVA에서 개발한 Text Detection 모델로 한글 Text Detection에 적합합니다.",
+  FPN: "서로 다른 해상도의 특징을 결합해 크기가 다양한 대상을 분석하는 신경망 구조입니다.",
+  Elasticsearch: "빅데이터 처리에 적합한 오픈소스 분산 검색 엔진입니다.",
+});
+
+function projectTag(tag) {
+  const description = tagDescriptions[tag];
+  if (!description) return `<span>${tag}</span>`;
+
+  return `<span class="has-tooltip" tabindex="0" data-tooltip="${description}" aria-label="${tag}. ${description}">${tag}</span>`;
+}
+
 function projectCard(project) {
   const title = project.link
     ? `<a href="${project.link}"${project.link.startsWith("http") ? ' target="_blank" rel="noreferrer"' : ""}><small>${project.title}</small><strong>${project.cardTitle} <span aria-hidden="true">↗</span></strong></a>`
@@ -110,12 +128,14 @@ function projectCard(project) {
         ${project.imageStatus ? `<span class="image-status">${project.imageStatus}</span>` : ""}
       </div>
       <div class="project-info">
-        <div class="project-meta"><span>${project.period}</span></div>
-        <h3>${title}</h3>
+        <div class="project-heading">
+          <h3>${title}</h3>
+          <div class="project-meta"><span>${project.period}</span></div>
+        </div>
         ${project.summary ? `<p>${project.summary}</p>` : ""}
         ${project.metric ? `<span class="project-metric">${project.metric}</span>` : ""}
         <div class="project-role"><span>ROLE</span><strong>${project.role}</strong></div>
-        ${project.tags.length ? `<div class="project-tags">${project.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>` : ""}
+        ${project.tags.length ? `<div class="project-tags">${project.tags.map(projectTag).join("")}</div>` : ""}
       </div>
     </article>
   `;
@@ -203,6 +223,64 @@ const featuredProjects = publishedProjects
 projectGrid.innerHTML = featuredProjects.map(projectCard).join("");
 timeline.innerHTML = evolutionStages.map(timelineRow).join("");
 document.querySelector("#year").textContent = new Date().getFullYear();
+
+const tagTooltip = document.createElement("div");
+tagTooltip.id = "project-tag-tooltip";
+tagTooltip.className = "tag-tooltip";
+tagTooltip.setAttribute("role", "tooltip");
+tagTooltip.hidden = true;
+document.body.append(tagTooltip);
+
+let activeTooltipTag = null;
+
+function showTagTooltip(tag) {
+  const description = tag.dataset.tooltip;
+  if (!description) return;
+
+  activeTooltipTag = tag;
+  tagTooltip.textContent = description;
+  tagTooltip.hidden = false;
+  tagTooltip.style.left = "0px";
+  tagTooltip.style.top = "0px";
+
+  const tagRect = tag.getBoundingClientRect();
+  const tooltipRect = tagTooltip.getBoundingClientRect();
+  const viewportPadding = 16;
+  const gap = 10;
+  const centeredLeft = tagRect.left + (tagRect.width - tooltipRect.width) / 2;
+  const left = Math.min(
+    Math.max(centeredLeft, viewportPadding),
+    window.innerWidth - tooltipRect.width - viewportPadding,
+  );
+  const preferredTop = tagRect.top - tooltipRect.height - gap;
+  const top = preferredTop >= viewportPadding
+    ? preferredTop
+    : tagRect.bottom + gap;
+
+  tagTooltip.style.left = `${Math.max(viewportPadding, left)}px`;
+  tagTooltip.style.top = `${top}px`;
+}
+
+function hideTagTooltip(tag = activeTooltipTag) {
+  if (tag !== activeTooltipTag) return;
+  tagTooltip.hidden = true;
+  activeTooltipTag = null;
+}
+
+document.querySelectorAll(".project-tags .has-tooltip").forEach((tag) => {
+  tag.addEventListener("mouseenter", () => showTagTooltip(tag));
+  tag.addEventListener("mouseleave", () => hideTagTooltip(tag));
+  tag.addEventListener("focus", () => showTagTooltip(tag));
+  tag.addEventListener("blur", () => hideTagTooltip(tag));
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") hideTagTooltip();
+});
+window.addEventListener("scroll", () => hideTagTooltip(), { passive: true });
+window.addEventListener("resize", () => {
+  if (activeTooltipTag) showTagTooltip(activeTooltipTag);
+});
 
 document.querySelectorAll(".filter-button").forEach((button) => {
   const filter = button.dataset.filter;
@@ -297,3 +375,12 @@ if (tabIds.has(initialTab)) {
     document.getElementById(initialTab)?.scrollIntoView();
   });
 }
+
+document.querySelector(".back-to-top")?.addEventListener("click", (event) => {
+  event.preventDefault();
+  window.history.pushState({ scrollTarget: "top" }, "", "#top");
+  window.scrollTo({
+    top: 0,
+    behavior: reducedMotion.matches ? "auto" : "smooth",
+  });
+});
