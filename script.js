@@ -9,15 +9,13 @@ const projects = [
     summary: "감정 일기를 BERT로 분석하고 ChatGPT·Spotify를 연결해 사용자 취향과 감정에 맞는 음악을 추천하는 서비스입니다.",
     tags: ["Spring Boot", "MySQL", "BERT API", "ChatGPT API", "AWS EC2"],
     stage: "First Team Project",
-    period: "2024. 03 — 2024. 06",
-    role: "Backend · AI Pipeline Integration",
+    period: "2024",
+    role: "Backend Develop, AI Pipeline Integration",
     link: "./projects/emuda.html",
     repository: "https://github.com/SSU-RETURN",
     image: "./assets/projects/emuda/emuda-logo.jpg",
     imageAlt: "Emuda Emotion Music Diary 로고",
-    imageLabel: "PROJECT IDENTITY",
     featuredRank: 5,
-    featuredLabel: "AI SERVICE",
   },
   {
     id: "backend-02",
@@ -29,15 +27,13 @@ const projects = [
     summary: "Google Places의 장소 정보와 리뷰 기반 취향 태그를 자체 데이터로 축적하고, 이를 기반으로 사용자가 여행지를 선택해 일정을 구성하는 맞춤형 여행 서비스입니다.",
     tags: ["Spring Boot", "MySQL", "Elasticsearch", "Google Places API", "LLM Tagging"],
     stage: "Data-backed Service",
-    period: "2025. 03 — 2025. 06",
-    role: "Backend · Place & Trip Domain",
+    period: "2025",
+    role: "Backend Develop, Place & Trip Domain Design",
     link: "./projects/itinera.html",
     repository: "https://github.com/ssu-capstone-Itinera",
     image: "./assets/projects/itinera/itinera-cover.jpg",
     imageAlt: "추천 여행지와 일정 생성 기능을 제공하는 Itinera 메인 화면",
-    imageLabel: "PERSONALIZED TRAVEL",
     featuredRank: 4,
-    featuredLabel: "BACKEND · DATA PIPELINE",
   },
   {
     id: "vision-01",
@@ -46,18 +42,16 @@ const projects = [
     type: "AI / Computer Vision",
     title: "바른글씨: 바람",
     cardTitle: "한글 손글씨 분석 · 교정 서비스",
-    summary: "한글 손글씨를 문자와 자소 단위로 분석해 교정 피드백을 제공하는 컴퓨터비전 서비스입니다. CRAFT·기하학적 후처리와 직접 학습한 FPN을 하나의 분석 Pipeline으로 구성했습니다.",
+    summary: "한글 손글씨를 문자와 자소 단위로 분석해 교정 피드백을 제공하는 컴퓨터비전 서비스입니다.<br> CRAFT·기하학적 후처리와 직접 학습한 FPN을 하나의 분석 Pipeline으로 구성했습니다.",
     tags: ["PyTorch", "CRAFT", "FPN", "OpenCV"],
     stage: "First AI Pipeline",
-    period: "2025. 09 — 2025. 12",
-    role: "CV Pipeline · Dataset Engineering",
+    period: "2025",
+    role: "CV Pipeline Design, Dataset Engineering",
     link: "./projects/baram.html",
     repository: "https://github.com/csh0924/Baram_Handwritting_Analysis",
     image: "./assets/projects/baram/baram-segmentation-refinement.png",
     imageAlt: "인쇄체 기준과 연결 성분을 이용해 초성 중성 종성 Segmentation을 보강한 바른글씨 바람 후처리 결과",
-    imageLabel: "SEGMENTATION REFINEMENT",
     featuredRank: 3,
-    featuredLabel: "FEATURED · CV PIPELINE",
   },
   {
     id: "vision-02",
@@ -66,18 +60,16 @@ const projects = [
     type: "AI / Computer Vision",
     title: "CSAS",
     cardTitle: "시설물 결함 분류 · 영역 분석 서비스",
-    summary: "시설물 이미지에서 결함의 종류와 영역을 함께 판별하는 Cascade 컴퓨터비전 시스템입니다. 불완전한 Label을 보완하기 위해 분류 Logit을 SegFormer의 Hint로 활용하고 Custom Loss를 설계했습니다.",
+    summary: "시설물 이미지에서 결함의 종류와 영역을 함께 판별하는 Cascade 컴퓨터비전 시스템입니다.<br> 불완전한 Label을 보완하기 위해 분류 Logit을 SegFormer의 Hint로 활용하고 Custom Loss를 설계했습니다.",
     tags: ["PyTorch", "EfficientNet", "SegFormer", "Custom Loss", "Docker", "AWS EKS"],
     stage: "Cascade Vision",
-    period: "2026. 05 — 2026. 06",
-    role: "Team Lead · AI Pipeline Design",
+    period: "2026",
+    role: "Team Leader, AI Pipeline Design",
     link: "./projects/csas.html",
     repository: "https://github.com/YuYoungKwang/CSAS",
     image: "./assets/projects/csas/csas-cover-v2.png",
     imageAlt: "콘크리트 균열과 컴퓨터비전 분석 Overlay를 표현한 CSAS 프로젝트 대표 이미지",
-    imageLabel: "PROJECT COVER",
     featuredRank: 2,
-    featuredLabel: "FEATURED · CASCADE VISION",
   },
   {
     id: "vision-03",
@@ -86,18 +78,16 @@ const projects = [
     type: "AI / Multimodal Vision",
     title: "Burinake",
     cardTitle: "YOLO · VLM 기반 화재 탐지 · 관제 지원 서비스",
-    summary: "주기적으로 전달되는 CCTV 이미지에서 화재·연기 후보를 빠르게 탐지하고 VLM으로 실제 위험 상황인지 재판단하는 AI 안전 관리 서비스입니다. YOLO와 VLM을 조건부 Cascade로 연결해 정확도·지연·비용을 함께 고려했습니다.",
+    summary: "주기적으로 전달되는 CCTV 이미지에서 화재·연기 후보를 빠르게 탐지하고 VLM으로 실제 위험 상황인지 재판단하는 AI 안전 관리 서비스입니다.<br> YOLO와 VLM을 조건부 Cascade로 연결해 정확도·지연·비용을 함께 고려했습니다.",
     tags: ["YOLOv12", "DETR", "VLM", "Azure AI Foundry", "Docker", "Azure AKS"],
     stage: "Multimodal Vision",
-    period: "2026. 06 — 2026. 07",
-    role: "Team Lead · Detection & VLM Pipeline",
+    period: "2026",
+    role: "Team Leader, Object Detection & VLM Pipeline Design",
     link: "./projects/burinake.html",
     repository: "https://github.com/heolyun/Burinake",
     image: "./assets/projects/burinake/burinake-cover.png",
     imageAlt: "실제 화재 영상에서 불과 연기를 탐지한 Burinake YOLO 결과",
-    imageLabel: "FIRE · SMOKE DETECTION",
     featuredRank: 1,
-    featuredLabel: "FEATURED · MULTIMODAL AI",
     featuredPrimary: true,
   },
 ];
@@ -117,14 +107,14 @@ function projectCard(project) {
     <article class="project-card ${project.featuredPrimary ? "is-primary" : ""} reveal" data-category="${project.category}" data-project="${project.id}">
       <div class="project-image ${project.category} ${project.image ? "has-image" : ""}" style="--visual-color: ${project.category === "vision" ? "#1c55ff" : "#77ddd1"}">
         ${image}
-        <div class="image-label"><span>${project.featuredLabel}</span><span>${project.imageLabel}</span></div>
         ${project.imageStatus ? `<span class="image-status">${project.imageStatus}</span>` : ""}
       </div>
       <div class="project-info">
-        <div class="project-meta"><span>${project.role}</span><span>${project.period}</span></div>
+        <div class="project-meta"><span>${project.period}</span></div>
         <h3>${title}</h3>
         ${project.summary ? `<p>${project.summary}</p>` : ""}
         ${project.metric ? `<span class="project-metric">${project.metric}</span>` : ""}
+        <div class="project-role"><span>ROLE</span><strong>${project.role}</strong></div>
         ${project.tags.length ? `<div class="project-tags">${project.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>` : ""}
       </div>
     </article>
