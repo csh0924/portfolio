@@ -376,9 +376,7 @@ if (tabIds.has(initialTab)) {
   });
 }
 
-document.querySelector(".back-to-top")?.addEventListener("click", (event) => {
-  event.preventDefault();
-  window.history.pushState({ scrollTarget: "top" }, "", "#top");
+document.querySelector(".floating-top")?.addEventListener("click", () => {
   window.scrollTo({
     top: 0,
     behavior: reducedMotion.matches ? "auto" : "smooth",
