@@ -244,7 +244,7 @@ h1 em {
 }
 .section-heading h2 { font-size: clamp(2.25rem, 3.8vw, 4rem); line-height: 1.06; }
 .section-heading > p {
-  max-width: 1200px;
+  max-width: 1350px;
   margin: 22px 0 0;
   color: var(--ink-soft);
   font-size: 1.3rem;
@@ -423,7 +423,7 @@ h1 em {
 .tab-panel { border-top: 0; }
 .profile-intro { margin-top: 90px; padding-bottom: 75px; border-bottom: 1px solid var(--line); }
 .profile-intro h2 { font-size: clamp(1.8rem, 2.7vw, 2.8rem); line-height: 1.15; white-space: nowrap; }
-.profile-intro p { max-width: 1080px; margin: 26px 0 0; color: var(--ink-soft); font-size: 1.3rem; line-height: 1.9; }
+.profile-intro p { max-width: 1100px; margin: 26px 0 0; color: var(--ink-soft); font-size: 1.3rem; line-height: 1.9; }
 .capabilities, .technical-stack { padding: 75px 0; border-bottom: 1px solid var(--line); }
 .capability-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
 .capability-heading h3 { margin: 0; font-size: clamp(1.55rem, 2.5vw, 2.35rem); letter-spacing: -.05em; }
@@ -453,7 +453,7 @@ h1 em {
 .stack-groups article { min-height: 105px; padding: 24px 0; display: grid; grid-template-columns: .32fr 1.68fr; gap: 40px; align-items: start; border-bottom: 1px solid var(--line); }
 .stack-groups h4 { margin: 4px 0 0; font: 500 1.2rem var(--mono); text-transform: uppercase; }
 .stack-groups p { margin: 0; display: flex; flex-wrap: wrap; gap: 9px; }
-.stack-groups span { padding: 9px 12px; color: var(--ink); background: var(--surface); border: 1px solid rgba(18,29,47,.08); font: 500 1.2rem var(--mono); }
+.stack-groups span { padding: 9px 12px; color: var(--ink); background: var(--surface); border: 1px solid rgba(18,29,47,.08); font: 400 1.2rem var(--mono); }
 .profile-records-heading { padding: 75px 0 45px; display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
 .profile-records-heading h3 { margin: 0; font-size: clamp(1.55rem, 2.5vw, 2.35rem); letter-spacing: -.05em; }
 .profile-layout {
