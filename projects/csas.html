@@ -20,24 +20,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260802-22">
+  <link rel="stylesheet" href="./project.css?v=20260804-1">
+  <script src="./project.js?v=20260804-1" defer></script>
 </head>
 <body class="csas-page">
   <a class="skip-link" href="#main">본문으로 바로가기</a>
   <header class="project-header">
     <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All projects</a>
     <a class="wordmark" href="../index.html">최세훈 <span>/ Visual Research Archive</span></a>
-    <div class="header-actions">
-      <a href="https://github.com/YuYoungKwang/CSAS" target="_blank" rel="noreferrer">GitHub ↗</a>
-      <a href="https://yuyoungkwang.github.io/CSAS_PPT/" target="_blank" rel="noreferrer">Presentation ↗</a>
-    </div>
   </header>
 
   <main id="main">
     <section class="project-hero">
       <div class="hero-meta"><span>PROJECT 04</span><span>AI · COMPUTER VISION</span><span>2026. 05 — 2026. 06</span></div>
       <div class="hero-title">
-        <div><p>Crack Sensing AI Service</p><h1>CSAS</h1></div>
+        <div>
+          <p>Crack Sensing AI Service</p>
+          <h1>CSAS</h1>
+          <div class="hero-links">
+            <a href="https://github.com/YuYoungKwang/CSAS" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://yuyoungkwang.github.io/CSAS_PPT/" target="_blank" rel="noreferrer">Presentation ↗</a>
+          </div>
+        </div>
         <p class="hero-summary">노후 시설물 이미지의 결함 종류를 분류하고 Pixel 단위 위치를 탐지하는 딥러닝 기반 안전 진단 서비스.</p>
       </div>
       <figure class="hero-image csas-hero-image">
@@ -191,6 +195,6 @@
     </nav>
   </main>
   <footer><span>© <span id="year"></span> Choi Se Hoon</span><a href="../index.html#work">Back to archive ↑</a></footer>
-  <script>document.querySelector("#year").textContent = new Date().getFullYear();</script>
+  <button class="floating-top" type="button" aria-label="맨 위로 이동" title="맨 위로 이동">TOP ↑</button>
 </body>
 </html>

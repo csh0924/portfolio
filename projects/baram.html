@@ -20,14 +20,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260802-23">
+  <link rel="stylesheet" href="./project.css?v=20260804-1">
+  <script src="./project.js?v=20260804-1" defer></script>
 </head>
 <body class="baram-page">
   <a class="skip-link" href="#main">본문으로 바로가기</a>
   <header class="project-header">
     <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All projects</a>
     <a class="wordmark" href="../index.html">최세훈 <span>/ Visual Research Archive</span></a>
-    <a class="repo-link" href="https://github.com/csh0924/Baram_Handwritting_Analysis" target="_blank" rel="noreferrer">GitHub ↗</a>
   </header>
 
   <main id="main">
@@ -41,6 +41,9 @@
         <div>
           <p>Korean Handwriting Analysis</p>
           <h1>바른글씨: 바람</h1>
+          <div class="hero-links">
+            <a href="https://github.com/csh0924/Baram_Handwritting_Analysis" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </div>
         </div>
         <p class="hero-summary">손글씨 문장을 문자와 자소 단위로 분해하고, 형태·위치·자간·크기·기울기를 분석하여 맞춤형 교정 피드백을 제공하는 딥러닝·기하학적 후처리 기반 서비스.</p>
       </div>
@@ -272,6 +275,6 @@
     </nav>
   </main>
   <footer><span>© <span id="year"></span> Choi Se Hoon</span><a href="../index.html#work">Back to archive ↑</a></footer>
-  <script>document.querySelector("#year").textContent = new Date().getFullYear();</script>
+  <button class="floating-top" type="button" aria-label="맨 위로 이동" title="맨 위로 이동">TOP ↑</button>
 </body>
 </html>

@@ -20,24 +20,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260802-22">
+  <link rel="stylesheet" href="./project.css?v=20260804-1">
+  <script src="./project.js?v=20260804-1" defer></script>
 </head>
 <body class="burinake-page">
   <a class="skip-link" href="#main">본문으로 바로가기</a>
   <header class="project-header">
     <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All projects</a>
     <a class="wordmark" href="../index.html">최세훈 <span>/ Visual Research Archive</span></a>
-    <div class="header-actions">
-      <a href="https://github.com/heolyun/Burinake" target="_blank" rel="noreferrer">GitHub ↗</a>
-      <a href="https://csh0924.github.io/burinake-presentation-repository/" target="_blank" rel="noreferrer">Presentation ↗</a>
-    </div>
   </header>
 
   <main id="main">
     <section class="project-hero burinake-project-hero">
       <div class="hero-meta"><span>PROJECT 05</span><span>AI · MULTIMODAL VISION</span><span>2026. 06 — 2026. 07</span></div>
       <div class="hero-title">
-        <div><p>Real-time Fire Safety Intelligence</p><h1>Burinake</h1></div>
+        <div>
+          <p>Real-time Fire Safety Intelligence</p>
+          <h1>Burinake</h1>
+          <div class="hero-links">
+            <a href="https://github.com/heolyun/Burinake" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://csh0924.github.io/burinake-presentation-repository/" target="_blank" rel="noreferrer">Presentation ↗</a>
+          </div>
+        </div>
         <p class="hero-summary">실시간 화재 안전 관제를 목표로, YOLO 기반 준실시간 후보 탐지와 필요한 순간에만 동작하는 VLM 맥락 분석을 결합한 AI 안전 관리 서비스.</p>
       </div>
       <figure class="hero-image burinake-hero-image">
@@ -185,6 +189,6 @@
     <a href="../index.html#profile"><span>CONTINUE TO</span>Profile</a>
   </nav>
   <footer><span>© <span id="year"></span> Choi Se Hoon</span><a href="../index.html#work">Back to archive ↑</a></footer>
-  <script>document.querySelector("#year").textContent = new Date().getFullYear();</script>
+  <button class="floating-top" type="button" aria-label="맨 위로 이동" title="맨 위로 이동">TOP ↑</button>
 </body>
 </html>

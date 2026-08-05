@@ -20,7 +20,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./project.css?v=20260802-25">
+  <link rel="stylesheet" href="./project.css?v=20260804-1">
+  <script src="./project.js?v=20260804-1" defer></script>
 </head>
 <body class="emuda-page">
   <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -28,7 +29,6 @@
   <header class="project-header">
     <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All projects</a>
     <a class="wordmark" href="../index.html">최세훈 <span>/ Visual Research Archive</span></a>
-    <a class="repo-link" href="https://github.com/SSU-RETURN" target="_blank" rel="noreferrer">GitHub ↗</a>
   </header>
 
   <main id="main">
@@ -42,6 +42,9 @@
         <div>
           <p>Emotion Music Diary</p>
           <h1>Emuda</h1>
+          <div class="hero-links">
+            <a href="https://github.com/SSU-RETURN" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </div>
         </div>
         <p class="hero-summary">
           감정 일기 분석 결과와 사용자 음악 취향을 결합한
@@ -306,6 +309,6 @@
     <a href="#main">Back to top ↑</a>
   </footer>
 
-  <script>document.querySelector("#year").textContent = new Date().getFullYear();</script>
+  <button class="floating-top" type="button" aria-label="맨 위로 이동" title="맨 위로 이동">TOP ↑</button>
 </body>
 </html>
